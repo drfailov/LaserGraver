@@ -1,0 +1,25 @@
+D:\ALL\Files\My Projects\LaserDrawerApp\LaserDrawerApp\bin\Debug\LaserDrawerApp.exe
+D:\ALL\Files\My Projects\LaserDrawerApp\LaserDrawerApp\bin\Debug\LaserDrawerApp.pdb
+D:\ALL\Files\My Projects\LaserDrawerApp\LaserDrawerApp\obj\Debug\LaserDrawerApp.csprojResolveAssemblyReference.cache
+D:\ALL\Files\My Projects\LaserDrawerApp\LaserDrawerApp\obj\Debug\LaserDrawerApp.Form1.resources
+D:\ALL\Files\My Projects\LaserDrawerApp\LaserDrawerApp\obj\Debug\LaserDrawerApp.Properties.Resources.resources
+D:\ALL\Files\My Projects\LaserDrawerApp\LaserDrawerApp\obj\Debug\LaserDrawerApp.csproj.GenerateResource.Cache
+D:\ALL\Files\My Projects\LaserDrawerApp\LaserDrawerApp\obj\Debug\LaserDrawerApp.exe
+D:\ALL\Files\My Projects\LaserDrawerApp\LaserDrawerApp\obj\Debug\LaserDrawerApp.pdb
+D:\ALL\Files\My Projects\LaserDrawerApp\LaserDrawerApp\obj\Debug\LaserDrawerApp.PrinterWindow.resources
+D:\ALL\Files\My Projects\LaserDrawerApp\LaserDrawerApp\obj\Debug\LaserDrawerApp.WaitingWindow.resources
+D:\ALL\Files\My Projects\LaserDrawerApp\LaserDrawerApp\obj\Debug\LaserDrawerApp.WriteText.resources
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Debug\LaserDrawerApp.exe
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Debug\LaserDrawerApp.pdb
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\bin\Debug\LaserDrawerApp.exe
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\bin\Debug\LaserDrawerApp.pdb
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Debug\LaserDrawerApp.csprojResolveAssemblyReference.cache
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Debug\LaserDrawerApp.Form1.resources
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Debug\LaserDrawerApp.LaserDrawer2Window.resources
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Debug\LaserDrawerApp.PrinterWindow.resources
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Debug\LaserDrawerApp.Properties.Resources.resources
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Debug\LaserDrawerApp.WaitingWindow.resources
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Debug\LaserDrawerApp.WriteText.resources
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Debug\LaserDrawerApp.csproj.GenerateResource.Cache
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Debug\LaserDrawerApp.TextInputWindow.resources
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Debug\LaserDrawerApp.ContinueForm.resources

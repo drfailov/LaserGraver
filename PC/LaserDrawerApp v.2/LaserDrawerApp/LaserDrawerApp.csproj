@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F77C0800-945A-4018-92EE-8AF307F44FE1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LaserDrawerApp</RootNamespace>
+    <AssemblyName>LaserDrawerApp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CenterScalablePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ContinueForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContinueForm.Designer.cs">
+      <DependentUpon>ContinueForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FloatingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageFloatingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LaserDrawer2Window.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LaserDrawer2Window.Designer.cs">
+      <DependentUpon>LaserDrawer2Window.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrinterWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrinterWindow.Designer.cs">
+      <DependentUpon>PrinterWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextFloatingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TextInputWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TextInputWindow.Designer.cs">
+      <DependentUpon>TextInputWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaitingWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitingWindow.Designer.cs">
+      <DependentUpon>WaitingWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WriteText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WriteText.Designer.cs">
+      <DependentUpon>WriteText.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ContinueForm.resx">
+      <DependentUpon>ContinueForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LaserDrawer2Window.resx">
+      <DependentUpon>LaserDrawer2Window.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrinterWindow.resx">
+      <DependentUpon>PrinterWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="TextInputWindow.resx">
+      <DependentUpon>TextInputWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitingWindow.resx">
+      <DependentUpon>WaitingWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WriteText.resx">
+      <DependentUpon>WriteText.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1354195812094.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1415912739_769294410.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\216519.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image Edition Tools Text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5082-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Безымянный.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Безымянный1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Без имени-1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
