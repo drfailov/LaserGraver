@@ -121,6 +121,7 @@ namespace LaserDrawerApp
                     inv(y);
                 }
                 laserDrawer.executeBuffer();
+                laserDrawer.sendCommand("home");
                 laserDrawer.sendCommand("release");
                 laserDrawer.log("Печать завершена!");
                 finish();
@@ -149,11 +150,11 @@ namespace LaserDrawerApp
                     int burningTime = (burnTime * intensity) / 255;
                     int Xcoord = x * steps;
                     int Ycoord = y * steps;
-                    //сделать 20 шагов к цели, чтобы компенчсировать смещение
+                    //сделать 5 шагов к цели, чтобы компенчсировать смещение
                     if (horizontalFirst)
                     {
                         horizontalFirst = false;
-                        for (int i = Ycoord - 30 * steps; i < Ycoord; i += steps)
+                        for (int i = Ycoord - 5 * steps; i < Ycoord; i += steps)
                         {
                             Thread.Sleep(500);
                             laserDrawer.sendCommand("gy" + i);
@@ -211,11 +212,11 @@ namespace LaserDrawerApp
                     int burningTime = (burnTime * intensity) / 255;
                     int Xcoord = x * steps;
                     int Ycoord = y * steps;
-                    //сделать 20 шагов к цели, чтобы компенчсировать смещение
+                    //сделать 5 шагов к цели, чтобы компенчсировать смещение
                     if (verticalFirst)
                     {
                         verticalFirst = false;
-                        for (int i = Xcoord - 30 * steps; i < Xcoord; i += steps)
+                        for (int i = Xcoord - 5 * steps; i < Xcoord; i += steps)
                         {
                             Thread.Sleep(500);
                             laserDrawer.sendCommand("gx" + i);

@@ -348,7 +348,7 @@ namespace LaserDrawerApp
         private String commandsBuffer = "";
         public void sendCommandBuffered(String text)
         {
-            if (commandsBuffer.Length + text.Length < 150)//240
+            if (commandsBuffer.Length + text.Length < 100)//240
                 commandsBuffer += text + "|";
             else
             {
@@ -533,19 +533,19 @@ namespace LaserDrawerApp
         }
         private void buttonYMinus_Click(object sender, EventArgs e)
         {
-            new Thread(() => executeCommand("yshift -500|yhold")).Start();
+            new Thread(() => executeCommand("yshift -10|yhold")).Start();
         }
         private void buttonXminus_Click(object sender, EventArgs e)
         {
-            new Thread(() => executeCommand("xshift -500|xhold")).Start();
+            new Thread(() => executeCommand("xshift -10|xhold")).Start();
         }
         private void buttonXplus_Click(object sender, EventArgs e)
         {
-            new Thread(() => executeCommand("xshift 500|xhold")).Start();
+            new Thread(() => executeCommand("xshift 10|xhold")).Start();
         }
         private void buttonYplus_Click(object sender, EventArgs e)
         {
-            new Thread(() => executeCommand("yshift 500|yhold")).Start();
+            new Thread(() => executeCommand("yshift 10|yhold")).Start();
         }
         private void buttonYmax_Click(object sender, EventArgs e)
         {

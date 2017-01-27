@@ -54,9 +54,9 @@ class MyStepper{
   
   
   private:
-  long stepDelay = 2000;
-  const long delayMax = 2500;
-  const long delayMin = 2500;
+  long stepDelay = 7000;
+  const long delayMax = 8000;
+  const long delayMin = 6000;
   long lastStepTime = micros();
   void registerTime(){
     if(dif() > delayMax)

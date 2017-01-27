@@ -211,10 +211,10 @@ void bx(String in){
   log("BX T=" + String(time) + " B="+String(begin)+" E=" + String(end));
   x.goindex(begin);
   log("Burning...");
-  laser.onForMks(time);
+  laser.onFor(time); //onForMks
   for(int xc=begin; xc<=end; xc++){
     x.stepF();
-    laser.onForMks(time);
+    laser.onFor(time);//onForMks
   }
 }
 void by(String in){
@@ -232,10 +232,10 @@ void by(String in){
   log("BY T=" + String(time) + " B="+String(begin)+" E=" + String(end));
   y.goindex(begin);
   log("Burning...");
-  laser.onForMks(time);
+  laser.onFor(time);//onForMks
   for(int yc=begin; yc<=end; yc++){
     y.stepF();
-    laser.onForMks(time);
+    laser.onFor(time);//onForMks
   }
 }
 void getxy(String in){

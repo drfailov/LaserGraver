@@ -43,12 +43,12 @@
             this.textBoxBurnTime = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.labelTimeRemain = new System.Windows.Forms.Label();
+            this.labelProgress = new System.Windows.Forms.Label();
             this.buttonMakeBW = new System.Windows.Forms.Button();
             this.buttonStop = new System.Windows.Forms.Button();
             this.buttonPrint = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.labelProgress = new System.Windows.Forms.Label();
-            this.labelTimeRemain = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -58,26 +58,29 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(309, 9);
+            this.label1.Location = new System.Drawing.Point(412, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(16, 13);
+            this.label1.Size = new System.Drawing.Size(20, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "1:";
             // 
             // textBoxDivider
             // 
-            this.textBoxDivider.Location = new System.Drawing.Point(325, 6);
+            this.textBoxDivider.Location = new System.Drawing.Point(433, 7);
+            this.textBoxDivider.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxDivider.Name = "textBoxDivider";
-            this.textBoxDivider.Size = new System.Drawing.Size(39, 20);
+            this.textBoxDivider.Size = new System.Drawing.Size(51, 22);
             this.textBoxDivider.TabIndex = 1;
-            this.textBoxDivider.Text = "10";
+            this.textBoxDivider.Text = "1";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 9);
+            this.label2.Location = new System.Drawing.Point(20, 11);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(288, 13);
+            this.label2.Size = new System.Drawing.Size(379, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Использование разрешения (меньше - точнее, дольше)";
             // 
@@ -85,18 +88,20 @@
             // 
             this.pictureBoxPreview.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.pictureBoxPreview.InitialImage = null;
-            this.pictureBoxPreview.Location = new System.Drawing.Point(18, 15);
+            this.pictureBoxPreview.Location = new System.Drawing.Point(24, 18);
+            this.pictureBoxPreview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBoxPreview.Name = "pictureBoxPreview";
-            this.pictureBoxPreview.Size = new System.Drawing.Size(356, 287);
+            this.pictureBoxPreview.Size = new System.Drawing.Size(475, 353);
             this.pictureBoxPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxPreview.TabIndex = 3;
             this.pictureBoxPreview.TabStop = false;
             // 
             // buttonGenerate
             // 
-            this.buttonGenerate.Location = new System.Drawing.Point(12, 25);
+            this.buttonGenerate.Location = new System.Drawing.Point(16, 31);
+            this.buttonGenerate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonGenerate.Name = "buttonGenerate";
-            this.buttonGenerate.Size = new System.Drawing.Size(95, 23);
+            this.buttonGenerate.Size = new System.Drawing.Size(127, 28);
             this.buttonGenerate.TabIndex = 4;
             this.buttonGenerate.Text = "Генерировать";
             this.buttonGenerate.UseVisualStyleBackColor = true;
@@ -105,9 +110,10 @@
             // labelResolution
             // 
             this.labelResolution.AutoSize = true;
-            this.labelResolution.Location = new System.Drawing.Point(116, 30);
+            this.labelResolution.Location = new System.Drawing.Point(155, 37);
+            this.labelResolution.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelResolution.Name = "labelResolution";
-            this.labelResolution.Size = new System.Drawing.Size(24, 13);
+            this.labelResolution.Size = new System.Drawing.Size(30, 17);
             this.labelResolution.TabIndex = 5;
             this.labelResolution.Text = "0x0";
             // 
@@ -128,16 +134,18 @@
             this.panel1.Controls.Add(this.textBoxDivider);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(663, 117);
+            this.panel1.Size = new System.Drawing.Size(884, 144);
             this.panel1.TabIndex = 6;
             // 
             // checkBoxVerticalOptimisation
             // 
             this.checkBoxVerticalOptimisation.AutoSize = true;
-            this.checkBoxVerticalOptimisation.Location = new System.Drawing.Point(186, 88);
+            this.checkBoxVerticalOptimisation.Location = new System.Drawing.Point(248, 108);
+            this.checkBoxVerticalOptimisation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxVerticalOptimisation.Name = "checkBoxVerticalOptimisation";
-            this.checkBoxVerticalOptimisation.Size = new System.Drawing.Size(168, 17);
+            this.checkBoxVerticalOptimisation.Size = new System.Drawing.Size(215, 21);
             this.checkBoxVerticalOptimisation.TabIndex = 14;
             this.checkBoxVerticalOptimisation.Text = "Вертикальная оптимизация";
             this.checkBoxVerticalOptimisation.UseVisualStyleBackColor = true;
@@ -145,52 +153,58 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(118, 88);
+            this.label6.Location = new System.Drawing.Point(157, 108);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(36, 13);
+            this.label6.Size = new System.Drawing.Size(45, 17);
             this.label6.TabIndex = 13;
             this.label6.Text = "стоки";
             // 
             // textBoxBeginFromLine
             // 
-            this.textBoxBeginFromLine.Location = new System.Drawing.Point(73, 85);
+            this.textBoxBeginFromLine.Location = new System.Drawing.Point(97, 105);
+            this.textBoxBeginFromLine.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxBeginFromLine.Name = "textBoxBeginFromLine";
-            this.textBoxBeginFromLine.Size = new System.Drawing.Size(39, 20);
+            this.textBoxBeginFromLine.Size = new System.Drawing.Size(51, 22);
             this.textBoxBeginFromLine.TabIndex = 12;
             this.textBoxBeginFromLine.Text = "0";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 88);
+            this.label5.Location = new System.Drawing.Point(20, 108);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 13);
+            this.label5.Size = new System.Drawing.Size(67, 17);
             this.label5.TabIndex = 11;
             this.label5.Text = "Начать с";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(146, 61);
+            this.label4.Location = new System.Drawing.Point(195, 75);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 13);
+            this.label4.Size = new System.Drawing.Size(30, 17);
             this.label4.TabIndex = 10;
-            this.label4.Text = "mks.";
+            this.label4.Text = "ms.";
             // 
             // textBoxBurnTime
             // 
-            this.textBoxBurnTime.Location = new System.Drawing.Point(101, 58);
+            this.textBoxBurnTime.Location = new System.Drawing.Point(135, 71);
+            this.textBoxBurnTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxBurnTime.Name = "textBoxBurnTime";
-            this.textBoxBurnTime.Size = new System.Drawing.Size(39, 20);
+            this.textBoxBurnTime.Size = new System.Drawing.Size(51, 22);
             this.textBoxBurnTime.TabIndex = 9;
-            this.textBoxBurnTime.Text = "500";
+            this.textBoxBurnTime.Text = "5";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 61);
+            this.label3.Location = new System.Drawing.Point(20, 75);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 13);
+            this.label3.Size = new System.Drawing.Size(100, 17);
             this.label3.TabIndex = 8;
             this.label3.Text = "Время обжига";
             // 
@@ -202,16 +216,41 @@
             this.panel2.Controls.Add(this.buttonStop);
             this.panel2.Controls.Add(this.buttonPrint);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(406, 0);
+            this.panel2.Location = new System.Drawing.Point(541, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(257, 117);
+            this.panel2.Size = new System.Drawing.Size(343, 144);
             this.panel2.TabIndex = 7;
+            // 
+            // labelTimeRemain
+            // 
+            this.labelTimeRemain.AutoSize = true;
+            this.labelTimeRemain.Location = new System.Drawing.Point(5, 121);
+            this.labelTimeRemain.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTimeRemain.Name = "labelTimeRemain";
+            this.labelTimeRemain.Size = new System.Drawing.Size(155, 17);
+            this.labelTimeRemain.TabIndex = 16;
+            this.labelTimeRemain.Text = "Осталось: неизвестно";
+            // 
+            // labelProgress
+            // 
+            this.labelProgress.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelProgress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelProgress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelProgress.Location = new System.Drawing.Point(5, 15);
+            this.labelProgress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelProgress.Name = "labelProgress";
+            this.labelProgress.Size = new System.Drawing.Size(75, 40);
+            this.labelProgress.TabIndex = 15;
+            this.labelProgress.Text = "0%";
+            this.labelProgress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonMakeBW
             // 
-            this.buttonMakeBW.Location = new System.Drawing.Point(67, 51);
+            this.buttonMakeBW.Location = new System.Drawing.Point(89, 63);
+            this.buttonMakeBW.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonMakeBW.Name = "buttonMakeBW";
-            this.buttonMakeBW.Size = new System.Drawing.Size(86, 23);
+            this.buttonMakeBW.Size = new System.Drawing.Size(115, 28);
             this.buttonMakeBW.TabIndex = 14;
             this.buttonMakeBW.Text = "Сделать Ч\\Б";
             this.buttonMakeBW.UseVisualStyleBackColor = true;
@@ -221,9 +260,10 @@
             // 
             this.buttonStop.Enabled = false;
             this.buttonStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonStop.Location = new System.Drawing.Point(159, 12);
+            this.buttonStop.Location = new System.Drawing.Point(212, 15);
+            this.buttonStop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonStop.Name = "buttonStop";
-            this.buttonStop.Size = new System.Drawing.Size(86, 33);
+            this.buttonStop.Size = new System.Drawing.Size(115, 41);
             this.buttonStop.TabIndex = 7;
             this.buttonStop.Text = "Стоп";
             this.buttonStop.UseVisualStyleBackColor = true;
@@ -233,9 +273,10 @@
             // 
             this.buttonPrint.Enabled = false;
             this.buttonPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonPrint.Location = new System.Drawing.Point(67, 12);
+            this.buttonPrint.Location = new System.Drawing.Point(89, 15);
+            this.buttonPrint.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonPrint.Name = "buttonPrint";
-            this.buttonPrint.Size = new System.Drawing.Size(86, 33);
+            this.buttonPrint.Size = new System.Drawing.Size(115, 41);
             this.buttonPrint.TabIndex = 6;
             this.buttonPrint.Text = "Печать";
             this.buttonPrint.UseVisualStyleBackColor = true;
@@ -246,39 +287,20 @@
             this.panel3.AutoScroll = true;
             this.panel3.Controls.Add(this.pictureBoxPreview);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 117);
+            this.panel3.Location = new System.Drawing.Point(0, 144);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(663, 452);
+            this.panel3.Size = new System.Drawing.Size(884, 556);
             this.panel3.TabIndex = 7;
-            // 
-            // labelProgress
-            // 
-            this.labelProgress.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelProgress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelProgress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelProgress.Location = new System.Drawing.Point(4, 12);
-            this.labelProgress.Name = "labelProgress";
-            this.labelProgress.Size = new System.Drawing.Size(57, 33);
-            this.labelProgress.TabIndex = 15;
-            this.labelProgress.Text = "0%";
-            this.labelProgress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelTimeRemain
-            // 
-            this.labelTimeRemain.AutoSize = true;
-            this.labelTimeRemain.Location = new System.Drawing.Point(4, 98);
-            this.labelTimeRemain.Name = "labelTimeRemain";
-            this.labelTimeRemain.Size = new System.Drawing.Size(121, 13);
-            this.labelTimeRemain.TabIndex = 16;
-            this.labelTimeRemain.Text = "Осталось: неизвестно";
             // 
             // ContinueForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(663, 569);
+            this.ClientSize = new System.Drawing.Size(884, 700);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ContinueForm";
             this.Text = "Подготовка к печати";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).EndInit();
