@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace LaserDrawerApp
 {
     public partial class TextInputWindow : Form
     {
-        public String text = "";
+        public string text = "";
 
         public TextInputWindow()
         {
@@ -23,7 +17,7 @@ namespace LaserDrawerApp
 
         }
 
-        public void setText(String text)
+        public void setText(string text)
         {
             this.text = text;
             textBox1.Text = text;

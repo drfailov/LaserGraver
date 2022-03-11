@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Linq;
-using System.Text;
 
 namespace LaserDrawerApp
 {
@@ -20,7 +17,8 @@ namespace LaserDrawerApp
         }
         protected override void drawContent(Graphics g, float width, float height)
         {
-            if (image != null) {
+            if (image != null)
+            {
                 float coef = Math.Min((float)width / (float)image.Width, (float)height / (float)image.Height);
                 float niw = (float)image.Width * coef;
                 float nih = (float)image.Height * coef;
@@ -36,7 +34,7 @@ namespace LaserDrawerApp
         }
 
 
-        private void scale100(Object sender, MouseEventArgs e)
+        private void scale100(object sender, MouseEventArgs e)
         {
             //image file size: image.Width, image.Height
             //canvas size: new Size(Parent.Size.Width, Parent.Size.Height);
@@ -55,7 +53,8 @@ namespace LaserDrawerApp
             Size = new Size((int)newSizeX, (int)newSizeY);
             Invalidate();
         }
-        private void remove(Object sender, MouseEventArgs e) {
+        private void remove(object sender, MouseEventArgs e)
+        {
             base.remove(sender, e);
             image.Dispose();
         }

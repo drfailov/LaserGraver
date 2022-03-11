@@ -14,7 +14,8 @@ namespace LaserDrawerApp
 
         private void LogWindow_Load(object sender, EventArgs e)
         {
-            if (mainWindow != null) { 
+            if (mainWindow != null)
+            {
                 label1.Text = mainWindow.logText;
                 mainWindow.logLabel = label1;
             }

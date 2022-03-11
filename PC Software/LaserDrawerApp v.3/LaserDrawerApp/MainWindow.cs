@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Management;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -19,7 +16,7 @@ namespace LaserDrawerApp
     {
         private bool debug = false;
         private SerialCommunicator serialCommunicator = new SerialCommunicator();
-        public String logText = "";
+        public string logText = "";
         public Label logLabel = null;
         private Thread engravingThread = null;
         private CenterScalablePanel centerScalablePanel = null;
@@ -45,9 +42,9 @@ namespace LaserDrawerApp
             serialCommunicator.setOnDisconnected(new SerialCommunicator.ActionDelegate(onDisconnected));
             serialCommunicator.setOnPositionUpdated(new SerialCommunicator.PositionDelegate(onPositionUpdate));
             serialCommunicator.setOnProgressUpdated(new SerialCommunicator.ProgressDelegate(updateEngravingProgress));
-            
+
         }
-        private String status(String text)
+        private string status(string text)
         {
             if (InvokeRequired)
             {
@@ -73,9 +70,9 @@ namespace LaserDrawerApp
         private void buttonLaserTestHelp_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Чем больше время прожига, тем контрастнее будет картинка в результате, и для каждого материала это значение может отличаться очень сильно." +
-                "\nЧтобы узнать какое время прожига точки подходит для определённого материала, найдите на материале небольшой фрагмент на котором можно провести испытание нарисовав несколько линий. "+
+                "\nЧтобы узнать какое время прожига точки подходит для определённого материала, найдите на материале небольшой фрагмент на котором можно провести испытание нарисовав несколько линий. " +
                             "\n" +
-                            "\nНажатие на кнопку \"Прожечь линию\" запустит рисование линии с заданными настройками на несколько сантиметров вправо от текущего положения лазера."+
+                            "\nНажатие на кнопку \"Прожечь линию\" запустит рисование линии с заданными настройками на несколько сантиметров вправо от текущего положения лазера." +
                             "\n" +
                             "\n- Если линия незаметна, можно попробовать время побольше." +
                             "\n- Если линия прожигает материал, используйте время меньше.", "Справка", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -104,7 +101,7 @@ namespace LaserDrawerApp
             int sel = 0;
             for (int i = 0; i < COMs.Count; i++)
             {
-                String com = COMs[i];
+                string com = COMs[i];
                 if (com.Contains("CH340"))
                     sel = i;
                 toolStripComboBoxComList.Items.Add(com);
@@ -130,7 +127,7 @@ namespace LaserDrawerApp
             if (serialCommunicator.isConnected())
             {
                 Size size = serialCommunicator.size();
-                if(size.Width != 0 && size.Height != 0)
+                if (size.Width != 0 && size.Height != 0)
                 {
                     new NewProjectWindow(this, size.Width, size.Height).ShowDialog();
                     return;
@@ -203,7 +200,7 @@ namespace LaserDrawerApp
                 open.ShowDialog();
                 if (open.DialogResult == DialogResult.OK)
                 {
-                    String text = open.text;
+                    string text = open.text;
 
                     TextFloatingControl sizeable = new TextFloatingControl(text);
                     sizeable.Location = new Point(10, 10);
@@ -273,7 +270,7 @@ namespace LaserDrawerApp
                 //pictureBoxRendered.Size = bitmap.Size;
                 tabControl1.SelectedTab = tabPageRendered;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 log(e.Message);
             }
@@ -313,7 +310,7 @@ namespace LaserDrawerApp
 
             LockBitmap lockBitmap = new LockBitmap(bitmap);
             lockBitmap.LockBits();
-            
+
             for (int y = 0; y < lockBitmap.Height; y++)
             {
                 for (int x = 0; x < lockBitmap.Width; x++)
@@ -414,7 +411,7 @@ namespace LaserDrawerApp
                 int X = points.DequeueX();
                 int Y = points.DequeueY();
                 lockBitmap.SetPixel(X, Y, color);
-                if(lockCopyBitmap != null)
+                if (lockCopyBitmap != null)
                     lockCopyBitmap.SetPixel(X, Y, color);
                 if (X < minX) minX = X;
                 if (Y < minY) minY = Y;
@@ -491,7 +488,7 @@ namespace LaserDrawerApp
                             g.FillRectangle(new SolidBrush(Color.White), new Rectangle(0, 0, clusteringPreviewImage.Width, clusteringPreviewImage.Height));
                         Rectangle rect = fillFromQuick(clusteringMaskImage, clusteringPreviewImage, new Point(x, y), Color.Black);
                         showRendered(clusteringMaskImage);
-                        if(rect.Width > 5 && rect.Height > 5)
+                        if (rect.Width > 5 && rect.Height > 5)
                         {
                             Bitmap mask = clusteringPreviewImage.Clone(rect, clusteringMaskImage.PixelFormat);
                             Tuple<Rectangle, Bitmap> cluster = new Tuple<Rectangle, Bitmap>(rect, mask);
@@ -505,12 +502,13 @@ namespace LaserDrawerApp
                     float total = clusteringMaskImage.Height;
                     float complete = y;
                     int percent = (int)(100f * complete / total);
-                    status("Кластеризация изображения, выделение кластеров (" + percent + "%, выделено "+clusters.Count+" шт)...");
+                    status("Кластеризация изображения, выделение кластеров (" + percent + "%, выделено " + clusters.Count + " шт)...");
                 }
             }
             //в этом месте у нас есть массив кластеров, в котором есть квадраты с зонами и маски участка рисунка
             //нарисовать реконструкцию
-            using (Graphics g = Graphics.FromImage(clusteringPreviewImage)) {
+            using (Graphics g = Graphics.FromImage(clusteringPreviewImage))
+            {
                 g.FillRectangle(new SolidBrush(Color.White), new Rectangle(0, 0, clusteringPreviewImage.Width, clusteringPreviewImage.Height));
                 for (int i = 0; i < clusters.Count; i++)
                 {
@@ -530,9 +528,9 @@ namespace LaserDrawerApp
         private List<BurnMark> multiplyPaths(List<BurnMark> input, int times)
         {
             List<BurnMark> burnMarks = new List<BurnMark>();
-            for (int i=0; i < times; i++)
+            for (int i = 0; i < times; i++)
             {
-                for(int j=0; j<input.Count; j++)
+                for (int j = 0; j < input.Count; j++)
                     burnMarks.Add(input[j]);
             }
             return burnMarks;
@@ -588,7 +586,7 @@ namespace LaserDrawerApp
                 if (y % 14 == 0)
                 {
                     int percent = 100 * y / bitmap.Height;
-                    status("Рендеринг инструкций ("+percent+"%)...");
+                    status("Рендеринг инструкций (" + percent + "%)...");
                     showHorizontalLineMark(y);
                 }
             }
@@ -599,7 +597,7 @@ namespace LaserDrawerApp
             for (int i = 0; i < burnMarks.Count; i++)
             {
                 burnMarks[i].Xfrom += plusX;
-                burnMarks[i].Xto   += plusX;
+                burnMarks[i].Xto += plusX;
                 burnMarks[i].Yfrom += plusY;
                 burnMarks[i].Yto += plusY;
             }
@@ -626,7 +624,7 @@ namespace LaserDrawerApp
                     if (i % 240 == 0 || debug)
                     {
                         status("Реконструкция инструкций, обработка инструкции " + i + " из " + burnMarks.Count + "...");
-                        if(debug)
+                        if (debug)
                             updateRendered(bitmap);
                     }
                     BurnMark burnMark = burnMarks[i];
@@ -652,7 +650,7 @@ namespace LaserDrawerApp
                 //проверка правильно ли введено время обжига
                 try
                 {
-                    int result = Int32.Parse(toolStripTextBoxBurnTimeMs.Text);
+                    int result = int.Parse(toolStripTextBoxBurnTimeMs.Text);
                     if (result <= 0)
                     {
                         messageBox("Время обжига введено неверно. Чисто не должно быть меньше 1 мс.");
@@ -664,7 +662,7 @@ namespace LaserDrawerApp
                         return;
                     }
                 }
-                catch (Exception xe)
+                catch (Exception)
                 {
                     messageBox("Время обжига введено неверно. Поле должно содержать только цифры.");
                     return;
@@ -672,7 +670,7 @@ namespace LaserDrawerApp
                 //проверка правильно ли введено количество циклов обжига
                 try
                 {
-                    engravingNumberOfTimes = Int32.Parse(toolStripComboBoxEngraveTimes.Text);
+                    engravingNumberOfTimes = int.Parse(toolStripComboBoxEngraveTimes.Text);
                     if (engravingNumberOfTimes <= 0)
                     {
                         messageBox("Количество циклов прожига введено неверно. Чисто не должно быть меньше 1 раза.");
@@ -684,7 +682,7 @@ namespace LaserDrawerApp
                         return;
                     }
                 }
-                catch (Exception xe)
+                catch (Exception)
                 {
                     messageBox("Количество циклов прожига введено неверно. Поле должно содержать только цифры.");
                     return;
@@ -725,15 +723,15 @@ namespace LaserDrawerApp
                     if (Thread.CurrentThread != renderThread) return;
                 }
 
-                burnMarks = generatePaths(renderedImage, Int32.Parse(toolStripTextBoxBurnTimeMs.Text));
+                burnMarks = generatePaths(renderedImage, int.Parse(toolStripTextBoxBurnTimeMs.Text));
                 status("План прожига сформирован, выделено " + burnMarks.Count + " инструкций.");
                 progress(60);
                 showRendered(renderedImage);
                 if (Thread.CurrentThread != renderThread) return;
 
-                if(гравировкаПоЗигзагуToolStripMenuItem.Checked)
+                if (гравировкаПоЗигзагуToolStripMenuItem.Checked)
                     burnMarks = zigzagWay(burnMarks, renderedImage.Height);
-                if(гравировкаВСлучайномПорядкеToolStripMenuItem.Checked)
+                if (гравировкаВСлучайномПорядкеToolStripMenuItem.Checked)
                     burnMarks = randomizeWay(burnMarks);
                 if (гравировкаПоКратчайшемуМаршрутуToolStripMenuItem.Checked)
                 {
@@ -818,9 +816,9 @@ namespace LaserDrawerApp
             old.Remove(first);
             while (old.Count > 0)
             {
-                if(debug)
+                if (debug)
                     log("Optimizing... Remaining " + old.Count + " of " + countInitial);
-                if(old.Count % periodic == 0)
+                if (old.Count % periodic == 0)
                 {
                     int percent = 100 * old.Count / countInitial;
                     percent = 100 - percent;
@@ -895,7 +893,7 @@ namespace LaserDrawerApp
         private List<BurnMark> revertLine(List<BurnMark> marks)
         {
             List<BurnMark> result = new List<BurnMark>();
-            for (int i = marks.Count-1; i >= 0; i--)
+            for (int i = marks.Count - 1; i >= 0; i--)
             {
                 result.Add(revert(marks[i]));
             }
@@ -915,7 +913,7 @@ namespace LaserDrawerApp
             while (old.Count > 0)
             {
                 if (debug)
-                    log("Randomizing... Remaining " + old.Count + " of " + countInitial); 
+                    log("Randomizing... Remaining " + old.Count + " of " + countInitial);
                 if (old.Count % periodic == 0)
                 {
                     int percent = 100 * old.Count / countInitial;
@@ -1101,7 +1099,7 @@ namespace LaserDrawerApp
             }
         }
 
-        private String log(String text)
+        private string log(string text)
         {
             if (InvokeRequired)
             {
@@ -1109,7 +1107,7 @@ namespace LaserDrawerApp
                 return text;
             }
             logText = text + "\n" + logText;
-            if(logText.Length > 3000)
+            if (logText.Length > 3000)
                 logText = logText.Substring(0, 3000);
             if (logLabel != null)
                 logLabel.Text = logText;
@@ -1118,7 +1116,7 @@ namespace LaserDrawerApp
 
         private void вывестиОкноЛогаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(logLabel == null)
+            if (logLabel == null)
             {
                 log("Отображение лога...");
                 new LogWindow(this).Show();
@@ -1302,7 +1300,7 @@ namespace LaserDrawerApp
         {
             new AboutWindow().Show();
         }
-        public String messageBox(String text)
+        public string messageBox(string text)
         {
             MessageBox.Show(text);
             return text;
@@ -1312,19 +1310,19 @@ namespace LaserDrawerApp
         {
             try
             {
-                int time = Int32.Parse(textBoxLaserTestTime.Text);
+                int time = int.Parse(textBoxLaserTestTime.Text);
                 if (time <= 0)
                     log("Время обжига не может быть отрицательным.");
                 if (time > 5000)
                     log("Время обжига не может быть больше 5 секунд.");
                 serialCommunicator.burntest(time);
             }
-            catch(Exception e1)
+            catch (Exception)
             {
                 log("Время обжига введено неверно.");
             }
         }
-       
+
 
 
         long engravingStartTime = 0;
@@ -1350,7 +1348,7 @@ namespace LaserDrawerApp
                     return;
                 }
             }
-            catch(Exception e)
+            catch (Exception)
             {
                 messageBox("Текст в строчках диапазона гравировки должен иметь числовой формат");
                 return;
@@ -1374,7 +1372,7 @@ namespace LaserDrawerApp
         private void updateEngravingProgress(int count)
         {
             showEngravingStatus(engravingCompleteCount + count);
-            status("Гравировка ("+count+") ...");
+            status("Гравировка (" + count + ") ...");
         }
         private void showEngravingStatus(int complete)
         {
@@ -1394,9 +1392,9 @@ namespace LaserDrawerApp
             progress(100 * complete / burnMarks.Count());
             Application.DoEvents();
         }
-        private String showTime(long millis)
+        private string showTime(long millis)
         {
-            String result = "";
+            string result = "";
             if (millis > (1000 * 60 * 60))
             {
                 result += (millis / (1000 * 60 * 60)) + " ч ";
@@ -1422,19 +1420,19 @@ namespace LaserDrawerApp
             int engraveParts = 125;//125
             long maxPartTime = 300000;//на гравер одной пачкой нельзя загружать задач на время гравировки более 5 минут
             long partTime = 0;//суммарное время гравировки в миллисекундах загружаемой последовательности команд
-            for (int i = engravingStartIndex; i< engravingEndIndex && engravingThread == Thread.CurrentThread; i++)
+            for (int i = engravingStartIndex; i < engravingEndIndex && engravingThread == Thread.CurrentThread; i++)
             {
                 subList.Add(burnMarks[i]);
                 partTime += burnMarks[i].predictedTime();
                 if (debug)
                     status("Добавление в массив элемента " + i + " ...");
-                if(subList.Count == 1)
+                if (subList.Count == 1)
                     status("Гравировка, подготовка данных...");
                 if (subList.Count >= engraveParts || partTime > maxPartTime)
                 {
                     status("Гравировка, ожидание готовности гравера...");
                     serialCommunicator.waitUntilBufferEmpty();
-                    status("Гравировка, отправка на гравер "+ subList.Count + " команд...");
+                    status("Гравировка, отправка на гравер " + subList.Count + " команд...");
                     int errorsUpload = serialCommunicator.upload(subList);
                     engravingErrorsCount += errorsUpload;
                     showEngravingStatus(engravingCompleteCount);
@@ -1470,7 +1468,7 @@ namespace LaserDrawerApp
                     }
                 }
             }
-            if(subList.Count > 0)
+            if (subList.Count > 0)
             {
                 engraveStatus("Завершение...");
                 status("Завершение гравировки, ожидание готовности гравера...");
@@ -1505,7 +1503,7 @@ namespace LaserDrawerApp
             Thread.Sleep(1000);
             engraveStatus(status(System.DateTime.Now.ToString("HH:mm:ss") + " Завершена гравировка " + engravingCompleteCount + " команд."));
         }
-        private void engraveStatus(String text)
+        private void engraveStatus(string text)
         {
             if (InvokeRequired)
             {
@@ -1522,7 +1520,7 @@ namespace LaserDrawerApp
             long sumTime = 0;
             float lastX = 0;
             float lastY = 0;
-            for(int i=currentIndex; i<subList.Count; i++)
+            for (int i = currentIndex; i < subList.Count; i++)
             {
                 float burningAmount = Math.Abs(subList[i].Xto - subList[i].Xfrom);
                 float burningTime = subList[i].burnTimeMs;
@@ -1692,7 +1690,7 @@ namespace LaserDrawerApp
                 return;
             if (Directory.Exists("autosave"))
             {
-                String[] files = Directory.GetFiles("autosave");
+                string[] files = Directory.GetFiles("autosave");
                 for (int i = 0; i < files.Length - 50; i++)
                     File.Delete(files[i]);
             }
@@ -1703,7 +1701,7 @@ namespace LaserDrawerApp
             string fn = "autosave\\" + System.DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + " autosave rendered paths.mcp";
             save(fn);
         }
-        private void save(String filename)
+        private void save(string filename)
         {
             //Write to a file
             using (StreamWriter writer = new StreamWriter(filename))
@@ -1734,7 +1732,7 @@ namespace LaserDrawerApp
                 theDialog.InitialDirectory = Directory.GetCurrentDirectory() + "\\autosave";
                 if (theDialog.ShowDialog() == DialogResult.OK)
                 {
-                    String pathToFile = theDialog.FileName;//doesn't need .tostring because .filename returns a string// saves the location of the selected object
+                    string pathToFile = theDialog.FileName;//doesn't need .tostring because .filename returns a string// saves the location of the selected object
 
                     if (File.Exists(pathToFile))// only executes if the file at pathtofile exists//you need to add the using System.IO reference at the top of te code to use this
                     {
@@ -1791,7 +1789,7 @@ namespace LaserDrawerApp
                 messageBox("Ошибка открытия файла: " + ex.Message);
             }
         }
-        
+
         void previewEngrave()
         {
             engravingStartIndex = startFromSlider.Value;
@@ -1964,9 +1962,9 @@ namespace LaserDrawerApp
             if (lastDown == e.KeyCode)
                 lastDown = Keys.KeyCode;
             log("UP " + e.KeyCode);
-            if (engravingThread == null && 
-                (e.KeyCode == Keys.Left || e.KeyCode == Keys.Up || e.KeyCode == Keys.Right 
-                || e.KeyCode == Keys.Down || e.KeyCode == Keys.Space) )
+            if (engravingThread == null &&
+                (e.KeyCode == Keys.Left || e.KeyCode == Keys.Up || e.KeyCode == Keys.Right
+                || e.KeyCode == Keys.Down || e.KeyCode == Keys.Space))
             {
                 serialCommunicator.stop();
             }
@@ -2007,17 +2005,18 @@ namespace LaserDrawerApp
 
         private void previewAsync() //to be launched in separate thread
         {
-            for(int i=0; i<burnMarks.Count && previewThread != null; i+=previewSpeed)
+            for (int i = 0; i < burnMarks.Count && previewThread != null; i += previewSpeed)
             {
                 progress(100 * i / burnMarks.Count);
                 List<BurnMark> selected = burnMarks.GetRange(0, i);
                 drawPreview(renderedImage, selected);
-                status("Реконструкция " + i + " инструкций ("+ previewSpeed + "x)");
+                status("Реконструкция " + i + " инструкций (" + previewSpeed + "x)");
                 showRendered(renderedImage);
             }
 
             previewThread = null;
-            Invoke((MethodInvoker)delegate {
+            Invoke((MethodInvoker)delegate
+            {
                 buttonPreview.Text = "Предпросмотр";
                 buttonPreview.Image = new Bitmap(LaserDrawerApp.Properties.Resources.play);
                 buttonPreviewSpeed1x.Visible = false;
@@ -2085,14 +2084,14 @@ namespace LaserDrawerApp
         public int Yfrom = 0;
         public int Yto = 0;
 
-        public BurnMark(String toParse)
+        public BurnMark(string toParse)
         {
-            String[] splitted = toParse.Split('_');
-            burnTimeMs = Int32.Parse(splitted[0]);
-            Xfrom = Int32.Parse(splitted[1]);
-            Xto = Int32.Parse(splitted[2]);
-            Yfrom = Int32.Parse(splitted[3]);
-            Yto = Int32.Parse(splitted[4]);
+            string[] splitted = toParse.Split('_');
+            burnTimeMs = int.Parse(splitted[0]);
+            Xfrom = int.Parse(splitted[1]);
+            Xto = int.Parse(splitted[2]);
+            Yfrom = int.Parse(splitted[3]);
+            Yto = int.Parse(splitted[4]);
         }
         public BurnMark(int _burnTimeMs, int _Xfrom, int _Xto, int _Yfrom, int _Yto)
         {
@@ -2106,10 +2105,10 @@ namespace LaserDrawerApp
         {
             return burnTimeMs + Math.Abs(Xfrom - Xto);
         }
-        public override String ToString()
+        public override string ToString()
         {
             return burnTimeMs + "_" + Xfrom + "_" + Xto + "_" + Yfrom + "_" + Yto;
         }
-        
+
     }
 }

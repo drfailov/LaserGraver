@@ -63,3 +63,17 @@ C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDr
 C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.NewProjectWindow.resources
 C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.LogWindow.resources
 C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.csproj.AssemblyReference.cache
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Git\LaserGraver\PC Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.csproj.AssemblyReference.cache
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Git\LaserGraver\PC Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.AboutWindow.resources
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Git\LaserGraver\PC Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.LogWindow.resources
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Git\LaserGraver\PC Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.MainWindow.resources
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Git\LaserGraver\PC Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.NewProjectWindow.resources
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Git\LaserGraver\PC Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.Properties.Resources.resources
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Git\LaserGraver\PC Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.TextInputWindow.resources
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Git\LaserGraver\PC Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.csproj.GenerateResource.cache
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Git\LaserGraver\PC Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.csproj.CoreCompileInputs.cache
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Git\LaserGraver\PC Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.exe
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Git\LaserGraver\PC Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.pdb
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Git\LaserGraver\PC Software\LaserDrawerApp v.3\LaserDrawerApp\bin\Release\LaserDrawerApp.exe.config
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Git\LaserGraver\PC Software\LaserDrawerApp v.3\LaserDrawerApp\bin\Release\LaserDrawerApp.exe
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Git\LaserGraver\PC Software\LaserDrawerApp v.3\LaserDrawerApp\bin\Release\LaserDrawerApp.pdb

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace LaserDrawerApp
@@ -15,14 +12,15 @@ namespace LaserDrawerApp
 
         public StatusPictureBox()
         {
-            
+
         }
 
 
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            if (Image != null) { 
+            if (Image != null)
+            {
                 float coefX = (float)Width / Image.Width;
                 float coefY = (float)Height / Image.Height;
                 float coef = Math.Min(coefX, coefY);

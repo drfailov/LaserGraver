@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace LaserDrawerApp
@@ -18,7 +12,7 @@ namespace LaserDrawerApp
         {
             this.mainWindow = mainWindow;
             InitializeComponent();
-            if(maxX != -1 && maxY != -1)
+            if (maxX != -1 && maxY != -1)
             {
                 label1.Text = "Максимальный размер поля гравировщика: " + maxX + " x " + maxY + ". " +
                     "Можно создать проект любого размера который меньше рабочего поля. " +
@@ -65,8 +59,8 @@ namespace LaserDrawerApp
 
         private void button75_Click(object sender, EventArgs e)
         {
-                numericUpDownWidth.Value = (int)(mx * 0.75);
-                numericUpDownHeight.Value = (int)(my * 0.75);
+            numericUpDownWidth.Value = (int)(mx * 0.75);
+            numericUpDownHeight.Value = (int)(my * 0.75);
         }
 
         private void button50_Click(object sender, EventArgs e)

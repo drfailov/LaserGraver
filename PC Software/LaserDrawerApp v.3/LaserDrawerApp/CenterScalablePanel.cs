@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections;
-using System.Linq;
-using System.Text;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Windows.Forms;
 
 namespace LaserDrawerApp
@@ -25,7 +21,7 @@ namespace LaserDrawerApp
         protected override void OnParentChanged(EventArgs e)
         {
             base.OnParentChanged(e);
-            if(Parent != null)
+            if (Parent != null)
                 Parent.Resize += Parent_Resize;
         }
         void Parent_Resize(object sender, EventArgs e)
@@ -113,7 +109,8 @@ namespace LaserDrawerApp
                     positions.Add(control, newLocation);
 
                 }
-                else{
+                else
+                {
                     if (positions.Contains(control))
                         positions.Remove(control);
                     positions.Add(control, new RectangleF(control.Location.X, control.Location.Y, control.Width, control.Height));
@@ -130,7 +127,7 @@ namespace LaserDrawerApp
             Size = new Size(width, height);
 
             Bitmap bitmap = new Bitmap(width, height);
-            Graphics graphics =  Graphics.FromImage(bitmap);
+            Graphics graphics = Graphics.FromImage(bitmap);
             graphics.FillRectangle(new SolidBrush(Color.White), 0, 0, width, height);
             foreach (FloatingControl control in Controls)
             {

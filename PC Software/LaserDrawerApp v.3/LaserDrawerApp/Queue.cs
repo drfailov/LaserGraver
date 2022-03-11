@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace LaserDrawerApp
+﻿namespace LaserDrawerApp
 {
     class QueuePoints
     {
@@ -50,7 +45,7 @@ namespace LaserDrawerApp
         public bool Contains(int X, int Y)
         {
             int actual = current;
-            for (int i= 0; i<count; i++)
+            for (int i = 0; i < count; i++)
             {
                 if (Xes[actual] == X && Yes[actual] == Y)
                     return true;
@@ -58,7 +53,7 @@ namespace LaserDrawerApp
                 if (actual >= Xes.Length)
                     actual = 0;
             }
-            return false;                
+            return false;
         }
     }
 }

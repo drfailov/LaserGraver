@@ -23,10 +23,10 @@ namespace LaserDrawerApp
         public delegate void ActionDelegate();
         public delegate void PositionDelegate(int x, int y);
         public delegate void ProgressDelegate(int count);
-        public String deviceName = null;
+        public string deviceName = null;
         public long lastAnswerTime = 0;
         public int lastAnswerIndex = 0;
-        public String[] lastAnswerText = { "", "", "", "", "", "", "", "", "", "" };
+        public string[] lastAnswerText = { "", "", "", "", "", "", "", "", "", "" };
         public Point lastPosition = new Point(-1, -1);
         public long lastPositionTime = 0;
         //buffering begin
@@ -35,7 +35,7 @@ namespace LaserDrawerApp
         public int prelastIndex(int howMuchBack)
         {
             int result = lastIndex - howMuchBack;
-            while(result < 0)
+            while (result < 0)
                 result += inputBuffer.Length;
             return result;
         }
@@ -52,7 +52,7 @@ namespace LaserDrawerApp
         }
         //buffering end
 
-        public void connect(String name)
+        public void connect(string name)
         {
             if (port == null)
             {
@@ -61,7 +61,7 @@ namespace LaserDrawerApp
                 //new Thread(connect).Start();
             }
         }
-        private void connect() 
+        private void connect()
         {
             log("Подключение к порту: " + deviceName + "...");
             try
@@ -72,9 +72,9 @@ namespace LaserDrawerApp
                 //port.RtsEnable = true;
                 port.Open();
                 log("Подключено: " + deviceName);
-                
+
                 log("Проверка связи: " + deviceName);
-                String welcomeMessage = receiveAnswer("Ready", 10000);
+                string welcomeMessage = receiveAnswer("Ready", 10000);
                 if (status())
                 {
                     log("Гравер на связи, самотестирование...");
@@ -116,7 +116,8 @@ namespace LaserDrawerApp
         private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             SerialPort sp = (SerialPort)sender;
-            while (sp.IsOpen && sp.BytesToRead > 0) {
+            while (sp.IsOpen && sp.BytesToRead > 0)
+            {
                 char inbyte = (char)sp.ReadByte();
                 //log("Byte received: " + inbyte);
                 bufferChar(inbyte);
@@ -127,7 +128,7 @@ namespace LaserDrawerApp
                     {
                         if (lastChar(i + 1) == '\n' || lastChar(i + 1) == '\0')//тут мы нашли начало строки
                         {
-                            String line = "";   //получаем команду двигаясь от ячеек раньше к ячейкам новее
+                            string line = "";   //получаем команду двигаясь от ячеек раньше к ячейкам новее
                             for (int j = i; j > 0; j--)
                                 line += lastChar(j);
                             if (debug)
@@ -141,23 +142,23 @@ namespace LaserDrawerApp
                     int indexEnd = 2;
                     //log("Command end at: " + indexEnd);
                     int indexStart = indexEnd;
-                    for(int i=0; i<inputBuffer.Length; i++)//поиск начала команды
+                    for (int i = 0; i < inputBuffer.Length; i++)//поиск начала команды
                     {
-                        if(lastChar(i + 2) == '!' && lastChar(i + 1) == '[')//тут мы нашли начало команды
+                        if (lastChar(i + 2) == '!' && lastChar(i + 1) == '[')//тут мы нашли начало команды
                         {
                             indexStart = i;
                             //log("Command start at: " + indexStart);
                             break;
                         }
                     }
-                    String command = "";   //получаем команду двигаясь от ячеек раньше к ячейкам новее
+                    string command = "";   //получаем команду двигаясь от ячеек раньше к ячейкам новее
                     for (int i = indexStart; i >= indexEnd; i--)
                         command += lastChar(i);
                     commandReceived(command);//отправляем данные в адекватную среду!
                 }
             }
         }
-        private void commandReceived(String command)
+        private void commandReceived(string command)
         {
             if (debug)
                 log("Answer received: " + command);
@@ -170,9 +171,9 @@ namespace LaserDrawerApp
             {
                 try
                 {
-                    String[] parts = command.Split(';');
-                    int x = Int32.Parse(parts[1]);
-                    int y = Int32.Parse(parts[2]);
+                    string[] parts = command.Split(';');
+                    int x = int.Parse(parts[1]);
+                    int y = int.Parse(parts[2]);
                     notifyPositionUpdated(x, y);
                 }
                 catch (Exception e)
@@ -184,8 +185,8 @@ namespace LaserDrawerApp
             {
                 try
                 {
-                    String[] parts = command.Split(';');
-                    int count = Int32.Parse(parts[1]);
+                    string[] parts = command.Split(';');
+                    int count = int.Parse(parts[1]);
                     notifyProgressUpdated(count);
                 }
                 catch (Exception e)
@@ -202,7 +203,7 @@ namespace LaserDrawerApp
         private void watchdog()
         {
             //функция каждую минуту отправляет на гравер какое нибудь сообщение, чтобы убедиться, что с ним всё хорошо
-            while(port != null)
+            while (port != null)
             {
                 Thread.Sleep(10000);
                 if (!isConnected())
@@ -245,7 +246,7 @@ namespace LaserDrawerApp
             }
             log("Отключено.");
         }
-        
+
         public int upload(List<BurnMark> list)
         {
             //возвращает количество ошибок
@@ -257,7 +258,7 @@ namespace LaserDrawerApp
                     log("Гравировка: проверка связи...");
                     status();
                     Thread.Sleep(10 + (errors * 20));
-                    if(errors == 0)
+                    if (errors == 0)
                         log("Гравировка: отправка команд...");
                     else
                         log("Гравировка: повторная отправка команд (" + errors + ")...");
@@ -298,7 +299,7 @@ namespace LaserDrawerApp
                     yControlSum = yControlSum % 1000;
                     xControlSum = xControlSum % 1000;
                     timeControlSum = timeControlSum % 1000;
-                    String answer = receiveAnswer("CHKSUM;", 5000);
+                    string answer = receiveAnswer("CHKSUM;", 5000);
                     if (answer.Length == 0)
                     {
                         log("Ошибка при проверке данных: проверочный ответ не был получен.");
@@ -309,11 +310,11 @@ namespace LaserDrawerApp
                     {
                         try
                         {
-                            String[] parts = answer.Split(';');
+                            string[] parts = answer.Split(';');
                             long total = long.Parse(parts[1]);
                             long ySum = long.Parse(parts[2]);
-                            long xSum = Int32.Parse(parts[3]);
-                            int timeSum = Int32.Parse(parts[4]);
+                            long xSum = int.Parse(parts[3]);
+                            int timeSum = int.Parse(parts[4]);
                             if (total != totalControlSum)
                             {
                                 log("Есть ошибки в количестве команд. Ответ от arduino: " + total + ", правильный ответ: " + totalControlSum + ". Текст полученный от Arduino: " + answer);
@@ -408,7 +409,7 @@ namespace LaserDrawerApp
                     else log("Гравировка: повторная отправка команды EXECUTE (" + errors + ")...");
                     send("execute;");
 
-                    String engraving = receiveAnswer("ENGRAVING", 5000);
+                    string engraving = receiveAnswer("ENGRAVING", 5000);
                     if (!engraving.Contains("ENGRAVING"))
                     {
                         errors++;
@@ -416,10 +417,10 @@ namespace LaserDrawerApp
                         waitUntilBufferEmpty();
                         continue;
                     }
-                    
+
                     log("Гравировка...");
 
-                    String result = receiveAnswer("COMPLETE", 3600000);//1 час
+                    string result = receiveAnswer("COMPLETE", 3600000);//1 час
                     Thread.Sleep(20 + (errors * 20));
                     int executedCnt = 0;
                     if (!result.Contains(';'))
@@ -431,7 +432,7 @@ namespace LaserDrawerApp
                     }
                     try
                     {
-                        executedCnt = Int32.Parse(result.Split(';')[1]);
+                        executedCnt = int.Parse(result.Split(';')[1]);
                     }
                     catch (Exception e)
                     {
@@ -454,7 +455,7 @@ namespace LaserDrawerApp
             if (port != null && port.IsOpen)
             {
                 send("status;");
-                String result = receiveAnswer("STATUS", 5000);
+                string result = receiveAnswer("STATUS", 5000);
                 bool resultBool = result.Equals("STATUSOK");
                 if (resultBool)
                     log(System.DateTime.Now.ToString("HH:mm:ss") + " Гравер на связи.");
@@ -487,11 +488,11 @@ namespace LaserDrawerApp
         public bool selftestquick()
         {
             send("selftestquick;");
-            String answer = receiveAnswer("TEST", 60000);
+            string answer = receiveAnswer("TEST", 60000);
             try
             {
                 log("Разбор результата тестирования: " + answer);
-                String[] parts = answer.Split(';');
+                string[] parts = answer.Split(';');
                 log("parts: " + parts.Length);
                 bool x = parts[1].Equals("PASS");
                 log("x: " + x);
@@ -508,11 +509,11 @@ namespace LaserDrawerApp
         public bool selftest()
         {
             send("selftest;");
-            String answer = receiveAnswer("TEST", 120000);
+            string answer = receiveAnswer("TEST", 120000);
             try
             {
                 log("Разбор результата тестирования: " + answer);
-                String[] parts = answer.Split(';');
+                string[] parts = answer.Split(';');
                 log("parts: " + parts.Length);
                 bool x = parts[1].Equals("PASS");
                 log("x: " + x);
@@ -529,15 +530,15 @@ namespace LaserDrawerApp
         public Size size()
         {
             send("size;");
-            String answer = receiveAnswer("SIZE", 5000);
+            string answer = receiveAnswer("SIZE", 5000);
             try
             {
                 log("Разбор размера: " + answer);
-                String[] parts = answer.Split(';');
+                string[] parts = answer.Split(';');
                 log("parts: " + parts.Length);
-                int x = Int32.Parse(parts[1]);
+                int x = int.Parse(parts[1]);
                 log("x: " + x);
-                int y = Int32.Parse(parts[2]);
+                int y = int.Parse(parts[2]);
                 log("y: " + y);
                 return new Size(x, y);
             }
@@ -547,10 +548,10 @@ namespace LaserDrawerApp
             }
             return new Size(0, 0);
         }
-        public String version()
+        public string version()
         {
             send("version;");
-            String answer = receiveAnswer("Compile date", 5000);
+            string answer = receiveAnswer("Compile date", 5000);
             if (answer.Length == 0)
                 answer = "Ответ от гравера не был получен.";
             return answer;
@@ -680,7 +681,7 @@ namespace LaserDrawerApp
 
 
 
-        public bool send(String text)
+        public bool send(string text)
         {
             if (port != null && port.IsOpen)
             {
@@ -691,7 +692,7 @@ namespace LaserDrawerApp
             }
             else
             {
-                if(port != null)
+                if (port != null)
                     notifyDisconnected();
                 if (debug)
                     log("|X| <-- " + text);
@@ -704,14 +705,14 @@ namespace LaserDrawerApp
                 lastAnswerText[i] = "";
         }
 
-        public String receiveAnswer(String textToFind, long timeout)
+        public string receiveAnswer(string textToFind, long timeout)
         { //получить херню типа ![текст]!
             if (port == null)
                 return "";
             clearQueue();
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            while(stopwatch.ElapsedMilliseconds < timeout)
+            while (stopwatch.ElapsedMilliseconds < timeout)
             {
                 for (int i = 0; i < lastAnswerText.Length; i++)
                 {
@@ -731,7 +732,7 @@ namespace LaserDrawerApp
             }
             log("Answer timeout for " + textToFind + "!");
             return "";
-            
+
         }
         //public String receiveAnswer(long timeout)
         //{ //получить херню типа ![текст]!
@@ -840,13 +841,13 @@ namespace LaserDrawerApp
         {
             onProgressUpdated = _onProgressUpdated;
         }
-        private string log(String text)
+        private string log(string text)
         {
             if (statusDelegate != null)
                 statusDelegate.Invoke(text);
             return text;
         }
-        private string messageBox(String text)
+        private string messageBox(string text)
         {
             if (messageBoxDelegate != null)
                 messageBoxDelegate.Invoke(text);
