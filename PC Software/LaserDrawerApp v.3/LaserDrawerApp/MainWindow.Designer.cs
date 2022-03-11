@@ -219,47 +219,47 @@
             this.информацияОСостоянииToolStripMenuItem,
             this.обесточитьМоторыToolStripMenuItem});
             this.гравировщикToolStripMenuItem.Name = "гравировщикToolStripMenuItem";
-            this.гравировщикToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
-            this.гравировщикToolStripMenuItem.Text = "Гравировщик";
+            this.гравировщикToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.гравировщикToolStripMenuItem.Text = "Engraver";
             // 
             // информацияToolStripMenuItem
             // 
             this.информацияToolStripMenuItem.Image = global::LaserDrawerApp.Properties.Resources.Boss;
             this.информацияToolStripMenuItem.Name = "информацияToolStripMenuItem";
-            this.информацияToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
-            this.информацияToolStripMenuItem.Text = "Полное само-тестирование";
+            this.информацияToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.информацияToolStripMenuItem.Text = "Full self-test";
             this.информацияToolStripMenuItem.Click += new System.EventHandler(this.информацияToolStripMenuItem_Click);
             // 
             // включитьСветToolStripMenuItem
             // 
             this.включитьСветToolStripMenuItem.Image = global::LaserDrawerApp.Properties.Resources.Favourites;
             this.включитьСветToolStripMenuItem.Name = "включитьСветToolStripMenuItem";
-            this.включитьСветToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
-            this.включитьСветToolStripMenuItem.Text = "Включить свет";
+            this.включитьСветToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.включитьСветToolStripMenuItem.Text = "Turn ON lights";
             this.включитьСветToolStripMenuItem.Click += new System.EventHandler(this.включитьСветToolStripMenuItem_Click);
             // 
             // выключитьСветToolStripMenuItem
             // 
             this.выключитьСветToolStripMenuItem.Image = global::LaserDrawerApp.Properties.Resources.Low_rating;
             this.выключитьСветToolStripMenuItem.Name = "выключитьСветToolStripMenuItem";
-            this.выключитьСветToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
-            this.выключитьСветToolStripMenuItem.Text = "Выключить свет";
+            this.выключитьСветToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.выключитьСветToolStripMenuItem.Text = "Turn OFF lights";
             this.выключитьСветToolStripMenuItem.Click += new System.EventHandler(this.выключитьСветToolStripMenuItem_Click);
             // 
             // информацияОСостоянииToolStripMenuItem
             // 
             this.информацияОСостоянииToolStripMenuItem.Image = global::LaserDrawerApp.Properties.Resources.Pie_chart;
             this.информацияОСостоянииToolStripMenuItem.Name = "информацияОСостоянииToolStripMenuItem";
-            this.информацияОСостоянииToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
-            this.информацияОСостоянииToolStripMenuItem.Text = "Информация о состоянии";
+            this.информацияОСостоянииToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.информацияОСостоянииToolStripMenuItem.Text = "Get status";
             this.информацияОСостоянииToolStripMenuItem.Click += new System.EventHandler(this.информацияОСостоянииToolStripMenuItem_Click);
             // 
             // обесточитьМоторыToolStripMenuItem
             // 
             this.обесточитьМоторыToolStripMenuItem.Image = global::LaserDrawerApp.Properties.Resources.Turn_off;
             this.обесточитьМоторыToolStripMenuItem.Name = "обесточитьМоторыToolStripMenuItem";
-            this.обесточитьМоторыToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
-            this.обесточитьМоторыToolStripMenuItem.Text = "Обесточить моторы";
+            this.обесточитьМоторыToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.обесточитьМоторыToolStripMenuItem.Text = "Disable motors";
             this.обесточитьМоторыToolStripMenuItem.Click += new System.EventHandler(this.обесточитьМоторыToolStripMenuItem_Click);
             // 
             // рендерингToolStripMenuItem
@@ -271,48 +271,48 @@
             this.гравировкаВСлучайномПорядкеToolStripMenuItem,
             this.использоватьПолутонаToolStripMenuItem});
             this.рендерингToolStripMenuItem.Name = "рендерингToolStripMenuItem";
-            this.рендерингToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
-            this.рендерингToolStripMenuItem.Text = "Рендеринг";
+            this.рендерингToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.рендерингToolStripMenuItem.Text = "Render";
             // 
             // безОптимизацииМаршрутаToolStripMenuItem
             // 
             this.безОптимизацииМаршрутаToolStripMenuItem.Checked = true;
             this.безОптимизацииМаршрутаToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.безОптимизацииМаршрутаToolStripMenuItem.Name = "безОптимизацииМаршрутаToolStripMenuItem";
-            this.безОптимизацииМаршрутаToolStripMenuItem.Size = new System.Drawing.Size(352, 22);
-            this.безОптимизацииМаршрутаToolStripMenuItem.Text = "Маршрут: без оптимизации маршрута";
+            this.безОптимизацииМаршрутаToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.безОптимизацииМаршрутаToolStripMenuItem.Text = "No trace optimizer (recommended)";
             this.безОптимизацииМаршрутаToolStripMenuItem.ToolTipText = resources.GetString("безОптимизацииМаршрутаToolStripMenuItem.ToolTipText");
             this.безОптимизацииМаршрутаToolStripMenuItem.Click += new System.EventHandler(this.безОптимизацииМаршрутаToolStripMenuItem_Click);
             // 
             // гравировкаПоЗигзагуToolStripMenuItem
             // 
             this.гравировкаПоЗигзагуToolStripMenuItem.Name = "гравировкаПоЗигзагуToolStripMenuItem";
-            this.гравировкаПоЗигзагуToolStripMenuItem.Size = new System.Drawing.Size(352, 22);
-            this.гравировкаПоЗигзагуToolStripMenuItem.Text = "Маршрут: гравировка по зиг-загу";
+            this.гравировкаПоЗигзагуToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.гравировкаПоЗигзагуToolStripMenuItem.Text = "Zig-Zag way trace optimizer";
             this.гравировкаПоЗигзагуToolStripMenuItem.ToolTipText = resources.GetString("гравировкаПоЗигзагуToolStripMenuItem.ToolTipText");
             this.гравировкаПоЗигзагуToolStripMenuItem.Click += new System.EventHandler(this.гравировкаПоЗигзагуToolStripMenuItem_Click);
             // 
             // гравировкаПоКратчайшемуМаршрутуToolStripMenuItem
             // 
             this.гравировкаПоКратчайшемуМаршрутуToolStripMenuItem.Name = "гравировкаПоКратчайшемуМаршрутуToolStripMenuItem";
-            this.гравировкаПоКратчайшемуМаршрутуToolStripMenuItem.Size = new System.Drawing.Size(352, 22);
-            this.гравировкаПоКратчайшемуМаршрутуToolStripMenuItem.Text = "Маршрут: гравировка по кратчайшему маршруту";
+            this.гравировкаПоКратчайшемуМаршрутуToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.гравировкаПоКратчайшемуМаршрутуToolStripMenuItem.Text = "Shortest way trace optimizer";
             this.гравировкаПоКратчайшемуМаршрутуToolStripMenuItem.ToolTipText = resources.GetString("гравировкаПоКратчайшемуМаршрутуToolStripMenuItem.ToolTipText");
             this.гравировкаПоКратчайшемуМаршрутуToolStripMenuItem.Click += new System.EventHandler(this.гравировкаПоКратчайшемуМаршрутуToolStripMenuItem_Click);
             // 
             // гравировкаВСлучайномПорядкеToolStripMenuItem
             // 
             this.гравировкаВСлучайномПорядкеToolStripMenuItem.Name = "гравировкаВСлучайномПорядкеToolStripMenuItem";
-            this.гравировкаВСлучайномПорядкеToolStripMenuItem.Size = new System.Drawing.Size(352, 22);
-            this.гравировкаВСлучайномПорядкеToolStripMenuItem.Text = "Маршрут: гравировка в случайном порядке";
+            this.гравировкаВСлучайномПорядкеToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.гравировкаВСлучайномПорядкеToolStripMenuItem.Text = "Random way trace";
             this.гравировкаВСлучайномПорядкеToolStripMenuItem.ToolTipText = resources.GetString("гравировкаВСлучайномПорядкеToolStripMenuItem.ToolTipText");
             this.гравировкаВСлучайномПорядкеToolStripMenuItem.Click += new System.EventHandler(this.гравировкаВСлучайномПорядкеToolStripMenuItem_Click);
             // 
             // использоватьПолутонаToolStripMenuItem
             // 
             this.использоватьПолутонаToolStripMenuItem.Name = "использоватьПолутонаToolStripMenuItem";
-            this.использоватьПолутонаToolStripMenuItem.Size = new System.Drawing.Size(352, 22);
-            this.использоватьПолутонаToolStripMenuItem.Text = "Использовать полутона";
+            this.использоватьПолутонаToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.использоватьПолутонаToolStripMenuItem.Text = "Use semitones";
             this.использоватьПолутонаToolStripMenuItem.ToolTipText = resources.GetString("использоватьПолутонаToolStripMenuItem.ToolTipText");
             this.использоватьПолутонаToolStripMenuItem.Click += new System.EventHandler(this.использоватьПолутонаToolStripMenuItem_Click);
             // 
@@ -932,7 +932,7 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(11, 160);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(92, 13);
+            this.label13.Size = new System.Drawing.Size(91, 13);
             this.label13.TabIndex = 21;
             this.label13.Text = "Время прожига";
             // 
@@ -1040,7 +1040,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(11, 46);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 13);
+            this.label2.Size = new System.Drawing.Size(105, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "Всего инструкций:";
             // 
@@ -1200,6 +1200,7 @@
             // toolStripTextBoxBurnTimeMs
             // 
             this.toolStripTextBoxBurnTimeMs.Enabled = false;
+            this.toolStripTextBoxBurnTimeMs.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxBurnTimeMs.Name = "toolStripTextBoxBurnTimeMs";
             this.toolStripTextBoxBurnTimeMs.Size = new System.Drawing.Size(50, 37);
             this.toolStripTextBoxBurnTimeMs.Text = "5";
@@ -1233,7 +1234,7 @@
             // toolStripLabel3
             // 
             this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(59, 34);
+            this.toolStripLabel3.Size = new System.Drawing.Size(60, 34);
             this.toolStripLabel3.Text = "проходов";
             // 
             // toolStripSeparator3
@@ -1330,7 +1331,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1040, 618);
             this.Name = "MainWindow";
-            this.Text = "FP myCNC v3";
+            this.Text = "FP LaserEngraver v3";
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyUp);
