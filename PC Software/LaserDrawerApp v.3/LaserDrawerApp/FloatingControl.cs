@@ -20,9 +20,9 @@ namespace LaserDrawerApp
         public FloatingControl()
         {
             BackColor = Color.Transparent;
-            contextMenuStrip.Items.Add("Расширить").MouseDown += fill;
-            contextMenuStrip.Items.Add("Удалить").MouseDown += remove;
-            contextMenuStrip.Items.Add("Показать\\Скрыть").MouseDown += showHide;
+            contextMenuStrip.Items.Add("Extend").MouseDown += fill;
+            contextMenuStrip.Items.Add("Delete").MouseDown += remove;
+            contextMenuStrip.Items.Add("Show\\Hide").MouseDown += showHide;
         }
 
         public void setBorderColor(Color color)

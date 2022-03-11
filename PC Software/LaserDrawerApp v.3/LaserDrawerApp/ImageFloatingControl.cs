@@ -13,7 +13,7 @@ namespace LaserDrawerApp
         {
             mainWindow = _mainWindow;
             image = i;
-            contextMenuStrip.Items.Add("Масштабировать 1:1").MouseDown += scale100;
+            contextMenuStrip.Items.Add("Scale 1:1").MouseDown += scale100;
         }
         protected override void drawContent(Graphics g, float width, float height)
         {
