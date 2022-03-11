@@ -1,0 +1,65 @@
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\bin\Release\LaserDrawerApp.exe.config
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.csprojResolveAssemblyReference.cache
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.ContinueForm.resources
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.Form1.resources
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.LaserDrawer2Window.resources
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.PrinterWindow.resources
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.Properties.Resources.resources
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.TextInputWindow.resources
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.WaitingWindow.resources
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.WriteText.resources
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.csproj.GenerateResource.Cache
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\bin\Release\LaserDrawerApp.exe
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\bin\Release\LaserDrawerApp.pdb
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.exe
+D:\ALL\Files\My Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.pdb
+C:\Data\Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\bin\Release\LaserDrawerApp.exe.config
+C:\Data\Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.exe
+C:\Data\Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.pdb
+C:\Data\Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\bin\Release\LaserDrawerApp.exe
+C:\Data\Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\bin\Release\LaserDrawerApp.pdb
+C:\Data\Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.csprojResolveAssemblyReference.cache
+C:\Data\Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.ContinueForm.resources
+C:\Data\Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.Form1.resources
+C:\Data\Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.LaserDrawer2Window.resources
+C:\Data\Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.PrinterWindow.resources
+C:\Data\Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.Properties.Resources.resources
+C:\Data\Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.TextInputWindow.resources
+C:\Data\Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.WaitingWindow.resources
+C:\Data\Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.WriteText.resources
+C:\Data\Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.csproj.GenerateResource.Cache
+D:\ALL\Files\My_Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\bin\Release\LaserDrawerApp.exe.config
+D:\ALL\Files\My_Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.exe
+D:\ALL\Files\My_Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.pdb
+D:\ALL\Files\My_Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\bin\Release\LaserDrawerApp.exe
+D:\ALL\Files\My_Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\bin\Release\LaserDrawerApp.pdb
+D:\ALL\Files\My_Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.csprojResolveAssemblyReference.cache
+D:\ALL\Files\My_Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.ContinueForm.resources
+D:\ALL\Files\My_Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.Form1.resources
+D:\ALL\Files\My_Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.LaserDrawer2Window.resources
+D:\ALL\Files\My_Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.PrinterWindow.resources
+D:\ALL\Files\My_Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.Properties.Resources.resources
+D:\ALL\Files\My_Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.TextInputWindow.resources
+D:\ALL\Files\My_Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.WaitingWindow.resources
+D:\ALL\Files\My_Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.WriteText.resources
+D:\ALL\Files\My_Projects\Laser Graver v2\PC\LaserDrawerApp v.2\LaserDrawerApp\obj\Release\LaserDrawerApp.csproj.GenerateResource.Cache
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDrawerApp\bin\Release\LaserDrawerApp.exe.config
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDrawerApp\bin\Release\LaserDrawerApp.exe
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDrawerApp\bin\Release\LaserDrawerApp.pdb
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.ContinueForm.resources
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.Form1.resources
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.LaserDrawer2Window.resources
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.MainWindow.resources
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.PrinterWindow.resources
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.Properties.Resources.resources
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.TextInputWindow.resources
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.WaitingWindow.resources
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.WriteText.resources
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.csproj.GenerateResource.Cache
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.csproj.CoreCompileInputs.cache
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.exe
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.pdb
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.AboutWindow.resources
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.NewProjectWindow.resources
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.LogWindow.resources
+C:\Data\Projects\2018-10-15 LaserEngraver v3\Software\LaserDrawerApp v.3\LaserDrawerApp\obj\Release\LaserDrawerApp.csproj.AssemblyReference.cache
