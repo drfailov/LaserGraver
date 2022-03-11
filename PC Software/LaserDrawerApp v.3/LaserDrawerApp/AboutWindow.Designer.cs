@@ -54,9 +54,9 @@
             this.label2.Font = new System.Drawing.Font("Book Antiqua", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(100, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(243, 43);
+            this.label2.Size = new System.Drawing.Size(345, 43);
             this.label2.TabIndex = 1;
-            this.label2.Text = "FP myCNC v3";
+            this.label2.Text = "FP LaserEngraver v3";
             // 
             // pictureBox1
             // 
@@ -74,9 +74,9 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(505, 88);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Программа для работы с ЧПУ для лазерной гравировки.\r\nСовместима с прошивкой myCNC" +
-    " v3 для Arduino Nano\\Arduino Uno.\r\nРекомендуется не использовать компьютер для д" +
-    "ругих задач во время гравировки.\r\n\r\n";
+            this.label3.Text = "CNC software for DIY laser engraver.\r\nCompatible with FP LaserEngraver v3 firmwar" +
+    "e for Arduino Nano\\Arduino Uno.\r\nIt is recommended not to use PC for other tasks" +
+    " while engraving.";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
@@ -86,7 +86,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(111, 13);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Fsoft Production 2021";
+            this.label4.Text = "Fsoft Production 2022";
             // 
             // AboutWindow
             // 
@@ -102,7 +102,7 @@
             this.Name = "AboutWindow";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "О программе";
+            this.Text = "About";
             this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

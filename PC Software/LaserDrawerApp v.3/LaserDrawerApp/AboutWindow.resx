@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label1.Text" xml:space="preserve">
-    <value>В программе использованы следующие иконки:
+    <value>List of icons used in this software:
 
 https://www.flaticon.com/free-icon/web-link_3665
 https://www.flaticon.com/free-icon/refresh-button_61444
