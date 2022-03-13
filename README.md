@@ -1,5 +1,31 @@
-# FP_LaserEngraver_v3
- Набор программ для реализации лазерного гравировщика на основе Arduino Nano.
+# FP LaserEngraver v3
+<p align="center"><img src="Photos/2022-03-11 Promo for repository Laser Engraver.png" width="600"/></p>
+PC-software and Arduino-firmware can work together to run laser engraver for englave 2D raster images.
+
+## List of features
+- Easy to use software.
+- Support JPG, PNG, GIF, BMP image formats.
+- Stable USB connection, error-correction algorythm.
+- Full kinematic test can check if engraver works ok.
+- Saving and restoring projects for engraving.
+- Auto-save projects before engraving.
+- Alows to continue engraving in case if process interrupted.
+- Manual laser position control.
+- Realtime laser position indicator.
+- Easy material testing.
+
+## Photos of device
+<p align="center">
+<img src="Photos/DSC_7819.jpg" width="150"/>
+<img src="Photos/DSC_7831.jpg" width="150"/>
+<img src="Photos/IMG_20210117_022328.jpg" width="150"/>
+<img src="Photos/IMG_20210126_233233.jpg" width="150"/>
+<img src="Photos/IMG_20210208_222245.jpg" width="150"/>
+<img src="Photos/photo_2021-12-11_14-15-36 (2).jpg" width="150"/>
+<img src="Photos/photo_2021-12-11_14-15-36 (3).jpg" width="150"/>
+</p>
+
+ 
 
  
 ## Использованные компоненты:
