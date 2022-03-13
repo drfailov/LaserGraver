@@ -25,6 +25,13 @@ PC-software and Arduino-firmware can work together to run laser engraver for eng
 <img src="Photos/photo_2021-12-11_14-15-36 (3).jpg" height="150"/>
 </p>
 
+
+
+
+
+--------------
+
+# Project is now in process translating from russian to English.
  
 
  
