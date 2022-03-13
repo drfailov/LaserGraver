@@ -79,7 +79,6 @@
             this.buttonMoveLeftSlow = new System.Windows.Forms.Button();
             this.buttonMoveLeftFast = new System.Windows.Forms.Button();
             this.tabPageRendered = new System.Windows.Forms.TabPage();
-            this.pictureBoxRendered = new LaserDrawerApp.StatusPictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.buttonPreviewSpeed200x = new System.Windows.Forms.Button();
             this.buttonPreviewSpeed100x = new System.Windows.Forms.Button();
@@ -136,6 +135,7 @@
             this.toolStripButtonZoomOut = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonZoomFit = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.pictureBoxRendered = new LaserDrawerApp.StatusPictureBox();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -145,7 +145,6 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMoveHelp)).BeginInit();
             this.tabPageRendered.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRendered)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.endToSlider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startFromSlider)).BeginInit();
@@ -153,6 +152,7 @@
             this.tabPagePreview.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRendered)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -176,7 +176,7 @@
             this.statusLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(600, 23);
-            this.statusLabel.Text = "Готов";
+            this.statusLabel.Text = "Ready";
             this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // toolStripStatusLabelConnection
@@ -187,7 +187,7 @@
             this.toolStripStatusLabelConnection.Margin = new System.Windows.Forms.Padding(20, 3, 0, 2);
             this.toolStripStatusLabelConnection.Name = "toolStripStatusLabelConnection";
             this.toolStripStatusLabelConnection.Size = new System.Drawing.Size(150, 23);
-            this.toolStripStatusLabelConnection.Text = "Отключено";
+            this.toolStripStatusLabelConnection.Text = "Disconnected";
             // 
             // toolStripProgressBar1
             // 
@@ -226,7 +226,7 @@
             // 
             this.информацияToolStripMenuItem.Image = global::LaserDrawerApp.Properties.Resources.Boss;
             this.информацияToolStripMenuItem.Name = "информацияToolStripMenuItem";
-            this.информацияToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.информацияToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.информацияToolStripMenuItem.Text = "Full self-test";
             this.информацияToolStripMenuItem.Click += new System.EventHandler(this.информацияToolStripMenuItem_Click);
             // 
@@ -234,7 +234,7 @@
             // 
             this.включитьСветToolStripMenuItem.Image = global::LaserDrawerApp.Properties.Resources.Favourites;
             this.включитьСветToolStripMenuItem.Name = "включитьСветToolStripMenuItem";
-            this.включитьСветToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.включитьСветToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.включитьСветToolStripMenuItem.Text = "Turn ON lights";
             this.включитьСветToolStripMenuItem.Click += new System.EventHandler(this.включитьСветToolStripMenuItem_Click);
             // 
@@ -242,7 +242,7 @@
             // 
             this.выключитьСветToolStripMenuItem.Image = global::LaserDrawerApp.Properties.Resources.Low_rating;
             this.выключитьСветToolStripMenuItem.Name = "выключитьСветToolStripMenuItem";
-            this.выключитьСветToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.выключитьСветToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.выключитьСветToolStripMenuItem.Text = "Turn OFF lights";
             this.выключитьСветToolStripMenuItem.Click += new System.EventHandler(this.выключитьСветToolStripMenuItem_Click);
             // 
@@ -250,7 +250,7 @@
             // 
             this.информацияОСостоянииToolStripMenuItem.Image = global::LaserDrawerApp.Properties.Resources.Pie_chart;
             this.информацияОСостоянииToolStripMenuItem.Name = "информацияОСостоянииToolStripMenuItem";
-            this.информацияОСостоянииToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.информацияОСостоянииToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.информацияОСостоянииToolStripMenuItem.Text = "Get status";
             this.информацияОСостоянииToolStripMenuItem.Click += new System.EventHandler(this.информацияОСостоянииToolStripMenuItem_Click);
             // 
@@ -258,7 +258,7 @@
             // 
             this.обесточитьМоторыToolStripMenuItem.Image = global::LaserDrawerApp.Properties.Resources.Turn_off;
             this.обесточитьМоторыToolStripMenuItem.Name = "обесточитьМоторыToolStripMenuItem";
-            this.обесточитьМоторыToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.обесточитьМоторыToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.обесточитьМоторыToolStripMenuItem.Text = "Disable motors";
             this.обесточитьМоторыToolStripMenuItem.Click += new System.EventHandler(this.обесточитьМоторыToolStripMenuItem_Click);
             // 
@@ -323,31 +323,31 @@
             this.выводитьОтладочныеСообщенияToolStripMenuItem,
             this.оПрограммеToolStripMenuItem1});
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
-            this.оПрограммеToolStripMenuItem.Text = "О программе";
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.оПрограммеToolStripMenuItem.Text = "Help";
             // 
             // вывестиОкноЛогаToolStripMenuItem
             // 
             this.вывестиОкноЛогаToolStripMenuItem.Image = global::LaserDrawerApp.Properties.Resources.List;
             this.вывестиОкноЛогаToolStripMenuItem.Name = "вывестиОкноЛогаToolStripMenuItem";
-            this.вывестиОкноЛогаToolStripMenuItem.Size = new System.Drawing.Size(282, 26);
-            this.вывестиОкноЛогаToolStripMenuItem.Text = "Вывести окно лога";
+            this.вывестиОкноЛогаToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
+            this.вывестиОкноЛогаToolStripMenuItem.Text = "Show log window";
             this.вывестиОкноЛогаToolStripMenuItem.Click += new System.EventHandler(this.вывестиОкноЛогаToolStripMenuItem_Click_1);
             // 
             // выводитьОтладочныеСообщенияToolStripMenuItem
             // 
             this.выводитьОтладочныеСообщенияToolStripMenuItem.Image = global::LaserDrawerApp.Properties.Resources.Component;
             this.выводитьОтладочныеСообщенияToolStripMenuItem.Name = "выводитьОтладочныеСообщенияToolStripMenuItem";
-            this.выводитьОтладочныеСообщенияToolStripMenuItem.Size = new System.Drawing.Size(282, 26);
-            this.выводитьОтладочныеСообщенияToolStripMenuItem.Text = "Отображать отладочные сообщения";
+            this.выводитьОтладочныеСообщенияToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
+            this.выводитьОтладочныеСообщенияToolStripMenuItem.Text = "Log debug messages";
             this.выводитьОтладочныеСообщенияToolStripMenuItem.Click += new System.EventHandler(this.выводитьОтладочныеСообщенияToolStripMenuItem_Click);
             // 
             // оПрограммеToolStripMenuItem1
             // 
             this.оПрограммеToolStripMenuItem1.Image = global::LaserDrawerApp.Properties.Resources.Information_24x24;
             this.оПрограммеToolStripMenuItem1.Name = "оПрограммеToolStripMenuItem1";
-            this.оПрограммеToolStripMenuItem1.Size = new System.Drawing.Size(282, 26);
-            this.оПрограммеToolStripMenuItem1.Text = "О программе";
+            this.оПрограммеToolStripMenuItem1.Size = new System.Drawing.Size(189, 26);
+            this.оПрограммеToolStripMenuItem1.Text = "About";
             this.оПрограммеToolStripMenuItem1.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem1_Click);
             // 
             // toolStrip1
@@ -413,8 +413,8 @@
             // 
             this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(35, 34);
-            this.toolStripLabel1.Text = "Порт";
+            this.toolStripLabel1.Size = new System.Drawing.Size(29, 34);
+            this.toolStripLabel1.Text = "Port";
             // 
             // toolStripButtonRefreshComList
             // 
@@ -443,8 +443,8 @@
             this.toolStripButtonConnect.Margin = new System.Windows.Forms.Padding(5, 1, 0, 2);
             this.toolStripButtonConnect.Name = "toolStripButtonConnect";
             this.toolStripButtonConnect.Padding = new System.Windows.Forms.Padding(5);
-            this.toolStripButtonConnect.Size = new System.Drawing.Size(123, 34);
-            this.toolStripButtonConnect.Text = "Подключиться";
+            this.toolStripButtonConnect.Size = new System.Drawing.Size(86, 34);
+            this.toolStripButtonConnect.Text = "Connect";
             this.toolStripButtonConnect.Click += new System.EventHandler(this.toolStripButtonConnect_Click);
             // 
             // panel1
@@ -471,7 +471,7 @@
             this.groupBox2.Size = new System.Drawing.Size(212, 149);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Тест материала";
+            this.groupBox2.Text = "Material test";
             // 
             // label4
             // 
@@ -479,9 +479,9 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.Location = new System.Drawing.Point(15, 34);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(141, 15);
+            this.label4.Size = new System.Drawing.Size(114, 15);
             this.label4.TabIndex = 18;
-            this.label4.Text = "Время прожига пикселя";
+            this.label4.Text = "Burn time for 1 pixel";
             // 
             // textBoxLaserTestTime
             // 
@@ -511,9 +511,9 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(74, 60);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(25, 15);
+            this.label3.Size = new System.Drawing.Size(26, 15);
             this.label3.TabIndex = 15;
-            this.label3.Text = "мс.";
+            this.label3.Text = "ms.";
             // 
             // buttonLaserTestGo
             // 
@@ -523,10 +523,10 @@
             this.buttonLaserTestGo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonLaserTestGo.Location = new System.Drawing.Point(10, 101);
             this.buttonLaserTestGo.Name = "buttonLaserTestGo";
-            this.buttonLaserTestGo.Padding = new System.Windows.Forms.Padding(15, 0, 10, 0);
+            this.buttonLaserTestGo.Padding = new System.Windows.Forms.Padding(30, 0, 10, 0);
             this.buttonLaserTestGo.Size = new System.Drawing.Size(191, 35);
             this.buttonLaserTestGo.TabIndex = 16;
-            this.buttonLaserTestGo.Text = "Прожечь линию";
+            this.buttonLaserTestGo.Text = "Test burn";
             this.buttonLaserTestGo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonLaserTestGo.UseVisualStyleBackColor = true;
             this.buttonLaserTestGo.Click += new System.EventHandler(this.buttonLaserTestGo_Click);
@@ -550,7 +550,7 @@
             this.groupBox1.Size = new System.Drawing.Size(212, 206);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Перемещение лазера";
+            this.groupBox1.Text = "Move head";
             // 
             // buttonLaserOn
             // 
@@ -694,18 +694,7 @@
             this.tabPageRendered.Padding = new System.Windows.Forms.Padding(5);
             this.tabPageRendered.Size = new System.Drawing.Size(923, 539);
             this.tabPageRendered.TabIndex = 1;
-            this.tabPageRendered.Text = "Гравировка (после рендеринга)";
-            // 
-            // pictureBoxRendered
-            // 
-            this.pictureBoxRendered.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBoxRendered.Location = new System.Drawing.Point(329, 5);
-            this.pictureBoxRendered.Name = "pictureBoxRendered";
-            this.pictureBoxRendered.Size = new System.Drawing.Size(589, 529);
-            this.pictureBoxRendered.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxRendered.TabIndex = 1;
-            this.pictureBoxRendered.TabStop = false;
-            this.pictureBoxRendered.Click += new System.EventHandler(this.pictureBoxRendered_Click);
+            this.tabPageRendered.Text = "Engrave (step 2)";
             // 
             // panel3
             // 
@@ -820,7 +809,7 @@
             this.buttonPreview.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.buttonPreview.Size = new System.Drawing.Size(281, 43);
             this.buttonPreview.TabIndex = 21;
-            this.buttonPreview.Text = "Предпросмотр";
+            this.buttonPreview.Text = "Preview";
             this.buttonPreview.UseVisualStyleBackColor = true;
             this.buttonPreview.Click += new System.EventHandler(this.buttonPreview_Click);
             // 
@@ -868,18 +857,18 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(13, 91);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(136, 13);
+            this.label9.Size = new System.Drawing.Size(27, 13);
             this.label9.TabIndex = 14;
-            this.label9.Text = "Закончить инструкцией";
+            this.label9.Text = "End";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(18, 10);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(119, 13);
+            this.label8.Size = new System.Drawing.Size(31, 13);
             this.label8.TabIndex = 12;
-            this.label8.Text = "Начать с инструкции";
+            this.label8.Text = "Start";
             // 
             // groupBox3
             // 
@@ -907,7 +896,7 @@
             this.groupBox3.Size = new System.Drawing.Size(304, 207);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Статус гравировки";
+            this.groupBox3.Text = "Engraving status";
             // 
             // labelBurnTime
             // 
@@ -932,27 +921,27 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(11, 160);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(91, 13);
+            this.label13.Size = new System.Drawing.Size(86, 13);
             this.label13.TabIndex = 21;
-            this.label13.Text = "Время прожига";
+            this.label13.Text = "Pixel burn time:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(11, 179);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(124, 13);
+            this.label12.Size = new System.Drawing.Size(102, 13);
             this.label12.TabIndex = 16;
-            this.label12.Text = "Количество проходов";
+            this.label12.Text = "Number of passes:";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(11, 141);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(107, 13);
+            this.label11.Size = new System.Drawing.Size(75, 13);
             this.label11.TabIndex = 15;
-            this.label11.Text = "Прошедшее время";
+            this.label11.Text = "Elapsed time:";
             // 
             // labelEngraveTime
             // 
@@ -968,9 +957,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(11, 122);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(135, 13);
+            this.label10.Size = new System.Drawing.Size(140, 13);
             this.label10.TabIndex = 13;
-            this.label10.Text = "Прогнозируемое время";
+            this.label10.Text = "Estimated time remaining:";
             // 
             // labelEngraveTimeRemaining
             // 
@@ -986,9 +975,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(11, 103);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(133, 13);
+            this.label7.Size = new System.Drawing.Size(84, 13);
             this.label7.TabIndex = 11;
-            this.label7.Text = "Ошибок при передаче:";
+            this.label7.Text = "Transfer errors:";
             // 
             // labelBurnMarksErrors
             // 
@@ -1004,9 +993,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(11, 84);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 13);
+            this.label6.Size = new System.Drawing.Size(66, 13);
             this.label6.TabIndex = 9;
-            this.label6.Text = "Отгравировано:";
+            this.label6.Text = "Completed:";
             // 
             // labelBurnMarksComplete
             // 
@@ -1022,9 +1011,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(11, 65);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(118, 13);
+            this.label5.Size = new System.Drawing.Size(93, 13);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Сейчас в обработке:";
+            this.label5.Text = "Now processing:";
             // 
             // labelBurnMarkProcessing
             // 
@@ -1040,18 +1029,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(11, 46);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 13);
+            this.label2.Size = new System.Drawing.Size(99, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Всего инструкций:";
+            this.label2.Text = "Total instructions:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(11, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 13);
+            this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Сейчас:";
+            this.label1.Text = "Now:";
             // 
             // labelBurnMarskTotal
             // 
@@ -1069,7 +1058,7 @@
             this.labelEngraveStatus.Name = "labelEngraveStatus";
             this.labelEngraveStatus.Size = new System.Drawing.Size(176, 19);
             this.labelEngraveStatus.TabIndex = 2;
-            this.labelEngraveStatus.Text = "Требуется рендер ";
+            this.labelEngraveStatus.Text = "Rendering needed";
             this.labelEngraveStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // buttonEngrave
@@ -1082,7 +1071,7 @@
             this.buttonEngrave.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.buttonEngrave.Size = new System.Drawing.Size(281, 55);
             this.buttonEngrave.TabIndex = 1;
-            this.buttonEngrave.Text = "Гравировка";
+            this.buttonEngrave.Text = "Engrave";
             this.buttonEngrave.UseVisualStyleBackColor = true;
             this.buttonEngrave.Click += new System.EventHandler(this.buttonEngrave_Click);
             // 
@@ -1097,7 +1086,7 @@
             this.tabPagePreview.Padding = new System.Windows.Forms.Padding(3);
             this.tabPagePreview.Size = new System.Drawing.Size(923, 539);
             this.tabPagePreview.TabIndex = 0;
-            this.tabPagePreview.Text = "Проект (подготовка к гравировке)";
+            this.tabPagePreview.Text = "Project (step 1)";
             // 
             // panelContainer
             // 
@@ -1193,14 +1182,13 @@
             this.toolStripButtonRender.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonRender.Name = "toolStripButtonRender";
             this.toolStripButtonRender.Padding = new System.Windows.Forms.Padding(5);
-            this.toolStripButtonRender.Size = new System.Drawing.Size(99, 34);
-            this.toolStripButtonRender.Text = "Рендеринг";
+            this.toolStripButtonRender.Size = new System.Drawing.Size(78, 34);
+            this.toolStripButtonRender.Text = "Render";
             this.toolStripButtonRender.Click += new System.EventHandler(this.toolStripButtonRender_Click_1);
             // 
             // toolStripTextBoxBurnTimeMs
             // 
             this.toolStripTextBoxBurnTimeMs.Enabled = false;
-            this.toolStripTextBoxBurnTimeMs.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxBurnTimeMs.Name = "toolStripTextBoxBurnTimeMs";
             this.toolStripTextBoxBurnTimeMs.Size = new System.Drawing.Size(50, 37);
             this.toolStripTextBoxBurnTimeMs.Text = "5";
@@ -1208,8 +1196,8 @@
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(25, 34);
-            this.toolStripLabel2.Text = "мс.";
+            this.toolStripLabel2.Size = new System.Drawing.Size(26, 34);
+            this.toolStripLabel2.Text = "ms.";
             // 
             // toolStripComboBoxEngraveTimes
             // 
@@ -1234,8 +1222,8 @@
             // toolStripLabel3
             // 
             this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(60, 34);
-            this.toolStripLabel3.Text = "проходов";
+            this.toolStripLabel3.Size = new System.Drawing.Size(36, 34);
+            this.toolStripLabel3.Text = "times";
             // 
             // toolStripSeparator3
             // 
@@ -1248,8 +1236,8 @@
             this.toolStripLabelSize.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.toolStripLabelSize.Margin = new System.Windows.Forms.Padding(0);
             this.toolStripLabelSize.Name = "toolStripLabelSize";
-            this.toolStripLabelSize.Size = new System.Drawing.Size(101, 37);
-            this.toolStripLabelSize.Text = "Проект не создан";
+            this.toolStripLabelSize.Size = new System.Drawing.Size(115, 37);
+            this.toolStripLabelSize.Text = "Project is not created";
             // 
             // toolStripSeparator4
             // 
@@ -1263,8 +1251,8 @@
             this.toolStripLabelScale.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.toolStripLabelScale.Margin = new System.Windows.Forms.Padding(0);
             this.toolStripLabelScale.Name = "toolStripLabelScale";
-            this.toolStripLabelScale.Size = new System.Drawing.Size(130, 24);
-            this.toolStripLabelScale.Text = "Масштаб: 0%";
+            this.toolStripLabelScale.Size = new System.Drawing.Size(100, 24);
+            this.toolStripLabelScale.Text = "Scale: 0%";
             // 
             // toolStripButtonZoomIn
             // 
@@ -1315,6 +1303,17 @@
             this.tabControl1.Size = new System.Drawing.Size(931, 565);
             this.tabControl1.TabIndex = 4;
             // 
+            // pictureBoxRendered
+            // 
+            this.pictureBoxRendered.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxRendered.Location = new System.Drawing.Point(329, 5);
+            this.pictureBoxRendered.Name = "pictureBoxRendered";
+            this.pictureBoxRendered.Size = new System.Drawing.Size(589, 529);
+            this.pictureBoxRendered.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxRendered.TabIndex = 1;
+            this.pictureBoxRendered.TabStop = false;
+            this.pictureBoxRendered.Click += new System.EventHandler(this.pictureBoxRendered_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1349,7 +1348,6 @@
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMoveHelp)).EndInit();
             this.tabPageRendered.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRendered)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.endToSlider)).EndInit();
@@ -1361,6 +1359,7 @@
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRendered)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
