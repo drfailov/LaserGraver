@@ -16,13 +16,13 @@ PC-software and Arduino-firmware can work together to run laser engraver for eng
 
 ## Photos of device
 <p align="center">
-<img src="Photos/DSC_7819.jpg" width="150"/>
-<img src="Photos/DSC_7831.jpg" width="150"/>
-<img src="Photos/IMG_20210117_022328.jpg" width="150"/>
-<img src="Photos/IMG_20210126_233233.jpg" width="150"/>
-<img src="Photos/IMG_20210208_222245.jpg" width="150"/>
-<img src="Photos/photo_2021-12-11_14-15-36 (2).jpg" width="150"/>
-<img src="Photos/photo_2021-12-11_14-15-36 (3).jpg" width="150"/>
+<img src="Photos/DSC_7819.jpg" height="150"/>
+<img src="Photos/DSC_7831.jpg" height="150"/>
+<img src="Photos/IMG_20210126_233233.jpg" height="150"/>
+<img src="Photos/IMG_20210117_022328.jpg" height="150"/>
+<img src="Photos/IMG_20210208_222245.jpg" height="150"/>
+<img src="Photos/photo_2021-12-11_14-15-36 (2).jpg" height="150"/>
+<img src="Photos/photo_2021-12-11_14-15-36 (3).jpg" height="150"/>
 </p>
 
  
