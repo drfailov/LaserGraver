@@ -25,8 +25,29 @@ PC-software and Arduino-firmware can work together to run laser engraver for eng
 <img src="Photos/photo_2021-12-11_14-15-36 (3).jpg" height="150"/>
 </p>
 
+## Examples of engraving
+<p align="center">
+<img src="Photos/IMG_20210228_012807.jpg" height="150"/>
+<img src="Photos/IMG_20210215_143131.jpg" height="150"/>
+<img src="Photos/IMG_20210214_140938.jpg" height="150"/>
+<img src="Photos/20211007_010526.jpg" height="150"/>
+<img src="Photos/photo_2021-12-11_14-15-36.jpg" height="150"/>
+<img src="Photos/20211207_002439.jpg" height="150"/>
+<img src="Photos/IMG_20210223_230900.jpg" height="150"/>
+<img src="Photos/IMG_20210315_000848.jpg" height="150"/>
+<img src="Photos/IMG_20210130_121652.jpg" height="150"/>
+<img src="Photos/IMG_20210214_210026.jpg" height="150"/>
+<img src="Photos/IMG_20210217_160130.jpg" height="150"/>
+</p>
 
+## Video demo of usage on YouTube
+[<p align="center"><img alt="FP LaserEngraver V3 Overview" width="300px" src="Photos/Screenshot 2022-03-13 220049.jpg" /> </p>](https://youtu.be/yXsoJGkvpNk) 
+<p align="center">https://youtu.be/yXsoJGkvpNk </p>
 
+## This repository contains
+- C# software to control engraver
+- Arduino firmware to control engraver
+- Schematics how to connect modules to arduino to make firmware work
 
 
 --------------
