@@ -48,7 +48,7 @@ PC-software and Arduino-firmware can work together to run laser engraver for eng
 - C# software to control engraver
 - Arduino firmware to control engraver
 - Schematics how to connect modules to arduino to make firmware work
-<p align="center"><img src="Photos/2022-03 topology.png" width="600"/></p>
+<p align="center"><img src="Photos/2022-03 topology.png" width="700"/></p>
 
 --------------
 
