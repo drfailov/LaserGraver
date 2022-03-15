@@ -50,6 +50,38 @@ PC-software and Arduino-firmware can work together to run laser engraver for eng
 - Schematics how to connect modules to arduino to make firmware work
 <p align="center"><img src="Photos/2022-03 topology.png" width="700"/></p>
 
+
+
+# PC Software
+<p align="center"><img src="Photos/software.png" width="600"/></p>
+
+## How to run
+If you don't want to build or edit sources of PC software, you can just run it with following steps:
+- Check if you have installed .NET Framework 3.5
+- Open application from: `PC Software\LaserDrawerApp v.3\LaserDrawerApp\bin\Release\LaserDrawerApp.exe` 
+
+## How to build
+To build software, you need such environment:
+- Use Microsoft Windows
+- Visual Studio 2019 installed
+- C# Windows Forms installed
+
+## Typical usage
+Usage demo: https://youtu.be/yXsoJGkvpNk
+- Before usage engraver already assembled, drivers installed, firmware flashed and configured.
+- Connect USB cable from arduino. 
+- Open PC Software, update list of COM ports, select engraver COM port and press connect.
+Engraver will execute self-testing command to check if CNC works correctly.
+System will step some steps forward from home point and measure how much steps needed to trigger endstop again. 
+Based on this measurement engraver will connect successfully, or throw an error.
+If you have errors on this step and can`t figure how to fix it, you always can send commands manually by arduino port monitor to debug device.
+- Create new project. Project size is measured from top-left corner of working zone. If you not sure about project size, select 25% for first tests.
+- Add images or text on project. JPG, PNG, GIF and BMP formats are supported.
+- You can move laser head with arrows on left panel. 
+Actual head position will be displayed on phoject area.
+You can move and resize objects in project.
+
+
 --------------
 
 # Project is now in process translating from russian to English.
