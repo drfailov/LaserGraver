@@ -80,6 +80,10 @@ If you have errors on this step and can`t figure how to fix it, you always can s
 - You can move laser head with arrows on left panel. 
 Actual head position will be displayed on phoject area.
 You can move and resize objects in project.
+- Set material paramenets: burn time for 1 pixel and number of repeatings.
+Material settings is very individual and optimal way to get best results is a lot of practice.
+- If you don't know which burn time is best for you, you can use burn test block on left panel.
+It will burn short line (about 5mm) with selected settings and you can check if it's normal settings for your material.
 
 
 --------------
