@@ -54,6 +54,13 @@ PC-software and Arduino-firmware can work together to run laser engraver for eng
 
 # PC Software
 <p align="center"><img src="Photos/software.png" width="600"/></p>
+<p align="center">
+<img src="Photos/image_2021-12-11_13-53-48.png" height="100"/>
+<img src="Photos/image_2021-12-11_13-54-16.png" height="100"/>
+<img src="Photos/image_2021-12-11_13-54-36.png" height="100"/>
+<img src="Photos/image_2021-12-11_13-56-15.png" height="100"/>
+<img src="Photos/image_2021-12-11_13-56-57.png" height="100"/>
+</p>
 
 ## How to run
 If you don't want to build or edit sources of PC software, you can just run it with following steps:
@@ -84,7 +91,9 @@ You can move and resize objects in project.
 Material settings is very individual and optimal way to get best results is a lot of practice.
 - If you don't know which burn time is best for you, you can use burn test block on left panel.
 It will burn short line (about 5mm) with selected settings and you can check if it's normal settings for your material.
-
+- When objects are positioned, you can render your project. While rendering software will prepare instructions for engraving.
+- If everything fine, press Engrave. System will initialize motors (if needed) and start engraving.
+Don't look at working laser while engraving, use safety glasses!
 
 --------------
 
@@ -120,47 +129,3 @@ It will burn short line (about 5mm) with selected settings and you can check if 
 Дополнительных библиотек не требуется. \
 Основные параметры настройки вынесены в `Config.h`, но многие константы прописаны в коде. \
 Последний раз успешно собиралась в среде Arduino 1.8.16.
-
-
-
-
-## Программа для ПК: FP MyCNC v3
-Язык: C#, Windows Forms, Microsoft Visual Studio. \
-Для работы требуется .NET Framework. 
-
-<img src="Photos/image_2021-12-11_13-53-48.png" width="300"/>
-<img src="Photos/image_2021-12-11_13-54-16.png" width="300"/>
-<img src="Photos/image_2021-12-11_13-54-36.png" width="300"/>
-<img src="Photos/image_2021-12-11_13-56-15.png" width="300"/>
-<img src="Photos/image_2021-12-11_13-56-57.png" width="300"/>
-
- 
- 
-## Как пользоваться программой:
-Демонстрация работы: https://youtu.be/yXsoJGkvpNk
-1. Подключаем гравер по USB (драйвера для Arduino должны быть установлены)
-2. Обновляем список портов и выбираем порт ардуинки
-3. Подключаемся. 
-	На этом этапе на гравер отправляется команда о самотестировании. 
-	Если самотестирование не будет пройдено, подключение будет разорвано.
-	Самотестирование проверяет правильность отклика концевиков на команды моторам.
-	Если тестирование не проходит, следует проверить правильность подключения концевиков и моторов.
-4. Когда подключение установлено, создаём новый проект. 
-	Размер холста выбираем в соответствии с размером требуемой гравировки. 
-	Чем больше холст, тем сложнее с ним работать.
-5. Добавляем на холст нужное изображение или текст.
-6. С помощью стрелок перемещаем каретку с лазером.
-	Прицеливаемся в нужное место, позиционируем рисунок на холсте.
-7. Задаём параметры гравировки (количество слоёв и время прожига одного пикселя).
-	Параметры для каждого конкретного гравера, материала и лазера индивидуальны,
-	и их подбор требует больного количества экспериментов.
-	Для быстрого подбора параметров под материал можно воспользоваться тестом на панели слева.
-8. Выполняем рендеринг. Проект при этом преобразуется в готовый набор инструкций для гравера. 
-	Проверяем их корректность.
-9. Если всё верно, запускаем гравировку и ожидаем.
-
-
-## Примеры гравировки и порезки
-<img src="Photos/photo_2021-12-11_14-15-36.jpg" width="300"/> <img src="Photos/20211007_010526.jpg" width="300"/> 
-<img src="Photos/IMG_20210214_140938.jpg" width="300"/> <img src="Photos/IMG_20210215_143131.jpg" width="300"/> 
-<img src="Photos/IMG_20210228_012807.jpg" width="300"/>
