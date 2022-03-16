@@ -94,6 +94,7 @@ It will burn short line (about 5mm) with selected settings and you can check if 
 - When objects are positioned, you can render your project. While rendering software will prepare instructions for engraving.
 - If everything fine, press Engrave. System will initialize motors (if needed) and start engraving.
 Don't look at working laser while engraving, use safety glasses!
+If something goes wrong, press stop button. Engraver will stop executing commands and move head to 0. If needed, disconnect motors and laser from power.
 
 --------------
 
