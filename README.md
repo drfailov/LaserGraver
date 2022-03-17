@@ -174,14 +174,34 @@ Link: https://aliexpress.ru/item/32665922113.html
 
 ## Schematic
 <p align="center">
-  <img src="Photos/Схема включения.png" width="500"/>
+  <img src="Photos/Схема включения.png" width="400"/>
 </p>
-Motor drivers have to be set for smallest possible microstep (64 microstep).
-
 <p align="center">
 <img src="Photos/IMG_20210111_175132.jpg" height="150"/>  
 <img src="Photos/IMG_20210111_175144.jpg" height="150"/>  
 </p>
+Motor drivers have to be set for smallest possible microstep (64 microstep).
+- <b>D2: X DIR: </b> Direction signal for X stepper motor driver. 
+Can be inverted in `Global.h` in line definition.
+- <b>D3: X DIR: </b> Direction signal for Y stepper motor driver. 
+Can be inverted in `Global.h` in line definition.
+- <b>D4: Z DIR: </b> Direction signal for Z stepper motor driver.
+<i>Not used in project. Needed only as CNC shield schematic.</i>
+- <b>D5: X STEP: </b> Step signal for X stepper motor driver.
+One pulse is 1 step. It's recommended to use smallest possible steps for your driver.
+Steps speed can be set in `Config.h`.
+- <b>D6: Y STEP: </b> Step signal for Y stepper motor driver.
+One pulse is 1 step. It's recommended to use smallest possible steps for your driver.
+Steps speed can be set in `Config.h`.
+- <b>D7: Z STEP: </b> Step signal for Z stepper motor driver.
+<i>Not used in project. Needed only as CNC shield schematic.</i>
+- <b>D8: EN: </b> Enabled signal for X, Y, Z stepper motor driver. 
+Sets when motors have to be enabled or disabled.
+HIGH is enabled, LOW is disabled.
+When motor enabled, it hold its position, you can't move it manually.
+When motor disabled, it allows you to manually move laser head.
+- <b>D9: LED: </b> controls engraver backlight. HIGH is enabled, LOW is disabled.
+
 
 
 ## Troubleshooting
