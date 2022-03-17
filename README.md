@@ -180,7 +180,6 @@ Link: https://aliexpress.ru/item/32665922113.html
 <img src="Photos/IMG_20210111_175132.jpg" height="150"/>  
 <img src="Photos/IMG_20210111_175144.jpg" height="150"/>  
 </p>
-Motor drivers have to be set for smallest possible microstep (64 microstep).
 
 - <b>D2: X DIR: </b> Direction signal for X stepper motor driver. 
 Can be inverted in `Global.h` in line definition.
@@ -189,10 +188,10 @@ Can be inverted in `Global.h` in line definition.
 - <b>D4: Z DIR: </b> Direction signal for Z stepper motor driver.
 <i>Not used in project. Needed only as CNC shield schematic.</i>
 - <b>D5: X STEP: </b> Step signal for X stepper motor driver.
-One pulse is 1 step. It's recommended to use smallest possible steps for your driver.
+One pulse is 1 step. It's recommended to use smallest possible steps for your driver (64 microstep).
 Steps speed can be set in `Config.h`.
 - <b>D6: Y STEP: </b> Step signal for Y stepper motor driver.
-One pulse is 1 step. It's recommended to use smallest possible steps for your driver.
+One pulse is 1 step. It's recommended to use smallest possible steps for your driver (64 microstep).
 Steps speed can be set in `Config.h`.
 - <b>D7: Z STEP: </b> Step signal for Z stepper motor driver.
 <i>Not used in project. Needed only as CNC shield schematic.</i>
@@ -203,6 +202,16 @@ When motor enabled, it hold its position, you can't move it manually.
 When motor disabled, it allows you to manually move laser head.
 - <b>D9: LED: </b> controls engraver backlight. HIGH is enabled, LOW is disabled.
 - <b>D12: LASER: </b> controls laser. Uses PWM. HIGH is enabled, LOW is disabled.
+- <b>A7: END X-: </b> reads endstop signal from X axis. 
+Used to detect home position of laser head.
+Endstop is have to be installed in LEFT side of X axis (this is zero point).
+When HIGH, endstop is acticated. 
+When LOW, endstop is released.
+- <b>A6: END Y-: </b> reads endstop signal from X axis. 
+Used to detect home position of laser head.
+Endstop is have to be installed in TOP side of Y axis  (this is zero point).
+When HIGH, endstop is acticated. 
+When LOW, endstop is released.
 
 
 
