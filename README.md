@@ -99,26 +99,56 @@ If something goes wrong, press stop button. Engraver will stop executing command
 
 ## Menu overview
 ### Engraver - Full self-test
+Move laser head to maxumim and minimum position or table. 
+As a result, system is measuring number of steps needed to trigger endstop from maximum position.
+
 ### Engraver - Turn ON Lights
+Turn ON device backlight.
+
 ### Engraver - Turn OFF Lights
+Turn OFF device backlight.
+
 ### Engraver - Get Status
+Shows system status or engraver. For debugging.
+
 ### Engraver - Disable motors
+When motors disabled, you can easyly move laser head.
+
 ### Render - No trace optimizer
+The easiest way to engrave. 
+If your engraver not perfectly precise, use this mode.
+
 ### Render - Zig-Zag way trace optimizer
+Enables burning when laser head moves back. 
+Your engraver has to be assembled very precisely, 
+othervise image will deform if you enable this optimization;
+
 ### Render - Shortest way trace optimizer
+Aligns all instructions to minimize laser head movement. 
+Your engraver has to be assembled very precisely, 
+othervise image will deform if you enable this optimization;
+
 ### Render - Random way trace
+Just for fun, scrambles all the instructions. Very inefficient way to engrave:)
+
 ### Render - Use semitones
 If semitones enabled, burning time for every pixel is calculated based on pixel darkness and burning time value set by user.
 If semitones disabled, burning time for every pixal can be only 0ms or burning time value set by user.
 ### Help - Show log window
+Open one more window with log. Useful for debugging.
+
 ### Help - Log debug messages
+If enabled, more information will be printed to log.
+
 ### Help - About
+Show info about developer and credits.
+
 ### New project
 
 ### Open project
 Opens previously rendered and saved set of instructions.
-Notice, that every time you render your project, is automatically vaved in temporary folder.
-So, if engraving process in interrupted, 
+Notice, that every time you render your project, it automatically saved in temporary folder.
+So, if engraving process is interrupted, 
 you can open autosaved project and continue from last engraved position.
 Just don't move objects on table.
 
@@ -149,6 +179,7 @@ Here you can arrange objects in project.
 You can add text, images or empty frame.
 Empty frame can help positioning image if needed.
 Next step is render it to get set of instructions.
+Rendered set of instructions can't be changed, moved.
 
 ### Engrave tab
 When you rendered your project, review reconstruction for your set of instructions. 
