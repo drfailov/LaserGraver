@@ -181,6 +181,7 @@ Link: https://aliexpress.ru/item/32665922113.html
 <img src="Photos/IMG_20210111_175144.jpg" height="150"/>  
 </p>
 Motor drivers have to be set for smallest possible microstep (64 microstep).
+
 - <b>D2: X DIR: </b> Direction signal for X stepper motor driver. 
 Can be inverted in `Global.h` in line definition.
 - <b>D3: X DIR: </b> Direction signal for Y stepper motor driver. 
@@ -201,6 +202,7 @@ HIGH is enabled, LOW is disabled.
 When motor enabled, it hold its position, you can't move it manually.
 When motor disabled, it allows you to manually move laser head.
 - <b>D9: LED: </b> controls engraver backlight. HIGH is enabled, LOW is disabled.
+- <b>D12: LASER: </b> controls laser. Uses PWM. HIGH is enabled, LOW is disabled.
 
 
 
