@@ -173,9 +173,16 @@ Link: https://aliexpress.ru/item/32665922113.html
 
 
 ## Schematic
-  <img src="Photos/Схема включения.jpg" width="500"/>
-  Обратите внимание: эта схема не включает в себя подключения питания
-<img src="Photos/IMG_20210111_175132.jpg" width="300"/>  <img src="Photos/IMG_20210111_175144.jpg" width="300"/>  
+<p align="center">
+  <img src="Photos/Схема включения.png" width="500"/>
+</p>
+Motor drivers have to be set for smallest possible microstep (64 microstep).
+
+<p align="center">
+<img src="Photos/IMG_20210111_175132.jpg" height="150"/>  
+<img src="Photos/IMG_20210111_175144.jpg" height="150"/>  
+</p>
+
 
 ## Troubleshooting
 
