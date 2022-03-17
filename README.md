@@ -120,6 +120,55 @@ If something goes wrong, press stop button. Engraver will stop executing command
 ### Project tab
 ### Engrave tab
 
+# Hardware
+
+## Used components
+### Arduino Nano
+Arduino Nano, main controller based on Atmega 328p.
+Link: https://www.banggood.com/Geekcreit-ATmega328P-Nano-V3-Controller-Board-Improved-Version-Module-Development-Board-p-940937.html
+<p align="center">
+<img src="Photos/unnamed.png" width="120"/>
+</p>
+
+### CNC Shield V4 Expansion Board With Nano
+- Плата соединяющая Arduino и драйверы двигателей CNC Shield V4 Expansion Board With Nano 
+Link: https://www.banggood.com/CNC-Shield-V4-Expansion-Board-With-Nano-and-3Pcs-Red-A4988-For-3D-Printer-p-1343033.html
+<p align="center">
+<img src="Photos/CNC_board_DP0.jpg" width="120"/>
+</p>
+
+### Laser
+- 12V 20W 450nm Лазер (https://aliexpress.ru/item/1005003148619218.html)
+
+### Motor drivers
+- Драйверы двигателей TMC2208, тихие (https://aliexpress.ru/item/4000869320068.html)
+
+### CNC Set
+- Набор для ЧПУ на профилях 2040 (https://aliexpress.ru/item/1005002058668194.html)
+
+### Endstops
+- Концевые выключатели MakerBot (https://aliexpress.ru/item/4000602312490.html)
+
+### Stepper motors
+- Шаговые моторы NEMA17 (https://aliexpress.ru/item/32665922113.html)
+
+
+## Schematic
+  <img src="Photos/Схема включения.jpg" width="500"/>
+  Обратите внимание: эта схема не включает в себя подключения питания
+<img src="Photos/IMG_20210111_175132.jpg" width="300"/>  <img src="Photos/IMG_20210111_175144.jpg" width="300"/>  
+
+## Troubleshooting
+
+# Firmware
+## How to build and flash
+Язык: C++, Arduino IDE \
+Дополнительных библиотек не требуется. \
+Основные параметры настройки вынесены в `Config.h`, но многие константы прописаны в коде. \
+Последний раз успешно собиралась в среде Arduino 1.8.16.
+## Configuration
+## Protocol description
+
 
 --------------
 
@@ -127,31 +176,9 @@ If something goes wrong, press stop button. Engraver will stop executing command
  
 
  
-## Использованные компоненты:
-- Arduino Nano (https://www.banggood.com/Geekcreit-ATmega328P-Nano-V3-Controller-Board-Improved-Version-Module-Development-Board-p-940937.html)
-- Плата соединяющая Arduino и драйверы двигателей CNC Shield V4 Expansion Board With Nano (https://www.banggood.com/CNC-Shield-V4-Expansion-Board-With-Nano-and-3Pcs-Red-A4988-For-3D-Printer-p-1343033.html)
-- 12V 20W 450nm Лазер (https://aliexpress.ru/item/1005003148619218.html)
-- Драйверы двигателей TMC2208, тихие (https://aliexpress.ru/item/4000869320068.html)
-- Набор для ЧПУ на профилях 2040 (https://aliexpress.ru/item/1005002058668194.html)
-- Концевые выключатели MakerBot (https://aliexpress.ru/item/4000602312490.html)
-- Шаговые моторы NEMA17 (https://aliexpress.ru/item/32665922113.html)
 
-<img src="Photos/unnamed.png" width="120"/> <img src="Photos/CNC_board_DP0.jpg" width="120"/> <img src="Photos/Mechanical-Endstop-2-500x500.jpg" width="120"/> <img src="Photos/HTB1M3Qvi8DH8KJjSspnq6zNAVXaz.jpg" width="120"/> <img src="Photos/1Screenshot 2021-12-12 152449.png" width="120"/> <img src="Photos/Screenshot 2021-12-12 153955.png" width="120"/>
+  <img src="Photos/Mechanical-Endstop-2-500x500.jpg" width="120"/> <img src="Photos/HTB1M3Qvi8DH8KJjSspnq6zNAVXaz.jpg" width="120"/> <img src="Photos/1Screenshot 2021-12-12 152449.png" width="120"/> <img src="Photos/Screenshot 2021-12-12 153955.png" width="120"/>
 
 <img src="Photos/20211022_120119.jpg" width="300"/> <img src="Photos/IMG_20181010_213621.jpg" width="300"/> 
 <img src="Photos/photo_2021-12-11_14-15-36 (2).jpg" width="300"/> <img src="Photos/photo_2021-12-11_14-15-36 (3).jpg" width="300"/>
 
-
-
-## Схема подключения модулей устройства
-  <img src="Photos/Схема включения.jpg" width="500"/>
-  Обратите внимание: эта схема не включает в себя подключения питания
-<img src="Photos/IMG_20210111_175132.jpg" width="300"/>  <img src="Photos/IMG_20210111_175144.jpg" width="300"/>  
- 
- 
- 
-## Прошивка Arduino:
-Язык: C++, Arduino IDE \
-Дополнительных библиотек не требуется. \
-Основные параметры настройки вынесены в `Config.h`, но многие константы прописаны в коде. \
-Последний раз успешно собиралась в среде Arduino 1.8.16.
