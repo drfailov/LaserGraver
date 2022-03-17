@@ -1,4 +1,5 @@
 # FP LaserEngraver v3
+<b>Project is now in process translating from russian to English.</b>
 <p align="center"><img src="Photos/2022-03-11 Promo for repository Laser Engraver.png" width="600"/></p>
 PC-software and Arduino-firmware can work together to run laser engraver for englave 2D raster images.
 
@@ -134,23 +135,23 @@ Link: https://www.banggood.com/Geekcreit-ATmega328P-Nano-V3-Controller-Board-Imp
 board allows connect Arduino and motor drivers: CNC Shield V4 Expansion Board With Nano \
 Link: https://www.banggood.com/CNC-Shield-V4-Expansion-Board-With-Nano-and-3Pcs-Red-A4988-For-3D-Printer-p-1343033.html
 <p align="center">
-<img src="Photos/CNC_board_DP0.jpg" height="120"/>
-<img src="Photos/IMG_20181010_213621.jpg" height="120"/>
+<img src="Photos/CNC_board_DP0.jpg" height="200"/>
+<img src="Photos/IMG_20181010_213621.jpg" height="200"/>
 </p>
 
 ### Laser
 12V 20W 450nm Laser module\
 Link: https://aliexpress.ru/item/1005003148619218.html
 <p align="center">
-<img src="Photos/20211022_120119.jpg" height="120"/>
-<img src="Photos/1Screenshot 2021-12-12 152449.png" height="120"/>
+<img src="Photos/20211022_120119.jpg" height="200"/>
+<img src="Photos/1Screenshot 2021-12-12 152449.png" height="200"/>
 </p>
 
 ### Motor drivers
 - Motor drivers TMC2208, silent.\
 Link: https://aliexpress.ru/item/4000869320068.html
 <p align="center">
-<img src="Photos/HTB1M3Qvi8DH8KJjSspnq6zNAVXaz.jpg" height="120"/>
+<img src="Photos/HTB1M3Qvi8DH8KJjSspnq6zNAVXaz.jpg" height="200"/>
 </p>
 
 ### CNC Set
@@ -161,14 +162,14 @@ Link: https://aliexpress.ru/item/1005002058668194.html
 MakerBot Endstops\
 Link: https://aliexpress.ru/item/4000602312490.html
 <p align="center">
-<img src="Photos/Mechanical-Endstop-2-500x500.jpg" height="120"/>
+<img src="Photos/Mechanical-Endstop-2-500x500.jpg" height="200"/>
 </p>
 
 ### Stepper motors
 NEMA17 Stepper motors\
 Link: https://aliexpress.ru/item/32665922113.html
 <p align="center">
-<img src="Photos/Screenshot 2021-12-12 153955.png" height="120"/>
+<img src="Photos/Screenshot 2021-12-12 153955.png" height="200"/>
 </p>
 
 
@@ -216,6 +217,16 @@ When LOW, endstop is released.
 
 
 ## Troubleshooting
+### Image deformated
+Check if all axises of your CNC is aligned and moves easily.
+
+### No device connected or Unrecognized device on PC when USB connected
+Check or replace your Arduino and USB cable.
+
+### No response from board when trying to flash firmware.
+Check if your arduino is alive, replace Arduino and check if you selected correct bootloader for your Arduino.
+
+
 
 # Firmware
 ## How to build and flash
@@ -224,12 +235,57 @@ When LOW, endstop is released.
 Основные параметры настройки вынесены в `Config.h`, но многие константы прописаны в коде. \
 Последний раз успешно собиралась в среде Arduino 1.8.16.
 ## Configuration
+
 ## Protocol description
+Коанды с компа разделяются переходами на новую строку, а их аргументы знаком ;
+Ответы гравера компу начинаются с !, разделяются переходами на новую строку а а их аргументы знаком ;
+
+команды с компа           ответы гравера
 
 
---------------
+pause;
+continue;
+status;											![STATUSOK]!
+selftest;										![TEST;PASS;PASS]!			![TEST,PASS,FAIL]!
+selftestquick;									![TEST;PASS;PASS]!			![TEST,PASS,FAIL]!
+size;											![SIZE;2100;2100]!
+ledoff;											![OK]!
+ledon;											![OK]!
+rightslow;										![POS;868;500]!
+rightfast;										![POS;868;500]!
+leftslow;										![POS;868;500]!
+leftfast;										![POS;868;500]!
+upslow;											![POS;868;500]!
+upfast;											![POS;868;500]!
+downslow;										![POS;868;500]!
+downfast;										![POS;868;500]!
+pos;											![POS;868;500]!
+release											![OK]!
+laseron;										![OK]!
+stop;											![OK]!
+burntest;5;										![OK]!
+goto;5;5;										![OK]!
+upload;5_20_600_50_600;end;     				![CHKSUM;130;465;934;123]!
+execute;     									![ENGRAVING]!   ...   ![PROGRESS;30]!  ...  ![POS;868;500]!  ...  ![COMPLETE;1]!
 
-# Project is now in process translating from russian to English.
+
+Upload:
+  //В ответ отправляет контрольные суммы:
+  //- общее количество команд принятых
+  //- Сумма всех координат У по модулю 1000
+  //- сумма всех длин отрезков по модулю 1000
+  //- сумма всего времени обжига по модулю 1000
+  //![CHKSUM;130;465;934;123]!
+
+
+goto;2100;2100;home;
+
+
+upload;11_1400_1100_1600_1100;11_1400_1200_1600_1200;11_1400_1100_1600_1100;11_1400_1200_1600_1200;end;execute;
+
+
+goto;1000;1000;goto;1200;1200;
+
  
 
   
