@@ -63,7 +63,7 @@ namespace LaserDrawerApp
         }
         private void connect()
         {
-            log("Подключение к порту: " + deviceName + "...");
+            log("Connecting to port: " + deviceName + "...");
             try
             {
                 port = new SerialPort(deviceName, 115200, Parity.None, 8, StopBits.One);
@@ -71,24 +71,24 @@ namespace LaserDrawerApp
                 port.DtrEnable = true;
                 //port.RtsEnable = true;
                 port.Open();
-                log("Подключено: " + deviceName);
+                log("Connected: " + deviceName);
 
-                log("Проверка связи: " + deviceName);
+                log("Checking connection: " + deviceName);
                 string welcomeMessage = receiveAnswer("Ready", 10000);
                 if (status())
                 {
-                    log("Гравер на связи, самотестирование...");
+                    log("Engraver connected, self-testing...");
                     if (selftestquick())
                     {
-                        log("Подключено, гравер готов к работе.");
+                        log("Connected, engraver ready.");
                         notifyConnected();
                         startWatchdog();
                     }
                     else
                     {
-                        log("Тест не пройден, гравер неисправен.");
+                        log("Test not passed, engraver malfunction.");
                         releare();
-                        messageBox("Тестирование не пройдено, механика гравера неисправна либо он настроен неправильно.");
+                        messageBox("Test failed, engraver has mechanical malfunction.");
                         port.Close();
                         port = null;
                         notifyDisconnected();
@@ -97,16 +97,16 @@ namespace LaserDrawerApp
                 }
                 else
                 {
-                    log("Ответ от гравера не был получен.");
+                    log("Engraver not responding.");
                     port.Close();
                     port = null;
                     notifyDisconnected();
-                    log("Порт закрыт.");
+                    log("Port closed.");
                 }
             }
             catch (Exception e)
             {
-                log("Ошибка подключения: " + e.Message);
+                log("Connection error: " + e.Message);
                 port = null;
                 notifyDisconnected();
                 throw e;
@@ -178,7 +178,7 @@ namespace LaserDrawerApp
                 }
                 catch (Exception e)
                 {
-                    log("Ошибка обновления позиции: " + e.Message);
+                    log("Error updating position: " + e.Message);
                 }
             }
             if (command.Contains("PROGRESS"))
@@ -191,7 +191,7 @@ namespace LaserDrawerApp
                 }
                 catch (Exception e)
                 {
-                    log("Ошибка обновления прогресса: " + e.Message);
+                    log("Error updating progress: " + e.Message);
                 }
             }
         }
@@ -255,13 +255,13 @@ namespace LaserDrawerApp
             {
                 if (port != null && port.IsOpen)
                 {
-                    log("Гравировка: проверка связи...");
+                    log("Engraving: checking connection...");
                     status();
                     Thread.Sleep(10 + (errors * 20));
                     if (errors == 0)
-                        log("Гравировка: отправка команд...");
+                        log("Engraving: отправка команд...");
                     else
-                        log("Гравировка: повторная отправка команд (" + errors + ")...");
+                        log("Engraving: повторная отправка команд (" + errors + ")...");
                     send("upload;");
                     Thread.Sleep(10 + (errors * 20));
                     for (int i = 0; i < list.Count; i++)
@@ -275,7 +275,7 @@ namespace LaserDrawerApp
                     int totalCommands = list.Count;
                     int errorsFound = 0;
 
-                    log("Гравировка: проверка правильности команд...");
+                    log("Engraving: проверка правильности команд...");
                     //В ответ отправляет контрольные суммы:
                     //- общее количество команд принятых
                     //- Сумма всех координат У по модулю 1000
@@ -342,46 +342,6 @@ namespace LaserDrawerApp
                             errorsFound++;
                         }
                     }
-                    //for (int i = 0; i < totalCommands; i++)
-                    //{
-                    //    float curProgress = i / totalCommands;    //0 ... 1
-                    //    float remainingProgress = 1 - curProgress;   //1 ... 0
-                    //    float timeoutAddition = 5000f * remainingProgress; //5000 ... 0
-                    //    int timeout = (int)(500 + timeoutAddition); //5500 ... 500
-                    //    String answer = receiveAnswer("CHK;"+i, timeout);
-                    //    if (answer.Length == 0)
-                    //    {
-                    //        log("Ошибка при проверке данных: проверочный ответ для команды "+i+" не был получен.");
-                    //        Thread.Sleep(1000);
-                    //        errorsFound++;
-                    //        break;
-                    //    }
-                    //    try
-                    //    {
-                    //        String[] parts = answer.Split(';');
-                    //        int index = Int32.Parse(parts[1]);
-                    //        int time = Int32.Parse(parts[2]);
-                    //        int x1 = Int32.Parse(parts[3]);
-                    //        int x2 = Int32.Parse(parts[4]);
-                    //        int y = Int32.Parse(parts[5]);
-                    //        if (list[index].Xfrom != x1 || list[index].Xto != x2 || list[index].Yfrom != y || list[index].burnTimeMs != time)
-                    //        {
-                    //            log("Есть ошибки. arduino: " + answer + ", burnmark: " + list[index]);
-                    //            errorsFound++;
-                    //        }
-                    //    }
-                    //    catch (Exception e)
-                    //    {
-                    //        log("Ошибка разбора ответа при проверке данных: " + e.Message + ", текст ответа " + answer);
-                    //        errorsFound++;
-                    //    }
-                    //}
-                    //String result = receiveAnswer("CHKEND", 500);
-                    //if (result.Equals("CHKEND"))
-                    //    if (debug)
-                    //        log("Получен CHKEND итоги подведём...");
-                    //if (debug)
-                    //    log("Была проведена проверка. Было найдено  " + errorsFound + " ошибок в " + totalCommands + " командах.");
                     if (errorsFound > 0)
                     {
                         errors++;
@@ -402,11 +362,11 @@ namespace LaserDrawerApp
             {
                 if (port != null && port.IsOpen)
                 {
-                    log("Гравировка: проверка связи...");
+                    log("Engraving: проверка связи...");
                     status();
                     Thread.Sleep(10 + (errors * 20));
                     if (errors == 0) log("Гравировка: отправка команды EXECUTE...");
-                    else log("Гравировка: повторная отправка команды EXECUTE (" + errors + ")...");
+                    else log("Engraving: повторная отправка команды EXECUTE (" + errors + ")...");
                     send("execute;");
 
                     string engraving = receiveAnswer("ENGRAVING", 5000);
@@ -418,7 +378,7 @@ namespace LaserDrawerApp
                         continue;
                     }
 
-                    log("Гравировка...");
+                    log("Engraving...");
 
                     string result = receiveAnswer("COMPLETE", 3600000);//1 час
                     Thread.Sleep(20 + (errors * 20));

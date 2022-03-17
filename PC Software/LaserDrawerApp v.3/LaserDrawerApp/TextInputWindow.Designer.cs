@@ -48,9 +48,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(241, 13);
+            this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Введите текст, или что Вы там хотели ввести:";
+            this.label1.Text = "Enter text:\r\n";
             // 
             // buttonOK
             // 
@@ -68,7 +68,7 @@
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 3;
-            this.buttonCancel.Text = "Ой, всё.";
+            this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
@@ -83,7 +83,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "TextInputWindow";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "Ввод текста";
+            this.Text = "Add text";
             this.Load += new System.EventHandler(this.TextInputWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

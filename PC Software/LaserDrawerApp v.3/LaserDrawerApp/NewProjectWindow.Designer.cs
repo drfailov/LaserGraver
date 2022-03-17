@@ -57,7 +57,7 @@
             this.label1.Padding = new System.Windows.Forms.Padding(10);
             this.label1.Size = new System.Drawing.Size(400, 85);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Поскольку гравировщик не подключён, выберите размер рабочей области вручную";
+            this.label1.Text = "Engraver not connected, select project size manually";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -65,36 +65,36 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(76, 98);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 17);
+            this.label2.Size = new System.Drawing.Size(51, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Ширина (X)";
+            this.label2.Text = "Width (X)";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(274, 98);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 17);
+            this.label3.Size = new System.Drawing.Size(21, 13);
             this.label3.TabIndex = 3;
-            this.label3.Text = "пикс.";
+            this.label3.Text = "px.";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(274, 126);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 17);
+            this.label4.Size = new System.Drawing.Size(21, 13);
             this.label4.TabIndex = 6;
-            this.label4.Text = "пикс.";
+            this.label4.Text = "px.";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(76, 126);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 17);
+            this.label5.Size = new System.Drawing.Size(54, 13);
             this.label5.TabIndex = 5;
-            this.label5.Text = "Высота (Y)";
+            this.label5.Text = "Height (Y)";
             // 
             // buttonCreate
             // 
@@ -102,7 +102,7 @@
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(104, 37);
             this.buttonCreate.TabIndex = 7;
-            this.buttonCreate.Text = "Создать";
+            this.buttonCreate.Text = "Create";
             this.buttonCreate.UseVisualStyleBackColor = true;
             this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
@@ -113,7 +113,7 @@
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(104, 37);
             this.buttonCancel.TabIndex = 8;
-            this.buttonCancel.Text = "Отмена";
+            this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
@@ -131,7 +131,7 @@
             0,
             0});
             this.numericUpDownWidth.Name = "numericUpDownWidth";
-            this.numericUpDownWidth.Size = new System.Drawing.Size(92, 22);
+            this.numericUpDownWidth.Size = new System.Drawing.Size(92, 20);
             this.numericUpDownWidth.TabIndex = 9;
             this.numericUpDownWidth.Value = new decimal(new int[] {
             1000,
@@ -153,7 +153,7 @@
             0,
             0});
             this.numericUpDownHeight.Name = "numericUpDownHeight";
-            this.numericUpDownHeight.Size = new System.Drawing.Size(92, 22);
+            this.numericUpDownHeight.Size = new System.Drawing.Size(92, 20);
             this.numericUpDownHeight.TabIndex = 10;
             this.numericUpDownHeight.Value = new decimal(new int[] {
             1000,

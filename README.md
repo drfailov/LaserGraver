@@ -53,13 +53,13 @@ PC-software and Arduino-firmware can work together to run laser engraver for eng
 
 
 # PC Software
-<p align="center"><img src="Photos/software.png" width="600"/></p>
+<p align="center"><img src="Photos/software.png" width="700"/></p>
 <p align="center">
-<img src="Photos/image_2021-12-11_13-53-48.png" height="100"/>
-<img src="Photos/image_2021-12-11_13-54-16.png" height="100"/>
-<img src="Photos/image_2021-12-11_13-54-36.png" height="100"/>
-<img src="Photos/image_2021-12-11_13-56-15.png" height="100"/>
-<img src="Photos/image_2021-12-11_13-56-57.png" height="100"/>
+<img src="Photos/image_2021-12-11_13-53-48.png" height="70"/>
+<img src="Photos/image_2021-12-11_13-54-16.png" height="70"/>
+<img src="Photos/image_2021-12-11_13-54-36.png" height="70"/>
+<img src="Photos/image_2021-12-11_13-56-15.png" height="70"/>
+<img src="Photos/image_2021-12-11_13-56-57.png" height="70"/>
 </p>
 
 ## How to run
@@ -95,6 +95,31 @@ It will burn short line (about 5mm) with selected settings and you can check if 
 - If everything fine, press Engrave. System will initialize motors (if needed) and start engraving.
 Don't look at working laser while engraving, use safety glasses!
 If something goes wrong, press stop button. Engraver will stop executing commands and move head to 0. If needed, disconnect motors and laser from power.
+
+## Menu overview
+### Engraver - Full self-test
+### Engraver - Turn ON Lights
+### Engraver - Turn OFF Lights
+### Engraver - Get Status
+### Engraver - Disable motors
+### Render - No trace optimizer
+### Render - Zig-Zag way trace optimizer
+### Render - Shortest way trace optimizer
+### Render - Random way trace
+### Render - Use semitones
+### Help - Show log window
+### Help - Log debug messages
+### Help - About
+### New project
+### Open project
+### Save project
+### Refresh port list
+### Connect
+### Move head
+### Material test
+### Project tab
+### Engrave tab
+
 
 --------------
 
