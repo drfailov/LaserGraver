@@ -108,18 +108,54 @@ If something goes wrong, press stop button. Engraver will stop executing command
 ### Render - Shortest way trace optimizer
 ### Render - Random way trace
 ### Render - Use semitones
+If semitones enabled, burning time for every pixel is calculated based on pixel darkness and burning time value set by user.
+If semitones disabled, burning time for every pixal can be only 0ms or burning time value set by user.
 ### Help - Show log window
 ### Help - Log debug messages
 ### Help - About
 ### New project
+
 ### Open project
+Opens previously rendered and saved set of instructions.
+Notice, that every time you render your project, is automatically vaved in temporary folder.
+So, if engraving process in interrupted, 
+you can open autosaved project and continue from last engraved position.
+Just don't move objects on table.
+
 ### Save project
+Saves rendered set of instructions.
+
 ### Refresh port list
+Get list of available COM port list to ComboBox and tries to select one with connected Arduino.
+
 ### Connect
-### Move head
+Try to connect to COM port and send command for self-testing.
+If self-testing passed, connection successful.
+
+### Move head block
+You can:
+- Manually move head. Slow or quick.
+- Manually enable laser (dangerous!!!).
+- Put laser head to zero coordinates.
+If motors is disabled before command for move, 
+firstly motors will be initialized to home point.
+
 ### Material test
+It will burn <b>50px</b> (usually about 5mm length) line with selected burn time.
+It can help you detect optimal burning time for your material.
+
 ### Project tab
+Here you can arrange objects in project.
+You can add text, images or empty frame.
+Empty frame can help positioning image if needed.
+Next step is render it to get set of instructions.
+
 ### Engrave tab
+When you rendered your project, review reconstruction for your set of instructions. 
+Red lines if burning zones, blue lines is laser head movement.
+If everything OK, you can start engraving.
+Left panel shows progress of engraving.
+
 
 # Hardware
 
