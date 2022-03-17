@@ -139,7 +139,7 @@ Link: https://www.banggood.com/CNC-Shield-V4-Expansion-Board-With-Nano-and-3Pcs-
 </p>
 
 ### Laser
-12V 20W 450nm Laser module/
+12V 20W 450nm Laser module\
 Link: https://aliexpress.ru/item/1005003148619218.html
 <p align="center">
 <img src="Photos/20211022_120119.jpg" height="120"/>
@@ -147,16 +147,29 @@ Link: https://aliexpress.ru/item/1005003148619218.html
 </p>
 
 ### Motor drivers
-- Драйверы двигателей TMC2208, тихие (https://aliexpress.ru/item/4000869320068.html)
+- Motor drivers TMC2208, silent.\
+Link: https://aliexpress.ru/item/4000869320068.html
+<p align="center">
+<img src="Photos/HTB1M3Qvi8DH8KJjSspnq6zNAVXaz.jpg" height="120"/>
+</p>
 
 ### CNC Set
-- Набор для ЧПУ на профилях 2040 (https://aliexpress.ru/item/1005002058668194.html)
+CNC DIY Set with 2040 aluminium profiles\
+Link: https://aliexpress.ru/item/1005002058668194.html
 
 ### Endstops
-- Концевые выключатели MakerBot (https://aliexpress.ru/item/4000602312490.html)
+MakerBot Endstops\
+Link: https://aliexpress.ru/item/4000602312490.html
+<p align="center">
+<img src="Photos/Mechanical-Endstop-2-500x500.jpg" height="120"/>
+</p>
 
 ### Stepper motors
-- Шаговые моторы NEMA17 (https://aliexpress.ru/item/32665922113.html)
+NEMA17 Stepper motors\
+Link: https://aliexpress.ru/item/32665922113.html
+<p align="center">
+<img src="Photos/Screenshot 2021-12-12 153955.png" height="120"/>
+</p>
 
 
 ## Schematic
@@ -181,11 +194,7 @@ Link: https://aliexpress.ru/item/1005003148619218.html
 # Project is now in process translating from russian to English.
  
 
- 
-
-  <img src="Photos/Mechanical-Endstop-2-500x500.jpg" width="120"/> 
-  <img src="Photos/HTB1M3Qvi8DH8KJjSspnq6zNAVXaz.jpg" width="120"/>
-  <img src="Photos/Screenshot 2021-12-12 153955.png" width="120"/>
+  
 
 
 
