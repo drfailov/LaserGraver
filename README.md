@@ -124,14 +124,14 @@ If something goes wrong, press stop button. Engraver will stop executing command
 
 ## Used components
 ### Arduino Nano
-Arduino Nano, main controller based on Atmega 328p.
+Arduino Nano, main controller based on Atmega 328p.\
 Link: https://www.banggood.com/Geekcreit-ATmega328P-Nano-V3-Controller-Board-Improved-Version-Module-Development-Board-p-940937.html
 <p align="center">
 <img src="Photos/unnamed.png" height="120"/>
 </p>
 
 ### CNC Shield V4 Expansion Board With Nano
-- Плата соединяющая Arduino и драйверы двигателей CNC Shield V4 Expansion Board With Nano 
+board allows connect Arduino and motor drivers: CNC Shield V4 Expansion Board With Nano \
 Link: https://www.banggood.com/CNC-Shield-V4-Expansion-Board-With-Nano-and-3Pcs-Red-A4988-For-3D-Printer-p-1343033.html
 <p align="center">
 <img src="Photos/CNC_board_DP0.jpg" height="120"/>
@@ -139,7 +139,12 @@ Link: https://www.banggood.com/CNC-Shield-V4-Expansion-Board-With-Nano-and-3Pcs-
 </p>
 
 ### Laser
-- 12V 20W 450nm Лазер (https://aliexpress.ru/item/1005003148619218.html)
+12V 20W 450nm Laser module/
+Link: https://aliexpress.ru/item/1005003148619218.html
+<p align="center">
+<img src="Photos/20211022_120119.jpg" height="120"/>
+<img src="Photos/1Screenshot 2021-12-12 152449.png" height="120"/>
+</p>
 
 ### Motor drivers
 - Драйверы двигателей TMC2208, тихие (https://aliexpress.ru/item/4000869320068.html)
@@ -178,8 +183,10 @@ Link: https://www.banggood.com/CNC-Shield-V4-Expansion-Board-With-Nano-and-3Pcs-
 
  
 
-  <img src="Photos/Mechanical-Endstop-2-500x500.jpg" width="120"/> <img src="Photos/HTB1M3Qvi8DH8KJjSspnq6zNAVXaz.jpg" width="120"/> <img src="Photos/1Screenshot 2021-12-12 152449.png" width="120"/> <img src="Photos/Screenshot 2021-12-12 153955.png" width="120"/>
+  <img src="Photos/Mechanical-Endstop-2-500x500.jpg" width="120"/> 
+  <img src="Photos/HTB1M3Qvi8DH8KJjSspnq6zNAVXaz.jpg" width="120"/>
+  <img src="Photos/Screenshot 2021-12-12 153955.png" width="120"/>
 
-<img src="Photos/20211022_120119.jpg" width="300"/>  
+
 
 

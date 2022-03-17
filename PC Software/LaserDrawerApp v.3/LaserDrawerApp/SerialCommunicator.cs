@@ -362,18 +362,18 @@ namespace LaserDrawerApp
             {
                 if (port != null && port.IsOpen)
                 {
-                    log("Engraving: проверка связи...");
+                    log("Engraving: Check connection...");
                     status();
                     Thread.Sleep(10 + (errors * 20));
-                    if (errors == 0) log("Гравировка: отправка команды EXECUTE...");
-                    else log("Engraving: повторная отправка команды EXECUTE (" + errors + ")...");
+                    if (errors == 0) log("Engraving: sending EXECUTE...");
+                    else log("Engraving: re-sending EXECUTE (" + errors + ")...");
                     send("execute;");
 
                     string engraving = receiveAnswer("ENGRAVING", 5000);
                     if (!engraving.Contains("ENGRAVING"))
                     {
                         errors++;
-                        log("Ошибка: команда EXECUTE не была доставлена.");
+                        log("Error: EXECUTE command is not delivered.");
                         waitUntilBufferEmpty();
                         continue;
                     }
@@ -386,7 +386,7 @@ namespace LaserDrawerApp
                     if (!result.Contains(';'))
                     {
                         errors++;
-                        log("Ошибка: ответ на EXECUTE некорректный.");
+                        log("Error: ответ на EXECUTE некорректный.");
                         waitUntilBufferEmpty();
                         continue;
                     }
@@ -418,7 +418,7 @@ namespace LaserDrawerApp
                 string result = receiveAnswer("STATUS", 5000);
                 bool resultBool = result.Equals("STATUSOK");
                 if (resultBool)
-                    log(System.DateTime.Now.ToString("HH:mm:ss") + " Гравер на связи.");
+                    log(System.DateTime.Now.ToString("HH:mm:ss") + " Engraver online.");
                 return resultBool;
             }
             return false;
@@ -451,7 +451,7 @@ namespace LaserDrawerApp
             string answer = receiveAnswer("TEST", 60000);
             try
             {
-                log("Разбор результата тестирования: " + answer);
+                log("Parsing self-test result: " + answer);
                 string[] parts = answer.Split(';');
                 log("parts: " + parts.Length);
                 bool x = parts[1].Equals("PASS");
@@ -462,7 +462,7 @@ namespace LaserDrawerApp
             }
             catch (Exception e)
             {
-                log("Ошибка команды самотестирования: " + e.Message);
+                log("Self-testing error: " + e.Message);
             }
             return false;
         }
@@ -472,7 +472,7 @@ namespace LaserDrawerApp
             string answer = receiveAnswer("TEST", 120000);
             try
             {
-                log("Разбор результата тестирования: " + answer);
+                log("Parsing self-test result: " + answer);
                 string[] parts = answer.Split(';');
                 log("parts: " + parts.Length);
                 bool x = parts[1].Equals("PASS");
@@ -483,7 +483,7 @@ namespace LaserDrawerApp
             }
             catch (Exception e)
             {
-                log("Ошибка команды самотестирования: " + e.Message);
+                log("Error parsing self-test result: " + e.Message);
             }
             return false;
         }
@@ -493,7 +493,7 @@ namespace LaserDrawerApp
             string answer = receiveAnswer("SIZE", 5000);
             try
             {
-                log("Разбор размера: " + answer);
+                log("Paring size: " + answer);
                 string[] parts = answer.Split(';');
                 log("parts: " + parts.Length);
                 int x = int.Parse(parts[1]);
@@ -504,7 +504,7 @@ namespace LaserDrawerApp
             }
             catch (Exception e)
             {
-                log("Ошибка обновления позиции: " + e.Message);
+                log("Error updating position: " + e.Message);
             }
             return new Size(0, 0);
         }
@@ -513,7 +513,7 @@ namespace LaserDrawerApp
             send("version;");
             string answer = receiveAnswer("Compile date", 5000);
             if (answer.Length == 0)
-                answer = "Ответ от гравера не был получен.";
+                answer = "Engraver not responded.";
             return answer;
         }
         public void pause()
@@ -694,56 +694,6 @@ namespace LaserDrawerApp
             return "";
 
         }
-        //public String receiveAnswer(long timeout)
-        //{ //получить херню типа ![текст]!
-        //    if (port == null)
-        //        return "";
-        //    String received;
-        //    Stopwatch stopwatch = new Stopwatch();
-        //    stopwatch.Start();
-        //    do
-        //    {
-        //        received = receiveString();
-        //        Application.DoEvents();
-        //        if (port == null)
-        //            return "";
-        //        if(stopwatch.ElapsedMilliseconds > timeout)
-        //            return "";
-        //    } while (!received.Contains("![") || !received.Contains("]!"));
-        //    //на этом месте мы гарантированно получили ответ
-        //    log(" Received text: " + received);
-        //    int start = received.IndexOf("![");
-        //    int end = received.IndexOf("]!");
-        //    if (start == -1 || end == -1)
-        //        return "";
-        //    start += 2;
-        //    end -= 1;
-        //    String answer = received.Substring(start, end - start + 1);
-        //    log(" Index start answer: " + start);
-        //    log(" Index end answer: " + end);
-        //    log(" Parsed answer: " + answer);
-        //    lastAnswerTime = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
-        //    return answer;
-        //}
-        //public String receiveString()
-        //{
-        //    //todo ДОБАВИТЬ КЭШ С ВОЗМОЖНОСТЬЮ УЧЕТА РАЗМЕРА ОЧЕРЕДИ
-        //    //if (port != null && port.IsOpen)
-        //    //{
-        //    //    port.ReadTimeout = 5000;
-        //    //    String text = port.ReadLine();
-        //    //    log("|#| --> " + text);
-        //    //    return text;
-        //    //}
-        //    //else
-        //    //{
-        //    //    if (port != null)
-        //    //        notifyDisconnected();
-        //    //    log("|X| -x- ...");
-        //    //    return "";
-        //    //}
-        //    return "";
-        //}
 
         private void notifyProgressUpdated(int count)
         {
@@ -772,7 +722,7 @@ namespace LaserDrawerApp
                 }
                 catch (Exception e)
                 {
-                    log("Закрытие порта: " + e.Message);
+                    log("Closing port: " + e.Message);
                 }
             }
             port = null;
