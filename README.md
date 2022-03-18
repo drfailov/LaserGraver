@@ -17,32 +17,36 @@ PC-software and Arduino-firmware can work together to run laser engraver for eng
 
 ## Photos of device
 <p align="center">
-<img src="Photos/DSC_7819.jpg" height="150"/>
-<img src="Photos/DSC_7831.jpg" height="150"/>
-<img src="Photos/IMG_20210126_233233.jpg" height="150"/>
-<img src="Photos/IMG_20210117_022328.jpg" height="150"/>
-<img src="Photos/IMG_20210208_222245.jpg" height="150"/>
-<img src="Photos/photo_2021-12-11_14-15-36 (2).jpg" height="150"/>
-<img src="Photos/photo_2021-12-11_14-15-36 (3).jpg" height="150"/>
+<img src="Photos/DSC_7819.jpg" height="300"/>
+</p>
+<p align="center">
+<img src="Photos/DSC_7831.jpg" height="100"/>
+<img src="Photos/IMG_20210126_233233.jpg" height="100"/>
+<img src="Photos/IMG_20210117_022328.jpg" height="100"/>
+<img src="Photos/IMG_20210208_222245.jpg" height="100"/>
+<img src="Photos/photo_2021-12-11_14-15-36 (2).jpg" height="100"/>
+<img src="Photos/photo_2021-12-11_14-15-36 (3).jpg" height="100"/>
 </p>
 
 ## Examples of engraving
 <p align="center">
-<img src="Photos/IMG_20210228_012807.jpg" height="150"/>
-<img src="Photos/IMG_20210215_143131.jpg" height="150"/>
-<img src="Photos/IMG_20210214_140938.jpg" height="150"/>
-<img src="Photos/20211007_010526.jpg" height="150"/>
-<img src="Photos/photo_2021-12-11_14-15-36.jpg" height="150"/>
-<img src="Photos/20211207_002439.jpg" height="150"/>
-<img src="Photos/IMG_20210223_230900.jpg" height="150"/>
-<img src="Photos/IMG_20210315_000848.jpg" height="150"/>
-<img src="Photos/IMG_20210130_121652.jpg" height="150"/>
-<img src="Photos/IMG_20210214_210026.jpg" height="150"/>
-<img src="Photos/IMG_20210217_160130.jpg" height="150"/>
+<img src="Photos/20211207_002439.jpg" height="300"/>
+</p>
+<p align="center">
+<img src="Photos/IMG_20210228_012807.jpg" height="100"/>
+<img src="Photos/IMG_20210215_143131.jpg" height="100"/>
+<img src="Photos/IMG_20210214_140938.jpg" height="100"/>
+<img src="Photos/20211007_010526.jpg" height="100"/>
+<img src="Photos/photo_2021-12-11_14-15-36.jpg" height="100"/>
+<img src="Photos/IMG_20210223_230900.jpg" height="100"/>
+<img src="Photos/IMG_20210315_000848.jpg" height="100"/>
+<img src="Photos/IMG_20210130_121652.jpg" height="100"/>
+<img src="Photos/IMG_20210214_210026.jpg" height="100"/>
+<img src="Photos/IMG_20210217_160130.jpg" height="100"/>
 </p>
 
 ## Video demo of usage on YouTube
-[<p align="center"><img alt="FP LaserEngraver V3 Overview" width="300px" src="Photos/Screenshot 2022-03-13 220049.jpg" /> </p>](https://youtu.be/yXsoJGkvpNk) 
+[<p align="center"><img alt="FP LaserEngraver V3 Overview" width="350px" src="Photos/Screenshot 2022-03-13 220049.jpg" /> </p>](https://youtu.be/yXsoJGkvpNk) 
 <p align="center">https://youtu.be/yXsoJGkvpNk </p>
 
 ## This repository contains
@@ -304,14 +308,18 @@ Check if your arduino is alive, replace Arduino and check if you selected correc
 ## Configuration
 
 ## Protocol description
-Коанды с компа разделяются переходами на новую строку, а их аргументы знаком ;
-Ответы гравера компу начинаются с !, разделяются переходами на новую строку а а их аргументы знаком ;
+Commands separated by `\n`. Command arguments separated by `;`.
+Engraver answers starts with `!`, separated by `\n`. Engraver arguments separated by `;`.
 
-команды с компа           ответы гравера
+Commands list:
 
+### Pause
+Send from PC to Engraver to pause any process: \
+`pause;\n`.\
+Send from PC to Engraver to resume paused process:\
+`continue;\n`
 
-pause;
-continue;
+### Status
 status;											![STATUSOK]!
 selftest;										![TEST;PASS;PASS]!			![TEST,PASS,FAIL]!
 selftestquick;									![TEST;PASS;PASS]!			![TEST,PASS,FAIL]!
