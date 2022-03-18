@@ -321,7 +321,7 @@ Send from PC to Engraver to resume paused process:\
 Command needed to check if engraver ready.\
 Send from PC to Engraver:\
 `status;\n`\
-Engraver send answer:\
+Answer from Engraver to PC:\
 `![STATUSOK]!\n`
 
 ### Firmware > Protocol description > Self-test
@@ -329,7 +329,7 @@ Run full-range mechanical self-test.
 Laser head will move from home point to max point and back.\
 Send from PC to Engraver:\
 `selftest;\n`\
-Engraver send answer:\
+Answer from Engraver to PC:\
 `![TEST;PASS;PASS]!\n`\
 `![TEST;PASS;FAIL]!\n`\
 "TEST", "PASS"/"FAIL" result for X axis, "PASS"/"FAIL" result for Y axis.
@@ -339,7 +339,7 @@ Run quick mechanical self-test.
 Laser head will move from home point to some point and back.\
 Send from PC to Engraver:\
 `selftestquick;\n`\
-Engraver send answer:\
+Answer from Engraver to PC:\
 `![TEST;PASS;PASS]!\n`\
 `![TEST;PASS;FAIL]!\n`\
 "TEST", "PASS"/"FAIL" result for X axis, "PASS"/"FAIL" result for Y axis.
@@ -350,19 +350,20 @@ Get size of wirking zone in pixels. Data is collected from `Config.h` file.\
 Answer contains width and height. This data is used to select project size.\
 Send from PC to Engraver:\
 `size;\n`\
-Engraver send answer:\
+Answer from Engraver to PC:\
 `![SIZE;2100;2100]!\n`
 
 ### Firmware > Protocol description > LEDOFF, LEDON
 Enable or disable engraver backlight.\
 Send from PC to Engraver:\
 `ledoff;\n` or `ledon;\n`\
-Engraver send answer:\
+Answer from Engraver to PC:\
 `![OK]!\n`
 
 
 ### Firmware > Protocol description > Manually moving laser head
-This commands sent form PC to Engraver start laser head movement:\
+This commands sent form PC to Engraver start laser head movement.\
+Send from PC to Engraver:\
 `rightslow;\n` - Start <b>slow</b> moving <b>right</b>.\
 `rightfast;\n` - Start <b>fast</b> moving <b>right</b>.\
 `leftslow;\n` - Start <b>slow</b> moving <b>left</b>.\
@@ -371,15 +372,19 @@ This commands sent form PC to Engraver start laser head movement:\
 `upfast;\n` - Start <b>fast</b> moving <b>up</b>.\
 `downslow;\n` - Start <b>slow</b> moving <b>down</b>.\
 `downfast;\n` - Start <b>fast</b> moving <b>down</b>.\
-While head is moving, engraver keep sending its position:\
-`![POS;868;500]!\n`\\
+While head is moving, engraver keep sending its actual position:\
+`![POS;868;500]!\n`\
 To stop moving head, send from PC to Engraver stop command:\
 `stop;\n`\
 Answer (from Engraver to PC) for stop command is:\
 `![OK]!\n`
 
 ### Firmware > Protocol description > Get position
-pos;											![POS;868;500]!
+To get current actual position of laser head.
+Send from PC to Engraver:\
+`pos;\n`\
+Answer from Engraver to PC:\
+`![POS;868;500]!\n`\
 
 ### Firmware > Protocol description > Disable motors
 release											![OK]!
