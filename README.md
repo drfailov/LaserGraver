@@ -320,9 +320,34 @@ Send from PC to Engraver to resume paused process:\
 `continue;\n`
 
 ### Status
-status;											![STATUSOK]!
-selftest;										![TEST;PASS;PASS]!			![TEST,PASS,FAIL]!
-selftestquick;									![TEST;PASS;PASS]!			![TEST,PASS,FAIL]!
+Command needed to check if engraver ready.\
+Send from PC to Engraver:\
+`status;\n`\
+Engraver send answer:\
+`![STATUSOK]!\n`
+
+### Self-test
+Run full-range mechanical self-test.
+Laser head will move from home point to max point and back.\
+Send from PC to Engraver:\
+`selftest;\n`\
+Engraver send answer:\
+`![TEST;PASS;PASS]!\n`\
+`![TEST;PASS;FAIL]!\n`\
+"TEST", "PASS"/"FAIL" result for X axis, "PASS"/"FAIL" result for Y axis.
+
+### Quick Self-test
+Run quick mechanical self-test.
+Laser head will move from home point to some point and back.\
+Send from PC to Engraver:\
+`selftestquick;\n`\
+Engraver send answer:\
+`![TEST;PASS;PASS]!\n`\
+`![TEST;PASS;FAIL]!\n`\
+"TEST", "PASS"/"FAIL" result for X axis, "PASS"/"FAIL" result for Y axis.
+
+
+
 size;											![SIZE;2100;2100]!
 ledoff;											![OK]!
 ledon;											![OK]!
