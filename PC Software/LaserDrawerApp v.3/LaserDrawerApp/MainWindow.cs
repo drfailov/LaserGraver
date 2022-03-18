@@ -82,7 +82,7 @@ namespace LaserDrawerApp
         {
             toolStripComboBoxComList.Items.Clear();
             List<string> COMs = new List<string>();
-            status("Получение портов...");
+            status("Get ports list...");
             progress(0);
             using (var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PnPEntity WHERE Caption like '%(COM%'"))
             {
@@ -109,7 +109,7 @@ namespace LaserDrawerApp
             if (toolStripComboBoxComList.Items.Count > 0)
                 toolStripComboBoxComList.SelectedIndex = sel;
             toolStripButtonConnect.Enabled = true;
-            status("Готово.");
+            status("Ready.");
             progress(0);
         }
 
@@ -118,7 +118,7 @@ namespace LaserDrawerApp
             //version
             {
                 FileInfo f = new FileInfo(Application.ExecutablePath);
-                Text = Text + " (Версия от " + f.LastWriteTime.ToShortDateString() + ")";
+                Text = Text + " (Build date " + f.LastWriteTime.ToShortDateString() + ")";
             }
         }
 
@@ -178,7 +178,7 @@ namespace LaserDrawerApp
             {
 
                 OpenFileDialog open = new OpenFileDialog();
-                open.Filter = "Изображения(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
+                open.Filter = "Images(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
                 if (open.ShowDialog() == DialogResult.OK)
                 {
                     Bitmap file = new Bitmap(open.FileName);
@@ -217,7 +217,7 @@ namespace LaserDrawerApp
                 return;
             if (coef > 0)
                 centerScalablePanel.Size = new Size((int)((float)resolution.X * coef), (int)((float)resolution.Y * coef));
-            toolStripLabelScale.Text = "Машстаб: " + Math.Round(coef * 100) + "%";
+            toolStripLabelScale.Text = "Scale: " + Math.Round(coef * 100) + "%";
         }
         float getScale()
         {
@@ -755,7 +755,7 @@ namespace LaserDrawerApp
             finally
             {
                 onRendered();
-                status("Готово.");
+                status("Ready.");
             }
 
         }
@@ -775,7 +775,7 @@ namespace LaserDrawerApp
                 {
                     int percent = 100 * old.Count / countInitial;
                     percent = 100 - percent;
-                    status("Нарезка маршрута (" + percent + "%) ...");
+                    status("Dividing way (" + percent + "%) ...");
                 }
                 BurnMark minMark = old[0];
                 old.Remove(minMark);
@@ -869,7 +869,7 @@ namespace LaserDrawerApp
                 if (y % periodic == 0)
                 {
                     int percent = 100 * y / old.Count;
-                    status("Оптимизация маршрута (" + percent + "%) ...");
+                    status("Trace optimizing (" + percent + "%) ...");
                 }
                 List<BurnMark> line = findLine(old, y);
                 if (y % 2 == 0)
@@ -979,14 +979,14 @@ namespace LaserDrawerApp
                     messageBox("Сейчас запущена гравировка. Остановите гравировку перед отключением!");
                 else
                 {
-                    toolStripButtonConnect.Text = "Отключение...";
+                    toolStripButtonConnect.Text = "Disconnecting...";
                     disconnect();
                 }
             }
             else
             {
                 toolStripButtonConnect.Enabled = false;
-                toolStripButtonConnect.Text = "Подключение...";
+                toolStripButtonConnect.Text = "Connecting...";
                 connect();
             }
         }
@@ -995,15 +995,15 @@ namespace LaserDrawerApp
             try
             {
                 string selected = toolStripComboBoxComList.SelectedItem.ToString();
-                status("Выбранный порт: " + selected);
+                status("Selected port: " + selected);
                 sleep(100);
                 string name = selected.Split('-')[0].Trim();
-                status("Порт для покдлючения: " + name);
+                status("Port to connect: " + name);
                 serialCommunicator.connect(name);
             }
             catch (Exception ex)
             {
-                status("Ошибка подключения: " + ex.Message);
+                status("Connection error: " + ex.Message);
             }
         }
         public void disconnect()
@@ -1118,7 +1118,7 @@ namespace LaserDrawerApp
         {
             if (logLabel == null)
             {
-                log("Отображение лога...");
+                log("Showing log window...");
                 new LogWindow(this).Show();
             }
         }
@@ -1139,7 +1139,7 @@ namespace LaserDrawerApp
                 return;
             }
             toolStripButtonConnect.Enabled = true;
-            toolStripButtonConnect.Text = "Отключиться";
+            toolStripButtonConnect.Text = "Disconnect";
             toolStripButtonConnect.Image = new Bitmap(LaserDrawerApp.Properties.Resources.disconnect);
             buttonZero.Enabled = true;
             buttonMoveRightFast.Enabled = true;
@@ -1156,7 +1156,7 @@ namespace LaserDrawerApp
             toolStripComboBoxComList.Enabled = false;
             toolStripButtonRefreshComList.Enabled = false;
             buttonEngrave.Enabled = burnMarks.Count > 0;
-            toolStripStatusLabelConnection.Text = "Покдлючено к " + serialCommunicator.deviceName;
+            toolStripStatusLabelConnection.Text = "Connected to " + serialCommunicator.deviceName;
         }
         private void onDisconnected()
         {
@@ -1166,7 +1166,7 @@ namespace LaserDrawerApp
                 return;
             }
             toolStripButtonConnect.Enabled = true;
-            toolStripButtonConnect.Text = "Покдлючиться";
+            toolStripButtonConnect.Text = "Connect";
             toolStripButtonConnect.Image = new Bitmap(LaserDrawerApp.Properties.Resources.web_link);
             buttonZero.Enabled = false;
             buttonMoveRightFast.Enabled = false;
@@ -1183,7 +1183,7 @@ namespace LaserDrawerApp
             toolStripComboBoxComList.Enabled = true;
             toolStripButtonRefreshComList.Enabled = true;
             buttonEngrave.Enabled = false;
-            toolStripStatusLabelConnection.Text = "Отключено";
+            toolStripStatusLabelConnection.Text = "Disconnected";
         }
 
         private void buttonMoveRightSlow_MouseDown(object sender, MouseEventArgs e)
@@ -1270,7 +1270,7 @@ namespace LaserDrawerApp
         {
             if (logLabel == null)
             {
-                log("Отображение лога...");
+                log("Opening log window...");
                 new LogWindow(this).Show();
             }
         }
@@ -1279,7 +1279,7 @@ namespace LaserDrawerApp
 
             if (!serialCommunicator.isConnected())
             {
-                messageBox("Подключите гравер для выполнения этой операции.");
+                messageBox("Connect engraver to perform this operation.");
                 return;
             }
             serialCommunicator.ledon();
@@ -1290,7 +1290,7 @@ namespace LaserDrawerApp
 
             if (!serialCommunicator.isConnected())
             {
-                messageBox("Подключите гравер для выполнения этой операции.");
+                messageBox("Connect engraver to perform this operation.");
                 return;
             }
             serialCommunicator.ledoff();
@@ -1319,7 +1319,7 @@ namespace LaserDrawerApp
             }
             catch (Exception)
             {
-                log("Время обжига введено неверно.");
+                log("Burn time entered incorrectly.");
             }
         }
 
@@ -1360,8 +1360,8 @@ namespace LaserDrawerApp
             engravingProcessingCount = 0;
             engravingCompleteCount = 0;
             engravingErrorsCount = 0;
-            labelEngraveStatus.Text = "Гравируется";
-            buttonEngrave.Text = "Остановить";
+            labelEngraveStatus.Text = "Engraving in progress";
+            buttonEngrave.Text = "Stop";
             buttonEngrave.Image = new Bitmap(LaserDrawerApp.Properties.Resources.stop);
             toolStripButtonRender.Enabled = false;
             buttonPreview.Enabled = false;
@@ -1544,8 +1544,8 @@ namespace LaserDrawerApp
                 return;
             }
             engravingThread = null;
-            labelEngraveStatus.Text = "Остановлено";
-            buttonEngrave.Text = "Гравировка";
+            labelEngraveStatus.Text = "Stopped";
+            buttonEngrave.Text = "Engrave";
             buttonEngrave.Enabled = true;
             toolStripButtonRender.Enabled = true;
             buttonPreview.Enabled = true;
@@ -1559,7 +1559,7 @@ namespace LaserDrawerApp
         public void onStartRendering()
         {
             buttonEngrave.Enabled = false;
-            toolStripButtonRender.Text = "Остановить";
+            toolStripButtonRender.Text = "Stop";
             toolStripButtonRender.Image = new Bitmap(LaserDrawerApp.Properties.Resources.stop);
             engravingStartTime = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
             engravingStartIndex = 0;
@@ -1579,7 +1579,7 @@ namespace LaserDrawerApp
             }
             renderThread = null;
             autosave();
-            toolStripButtonRender.Text = "Рендеринг";
+            toolStripButtonRender.Text = "Render";
             toolStripButtonRender.Image = new Bitmap(LaserDrawerApp.Properties.Resources.settings_gears);
             progress(0);
             startFromSlider.Enabled = true;
@@ -1625,7 +1625,7 @@ namespace LaserDrawerApp
                 {
                     serialCommunicator.stop();
                     engravingThread = null;
-                    buttonEngrave.Text = "Остановка...";
+                    buttonEngrave.Text = "Stopping...";
                     buttonEngrave.Enabled = false;
                 }
             }
@@ -1649,7 +1649,7 @@ namespace LaserDrawerApp
         {
             if (!serialCommunicator.isConnected())
             {
-                messageBox("Подключите гравер для выполнения этой операции.");
+                messageBox("Connect engraver to perform this operation.");
                 return;
             }
             status("Проверка связи...");
@@ -1713,7 +1713,7 @@ namespace LaserDrawerApp
                     if (cnt % 1234 == 0)
                     {
                         int percent = 100 * cnt / burnMarks.Count;
-                        status("Сохранение файла (" + percent + "%)...");
+                        status("Saving file (" + percent + "%)...");
                     }
                     writer.WriteLine(row.ToString());
                     cnt++;
@@ -1780,7 +1780,7 @@ namespace LaserDrawerApp
                         {
                             onRendered();
                         }
-                        status("Готово.");
+                        status("Ready.");
                     }
                 }
             }
@@ -1810,7 +1810,7 @@ namespace LaserDrawerApp
             labelEngraveTimeRemaining.Text = showTime(getTimeRemaining(selected, 0));
             labelEngraveTime.Text = showTime(0);
             hidePointMark();
-            status("Готово.");
+            status("Ready.");
         }
 
         private void startFromSlider_ValueChanged(object sender, EventArgs e)
@@ -1866,7 +1866,7 @@ namespace LaserDrawerApp
             if (serialCommunicator.isConnected())
                 messageBox(serialCommunicator.version());
             else
-                messageBox("Подключите гравер для выполнения этой операции.");
+                messageBox("Connect engraver to perform this operation.");
         }
 
         private void panelContainer_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -1878,7 +1878,7 @@ namespace LaserDrawerApp
             //messageBox("doubleblick " + coordX + " x " + coordY);
             if (serialCommunicator.isConnected())
             {
-                status("Перемещение на координаты " + coordX + " " + coordY + "...");
+                status("Movig to " + coordX + " " + coordY + "...");
                 serialCommunicator.goTo((int)coordX, (int)coordY);
                 serialCommunicator.pos();
             }
@@ -1889,10 +1889,10 @@ namespace LaserDrawerApp
             if (serialCommunicator.isConnected())
             {
                 serialCommunicator.releare();
-                status("Моторы обесточены");
+                status("Motors disabled");
             }
             else
-                messageBox("Подключите гравер для выполнения этой операции.");
+                messageBox("Connect engraver to perform this operation.");
         }
 
         private void безОптимизацииМаршрутаToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1975,7 +1975,7 @@ namespace LaserDrawerApp
             //TODO запустить поток воспроизведения процесса гравировки
             if (previewThread == null)
             {
-                buttonPreview.Text = "Остановить";
+                buttonPreview.Text = "Stop";
                 buttonPreview.Image = new Bitmap(LaserDrawerApp.Properties.Resources.stop);
                 buttonPreviewSpeed1x.Visible = true;
                 buttonPreviewSpeed2x.Visible = true;
@@ -1991,7 +1991,7 @@ namespace LaserDrawerApp
             else
             {
                 previewThread = null;
-                buttonPreview.Text = "Предпросмотр";
+                buttonPreview.Text = "Preview";
                 buttonPreview.Image = new Bitmap(LaserDrawerApp.Properties.Resources.play);
                 buttonPreviewSpeed1x.Visible = false;
                 buttonPreviewSpeed2x.Visible = false;
@@ -2010,14 +2010,14 @@ namespace LaserDrawerApp
                 progress(100 * i / burnMarks.Count);
                 List<BurnMark> selected = burnMarks.GetRange(0, i);
                 drawPreview(renderedImage, selected);
-                status("Реконструкция " + i + " инструкций (" + previewSpeed + "x)");
+                status("Drawing " + i + " instructions (" + previewSpeed + "x)");
                 showRendered(renderedImage);
             }
 
             previewThread = null;
             Invoke((MethodInvoker)delegate
             {
-                buttonPreview.Text = "Предпросмотр";
+                buttonPreview.Text = "Preview";
                 buttonPreview.Image = new Bitmap(LaserDrawerApp.Properties.Resources.play);
                 buttonPreviewSpeed1x.Visible = false;
                 buttonPreviewSpeed2x.Visible = false;
