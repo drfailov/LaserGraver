@@ -116,7 +116,7 @@ Turn OFF device backlight.
 Shows system status or engraver. For debugging.
 
 ### Engraver - Disable motors
-When motors disabled, you can easyly move laser head.
+When motors disabled, you can easily move laser head.
 
 ### Render - No trace optimizer
 The easiest way to engrave. 
