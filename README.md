@@ -346,13 +346,20 @@ Engraver send answer:\
 
 
 ### Firmware > Protocol description > Size
-size;											![SIZE;2100;2100]!
+Get size of wirking zone in pixels. Data is collected from `Config.h` file.\
+Answer contains width and height. This data is used to select project size.\
+Send from PC to Engraver:\
+`size;\n`\
+Engraver send answer:\
+`![SIZE;2100;2100]!\n`\
 
-### Firmware > Protocol description > LED Off
-ledoff;											![OK]!
+### Firmware > Protocol description > LEDOFF, LEDON
+Enable or disable engraver backlight.\
+Send from PC to Engraver:\
+`ledoff;\n` or `ledon;\n`\
+Engraver send answer:\
+`![OK]!\n`\
 
-### Firmware > Protocol description > LED ON
-ledon;											![OK]!
 
 ### Firmware > Protocol description > Manually moving laser head
 rightslow;										![POS;868;500]!
