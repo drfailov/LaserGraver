@@ -351,26 +351,32 @@ Answer contains width and height. This data is used to select project size.\
 Send from PC to Engraver:\
 `size;\n`\
 Engraver send answer:\
-`![SIZE;2100;2100]!\n`\
+`![SIZE;2100;2100]!\n`
 
 ### Firmware > Protocol description > LEDOFF, LEDON
 Enable or disable engraver backlight.\
 Send from PC to Engraver:\
 `ledoff;\n` or `ledon;\n`\
 Engraver send answer:\
-`![OK]!\n`\
+`![OK]!\n`
 
 
 ### Firmware > Protocol description > Manually moving laser head
-rightslow;										![POS;868;500]!
-rightfast;										![POS;868;500]!
-leftslow;										![POS;868;500]!
-leftfast;										![POS;868;500]!
-upslow;											![POS;868;500]!
-upfast;											![POS;868;500]!
-downslow;										![POS;868;500]!
-downfast;										![POS;868;500]!
-stop;											![OK]!
+This commands sent form PC to Engraver start laser head movement:\
+`rightslow;\n` - Start <b>slow</b> moving <b>right</b>.\
+`rightfast;\n` - Start <b>fast</b> moving <b>right</b>.\
+`leftslow;\n` - Start <b>slow</b> moving <b>left</b>.\
+`leftfast;\n` - Start <b>fast</b> moving <b>left</b>.\
+`upslow;\n` - Start <b>slow</b> moving <b>up</b>.\
+`upfast;\n` - Start <b>fast</b> moving <b>up</b>.\
+`downslow;\n` - Start <b>slow</b> moving <b>down</b>.\
+`downfast;\n` - Start <b>fast</b> moving <b>down</b>.\
+While head is moving, engraver keep sending its position:\
+`![POS;868;500]!\n`\\
+To stop moving head, send from PC to Engraver stop command:\
+`stop;\n`\
+Answer (from Engraver to PC) for stop command is:\
+`![OK]!\n`
 
 ### Firmware > Protocol description > Get position
 pos;											![POS;868;500]!
