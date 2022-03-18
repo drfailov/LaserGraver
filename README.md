@@ -300,33 +300,31 @@ Check if your arduino is alive, replace Arduino and check if you selected correc
 
 
 # Firmware
-## How to build and flash
+## Firmware > How to build and flash
 Язык: C++, Arduino IDE \
 Дополнительных библиотек не требуется. \
 Основные параметры настройки вынесены в `Config.h`, но многие константы прописаны в коде. \
 Последний раз успешно собиралась в среде Arduino 1.8.16.
-## Configuration
+## Firmware > Configuration
 
-## Protocol description
+## Firmware > Protocol description
 Commands separated by `\n`. Command arguments separated by `;`.
 Engraver answers starts with `!`, separated by `\n`. Engraver arguments separated by `;`.
 
-Commands list:
-
-### Pause
+### Firmware > Protocol description > Pause
 Send from PC to Engraver to pause any process: \
 `pause;\n`.\
 Send from PC to Engraver to resume paused process:\
 `continue;\n`
 
-### Status
+### Firmware > Protocol description > Status
 Command needed to check if engraver ready.\
 Send from PC to Engraver:\
 `status;\n`\
 Engraver send answer:\
 `![STATUSOK]!\n`
 
-### Self-test
+### Firmware > Protocol description > Self-test
 Run full-range mechanical self-test.
 Laser head will move from home point to max point and back.\
 Send from PC to Engraver:\
@@ -336,7 +334,7 @@ Engraver send answer:\
 `![TEST;PASS;FAIL]!\n`\
 "TEST", "PASS"/"FAIL" result for X axis, "PASS"/"FAIL" result for Y axis.
 
-### Quick Self-test
+### Firmware > Protocol description > Quick Self-test
 Run quick mechanical self-test.
 Laser head will move from home point to some point and back.\
 Send from PC to Engraver:\
@@ -347,10 +345,16 @@ Engraver send answer:\
 "TEST", "PASS"/"FAIL" result for X axis, "PASS"/"FAIL" result for Y axis.
 
 
-
+### Firmware > Protocol description > Size
 size;											![SIZE;2100;2100]!
+
+### Firmware > Protocol description > LED Off
 ledoff;											![OK]!
+
+### Firmware > Protocol description > LED ON
 ledon;											![OK]!
+
+### Firmware > Protocol description > Manually moving laser head
 rightslow;										![POS;868;500]!
 rightfast;										![POS;868;500]!
 leftslow;										![POS;868;500]!
@@ -359,16 +363,32 @@ upslow;											![POS;868;500]!
 upfast;											![POS;868;500]!
 downslow;										![POS;868;500]!
 downfast;										![POS;868;500]!
+stop;											![OK]!
+
+### Firmware > Protocol description > Get position
 pos;											![POS;868;500]!
+
+### Firmware > Protocol description > Disable motors
 release											![OK]!
+
+### Firmware > Protocol description > Laser ON
 laseron;										![OK]!
 stop;											![OK]!
+
+### Firmware > Protocol description > Burn test
 burntest;5;										![OK]!
+
+### Firmware > Protocol description > Go to coordinates
+Manually move head to selected coordinates
 goto;5;5;										![OK]!
+goto;2100;2100;home;
+goto;1000;1000;goto;1200;1200;
+answer is `pos` command
+
+### Firmware > Protocol description > Upload
+First stage of engraving: send commands to engraver and check if delivered normally.
+Maximum number of commands for one upload: 130 (can be configured in `Config.h`.\
 upload;5_20_600_50_600;end;     				![CHKSUM;130;465;934;123]!
-execute;     									![ENGRAVING]!   ...   ![PROGRESS;30]!  ...  ![POS;868;500]!  ...  ![COMPLETE;1]!
-
-
 Upload:
   //В ответ отправляет контрольные суммы:
   //- общее количество команд принятых
@@ -376,15 +396,13 @@ Upload:
   //- сумма всех длин отрезков по модулю 1000
   //- сумма всего времени обжига по модулю 1000
   //![CHKSUM;130;465;934;123]!
+  upload;11_1400_1100_1600_1100;11_1400_1200_1600_1200;11_1400_1100_1600_1100;11_1400_1200_1600_1200;end;execute;
 
-
-goto;2100;2100;home;
-
-
-upload;11_1400_1100_1600_1100;11_1400_1200_1600_1200;11_1400_1100_1600_1100;11_1400_1200_1600_1200;end;execute;
-
-
-goto;1000;1000;goto;1200;1200;
+### Firmware > Protocol description > Execute
+Second stage of engraving: execute commangs that was sent by `upload` command.\
+While engraving is in progress, engraver is senging `progress` and `pos` answers.
+When execution finished, engraver sends `complete` answer and wait for next upload.
+execute;     									![ENGRAVING]!   ...   ![PROGRESS;30]!  ...  ![POS;868;500]!  ...  ![COMPLETE;1]!
 
  
 
