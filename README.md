@@ -3,7 +3,7 @@
 <p align="center"><img src="Photos/2022-03-11 Promo for repository Laser Engraver.png" width="600"/></p>
 PC-software and Arduino-firmware can work together to run laser engraver for englave 2D raster images.
 
-## List of features
+## Overview > List of features
 - Easy to use software.
 - Support JPG, PNG, GIF, BMP image formats.
 - Stable USB connection, error-correction algorythm.
@@ -15,7 +15,7 @@ PC-software and Arduino-firmware can work together to run laser engraver for eng
 - Realtime laser position indicator.
 - Easy material testing.
 
-## Photos of device
+## Overview > Photos of device
 <p align="center">
 <img src="Photos/DSC_7819.jpg" height="300"/>
 </p>
@@ -28,7 +28,7 @@ PC-software and Arduino-firmware can work together to run laser engraver for eng
 <img src="Photos/photo_2021-12-11_14-15-36 (3).jpg" height="100"/>
 </p>
 
-## Examples of engraving
+## Overview > Examples of engraving
 <p align="center">
 <img src="Photos/20211207_002439.jpg" height="300"/>
 </p>
@@ -45,11 +45,11 @@ PC-software and Arduino-firmware can work together to run laser engraver for eng
 <img src="Photos/IMG_20210217_160130.jpg" height="100"/>
 </p>
 
-## Video demo of usage on YouTube
+## Overview > Video demo of usage on YouTube
 [<p align="center"><img alt="FP LaserEngraver V3 Overview" width="350px" src="Photos/Screenshot 2022-03-13 220049.jpg" /> </p>](https://youtu.be/yXsoJGkvpNk) 
 <p align="center">https://youtu.be/yXsoJGkvpNk </p>
 
-## This repository contains
+## Overview > This repository contains
 - C# software to control engraver
 - Arduino firmware to control engraver
 - Schematics how to connect modules to arduino to make firmware work
@@ -67,18 +67,18 @@ PC-software and Arduino-firmware can work together to run laser engraver for eng
 <img src="Photos/image_2021-12-11_13-56-57.png" height="70"/>
 </p>
 
-## How to run
+## PC Software > How to run
 If you don't want to build or edit sources of PC software, you can just run it with following steps:
 - Check if you have installed .NET Framework 3.5
 - Open application from: `PC Software\LaserDrawerApp v.3\LaserDrawerApp\bin\Release\LaserDrawerApp.exe` 
 
-## How to build
+## PC Software > How to build
 To build software, you need such environment:
 - Use Microsoft Windows
 - Visual Studio 2019 installed
 - C# Windows Forms installed
 
-## Typical usage
+## PC Software > Typical usage
 Usage demo: https://youtu.be/yXsoJGkvpNk
 - Before usage engraver already assembled, drivers installed, firmware flashed and configured.
 - Connect USB cable from arduino. 
@@ -101,7 +101,7 @@ It will burn short line (about 5mm) with selected settings and you can check if 
 Don't look at working laser while engraving, use safety glasses!
 If something goes wrong, press stop button. Engraver will stop executing commands and move head to 0. If needed, disconnect motors and laser from power.
 
-## Menu overview
+## PC Software > Menu overview
 ### Engraver - Full self-test
 Move laser head to maxumim and minimum position or table. 
 As a result, system is measuring number of steps needed to trigger endstop from maximum position.
@@ -194,15 +194,15 @@ Left panel shows progress of engraving.
 
 # Hardware
 
-## Used components
-### Arduino Nano
+## Hardware > Used components
+### Hardware > Used components > Arduino Nano
 Arduino Nano, main controller based on Atmega 328p.\
 Link: https://www.banggood.com/Geekcreit-ATmega328P-Nano-V3-Controller-Board-Improved-Version-Module-Development-Board-p-940937.html
 <p align="center">
 <img src="Photos/unnamed.png" height="120"/>
 </p>
 
-### CNC Shield V4 Expansion Board With Nano
+### Hardware > Used components > CNC Shield V4 Expansion Board With Nano
 board allows connect Arduino and motor drivers: CNC Shield V4 Expansion Board With Nano \
 Link: https://www.banggood.com/CNC-Shield-V4-Expansion-Board-With-Nano-and-3Pcs-Red-A4988-For-3D-Printer-p-1343033.html
 <p align="center">
@@ -210,7 +210,7 @@ Link: https://www.banggood.com/CNC-Shield-V4-Expansion-Board-With-Nano-and-3Pcs-
 <img src="Photos/IMG_20181010_213621.jpg" height="200"/>
 </p>
 
-### Laser
+### Hardware > Used components > Laser
 12V 20W 450nm Laser module\
 Link: https://aliexpress.ru/item/1005003148619218.html
 <p align="center">
@@ -218,25 +218,25 @@ Link: https://aliexpress.ru/item/1005003148619218.html
 <img src="Photos/1Screenshot 2021-12-12 152449.png" height="200"/>
 </p>
 
-### Motor drivers
+### Hardware > Used components > Motor drivers
 - Motor drivers TMC2208, silent.\
 Link: https://aliexpress.ru/item/4000869320068.html
 <p align="center">
 <img src="Photos/HTB1M3Qvi8DH8KJjSspnq6zNAVXaz.jpg" height="200"/>
 </p>
 
-### CNC Set
+### Hardware > Used components > CNC Set
 CNC DIY Set with 2040 aluminium profiles\
 Link: https://aliexpress.ru/item/1005002058668194.html
 
-### Endstops
+### Hardware > Used components > Endstops
 MakerBot Endstops\
 Link: https://aliexpress.ru/item/4000602312490.html
 <p align="center">
 <img src="Photos/Mechanical-Endstop-2-500x500.jpg" height="200"/>
 </p>
 
-### Stepper motors
+### Hardware > Used components > Stepper motors
 NEMA17 Stepper motors\
 Link: https://aliexpress.ru/item/32665922113.html
 <p align="center">
@@ -244,7 +244,7 @@ Link: https://aliexpress.ru/item/32665922113.html
 </p>
 
 
-## Schematic
+## Hardware > Schematic
 <p align="center">
   <img src="Photos/Схема включения.png" width="400"/>
 </p>
@@ -287,14 +287,14 @@ When LOW, endstop is released.
 
 
 
-## Troubleshooting
-### Image deformated
+## Hardware > Troubleshooting
+### Hardware > Troubleshooting > Image deformated
 Check if all axises of your CNC is aligned and moves easily.
 
-### No device connected or Unrecognized device on PC when USB connected
+### Hardware > Troubleshooting > No device connected or Unrecognized device on PC when USB connected
 Check or replace your Arduino and USB cable.
 
-### No response from board when trying to flash firmware.
+### Hardware > Troubleshooting > No response from board when trying to flash firmware.
 Check if your arduino is alive, replace Arduino and check if you selected correct bootloader for your Arduino.
 
 
@@ -407,11 +407,11 @@ Answer from Engraver to PC:\
 `![OK]!`
 
 ### Firmware > Protocol description > Laser ON
-Enable laser (DANGEROUS!)
+Enable laser (DANGEROUS!)\
 Send from PC to Engraver:\
 `laseron;`\
 Answer from Engraver to PC:\
-`![OK]!`
+`![OK]!`\
 To disable laser, send from PC to Engraver stop command:\
 `stop;`\
 Answer (from Engraver to PC) for stop command is:\
@@ -430,7 +430,7 @@ Manually move head to selected coordinates\
 Send from PC to Engraver:\
 `goto;5;5;`\
 Answer from Engraver to PC:\
-`![OK]!`
+`![OK]!`\
 `![POS;868;500]!`
 
 ### Firmware > Protocol description > Upload
@@ -438,13 +438,13 @@ First stage of engraving: send commands to engraver and check if delivered norma
 Maximum number of commands for one upload: 130 (can be configured in `Config.h`.\
 Send from PC to Engraver:\
 `upload;5_20_600_50_600;end;`\
-Upload;command1;command2;...;end;\
+Description: Upload;command1;command2;...;end;\
 Command: burnTime_x1_y1_x2_y2 (Y2 is ignored)\
 Answer from Engraver to PC:\
 `![CHKSUM;130;465;934;123]!`\
-![chksum;number_of_commads;Ys_sum_mod1000;lengths_sum_mod1000;times_sum_mod1000]!\
+Description: ![chksum;number_of_commads;Ys_sum_mod1000;lengths_sum_mod1000;times_sum_mod1000]!\
 Examples:\
-`upload;11_1400_1100_1600_1100;11_1400_1200_1600_1200;11_1400_1100_1600_1100;11_1400_1200_1600_1200;end;execute;`\
+`upload;11_1400_1100_1600_1100;11_1400_1100_1600_1100;11_1400_1200_1600_1200;end;execute;`\
 `![CHKSUM;130;465;934;123]!`
 
 ### Firmware > Protocol description > Execute
@@ -452,7 +452,7 @@ Second stage of engraving: execute commangs that was sent by `upload` command.\
 While engraving is in progress, engraver is senging `progress` and `pos` answers.
 When execution finished, engraver sends `complete` answer and wait for next upload.
 Send from PC to Engraver:\
-`execute;`
+`execute;`\
 Answer from Engraver to PC:\
 `![ENGRAVING]!   ...   ![PROGRESS;30]!  ...  ![POS;868;500]!  ...  ![COMPLETE;1]!`
 
