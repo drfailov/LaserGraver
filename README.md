@@ -315,14 +315,14 @@ Engraver answers starts with `!`, separated by `\n`. Engraver arguments separate
 Send from PC to Engraver to pause any process: \
 `pause;`.\
 Send from PC to Engraver to resume paused process:\
-`continue;\n`
+`continue;`
 
 ### Firmware > Protocol description > Status
 Command needed to check if engraver ready.\
 Send from PC to Engraver:\
 `status;`\
 Answer from Engraver to PC:\
-`![STATUSOK]!\n`
+`![STATUSOK]!`
 
 ### Firmware > Protocol description > Self-test
 Run full-range mechanical self-test.
@@ -330,8 +330,8 @@ Laser head will move from home point to max point and back.\
 Send from PC to Engraver:\
 `selftest;`\
 Answer from Engraver to PC:\
-`![TEST;PASS;PASS]!\n`\
-`![TEST;PASS;FAIL]!\n`\
+`![TEST;PASS;PASS]!`\
+`![TEST;PASS;FAIL]!`\
 "TEST", "PASS"/"FAIL" result for X axis, "PASS"/"FAIL" result for Y axis.
 
 ### Firmware > Protocol description > Quick Self-test
@@ -340,8 +340,8 @@ Laser head will move from home point to some point and back.\
 Send from PC to Engraver:\
 `selftestquick;`\
 Answer from Engraver to PC:\
-`![TEST;PASS;PASS]!\n`\
-`![TEST;PASS;FAIL]!\n`\
+`![TEST;PASS;PASS]!`\
+`![TEST;PASS;FAIL]!`\
 "TEST", "PASS"/"FAIL" result for X axis, "PASS"/"FAIL" result for Y axis.
 
 ### Firmware > Protocol description > Home
@@ -349,7 +349,7 @@ Initialize engraver to starting point.
 Send from PC to Engraver:\
 `home;`\
 Answer from Engraver to PC:\
-`![OK]!\n`
+`![OK]!`
 
 ### Firmware > Protocol description > Version
 Get information about firmware version.
@@ -364,14 +364,14 @@ Answer contains width and height. This data is used to select project size.\
 Send from PC to Engraver:\
 `size;`\
 Answer from Engraver to PC:\
-`![SIZE;2100;2100]!\n`
+`![SIZE;2100;2100]!`
 
 ### Firmware > Protocol description > LEDOFF, LEDON
 Enable or disable engraver backlight.\
 Send from PC to Engraver:\
 `ledoff;` or `ledon;`\
 Answer from Engraver to PC:\
-`![OK]!\n`
+`![OK]!`
 
 
 ### Firmware > Protocol description > Manually moving laser head
@@ -390,32 +390,32 @@ While head is moving, engraver keep sending its actual position:\
 To stop moving head, send from PC to Engraver stop command:\
 `stop;`\
 Answer (from Engraver to PC) for stop command is:\
-`![OK]!\n`
+`![OK]!`
 
 ### Firmware > Protocol description > Get position
 To get current actual position of laser head.
 Send from PC to Engraver:\
 `pos;`\
 Answer from Engraver to PC:\
-`![POS;868;500]!\n`
+`![POS;868;500]!`
 
 ### Firmware > Protocol description > Disable motors
 Disconnect motors from power.
 Send from PC to Engraver:\
 `release;`\
 Answer from Engraver to PC:\
-`![OK]!\n`
+`![OK]!`
 
 ### Firmware > Protocol description > Laser ON
 Enable laser (DANGEROUS!)
 Send from PC to Engraver:\
 `laseron;`\
 Answer from Engraver to PC:\
-`![OK]!\n`
+`![OK]!`
 To disable laser, send from PC to Engraver stop command:\
 `stop;`\
 Answer (from Engraver to PC) for stop command is:\
-`![OK]!\n`
+`![OK]!`
 
 
 ### Firmware > Protocol description > Burn test
@@ -430,10 +430,8 @@ Manually move head to selected coordinates\
 Send from PC to Engraver:\
 `goto;5;5;`\
 Answer from Engraver to PC:\
-`![OK]!\n`
-										![OK]!
-
-answer is `pos` command
+`![OK]!`
+`![POS;868;500]!`
 
 ### Firmware > Protocol description > Upload
 First stage of engraving: send commands to engraver and check if delivered normally.
@@ -441,24 +439,26 @@ Maximum number of commands for one upload: 130 (can be configured in `Config.h`.
 Send from PC to Engraver:\
 `upload;5_20_600_50_600;end;`\
 Upload;command1;command2;...;end;\
-Command: burnTime_x1_y1_x2_y2\
-Y2 is ignored.\
+Command: burnTime_x1_y1_x2_y2 (Y2 is ignored)\
 Answer from Engraver to PC:\
 `![CHKSUM;130;465;934;123]!`\
-![chksum;number_of_commads;Ys_sum_mod1000;lengths_sum_mod1000;times_sum_mod1000]!
-Examples:  
-`upload;11_1400_1100_1600_1100;11_1400_1200_1600_1200;11_1400_1100_1600_1100;11_1400_1200_1600_1200;end;execute;`
+![chksum;number_of_commads;Ys_sum_mod1000;lengths_sum_mod1000;times_sum_mod1000]!\
+Examples:\
+`upload;11_1400_1100_1600_1100;11_1400_1200_1600_1200;11_1400_1100_1600_1100;11_1400_1200_1600_1200;end;execute;`\
 `![CHKSUM;130;465;934;123]!`
 
 ### Firmware > Protocol description > Execute
 Second stage of engraving: execute commangs that was sent by `upload` command.\
 While engraving is in progress, engraver is senging `progress` and `pos` answers.
 When execution finished, engraver sends `complete` answer and wait for next upload.
-execute;     									![ENGRAVING]!   ...   ![PROGRESS;30]!  ...  ![POS;868;500]!  ...  ![COMPLETE;1]!
+Send from PC to Engraver:\
+`execute;`
+Answer from Engraver to PC:\
+`![ENGRAVING]!   ...   ![PROGRESS;30]!  ...  ![POS;868;500]!  ...  ![COMPLETE;1]!`
 
 
-### Examlpes of scripts:
-`goto;2100;2100;home;`
+### Examlpes of scripts
+`goto;2100;2100;home;`\
 `goto;1000;1000;goto;1200;1200;`
 
   
