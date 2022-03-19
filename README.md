@@ -329,6 +329,30 @@ How much <b>steps</b> go forward after endstop is triggered.\
 Value has to be small, but enough to unclick endstop.
 - `Config.h` > `int X_SIZE`: Defines width of working table in <b>pixels</b>.
 - `Config.h` > `int Y_SIZE`: Defines height of working table in <b>pixels</b>.
+- `Config.h` > `long speed`: Max speed of laser head movement.
+Unit is steps per second.\
+More is quicker, less is slower.\
+Value 10000 is acceptable to NEMA17 motor and 1\32 microstep.
+- `Config.h` > `float startAccel`: Acceleration of motor.\
+The greater number - the quicker the acceleration.
+There is no measurement unit and maximum value for this number.\
+0 is no acceleration (all movement on minimal speed).\
+0.05 is optimal value for my engraver (NEMA17 motor and 1\32 microstep).
+- `Config.h` > `float stopAccel`: Speed of breaking. 
+Works differently from startAccel, optimal ranges also different.\
+There is no measurement unit and maximum value for this number.\
+The greater stopAccel - the quicker braking.\
+0 is moving laser head on minimum speed all the time.\
+0.5 is optimal value for my engraver (NEMA17 motor and 1\32 microstep).
+- `Config.h` > `const int MAX_INSTRUCTIONS_COUNT`: Number of instructions stored in RAM memory of Arduino.
+This number is used only for `upload` command.
+This number have to be the same in PC Software.\
+One instruction tooks 10 bytes of memory.\
+In my case I used 130 instrictions.
+- `Config.h` > `const int POS_UPDATE_FREQUENCY_MS`: Defines time (in ms) between sending position data to PC Software.\
+Very frequent updating leads to channel overloading and unstable motors movement.\
+In my case optimal value is 100ms.
+
 
 
 ## Firmware > Protocol description
