@@ -348,10 +348,21 @@ The greater stopAccel - the quicker braking.\
 This number is used only for `upload` command.
 This number have to be the same in PC Software.\
 One instruction tooks 10 bytes of memory.\
-In my case I used 130 instrictions.
+In my case I used 130 instructions.
 - `Config.h` > `const int POS_UPDATE_FREQUENCY_MS`: Defines time (in ms) between sending position data to PC Software.\
 Very frequent updating leads to channel overloading and unstable motors movement.\
 In my case optimal value is 100ms.
+- `Config.h` pin definitions:\
+`int X_DIR_PIN` - Where direction pin from X motor driver is connected.\
+`int X_STP_PIN` - Where step pin from X motor driver is connected.\
+`int X_END_APIN` - Number of analog pin where X endstop is connected. (A0=0, A1=1, A2=2...)\
+`int X_EN_PIN` -  Where enable pin from X motor driver is connected.\
+`int Y_DIR_PIN` - Where direction pin from Y motor driver is connected.\
+`int Y_STP_PIN` - Where step pin from Y motor driver is connected.\
+`int Y_END_APIN` - Number of analog pin where Y endstop is connected. (A0=0, A1=1, A2=2...)\
+`int Y_EN_PIN` - Where enable pin from Y motor driver is connected.\
+`int LED_PIN` - Where connected switch for engraver backlight.\
+`int LASER_PIN` - Signal pin for laser.
 
 
 
