@@ -363,12 +363,15 @@ In my case optimal value is 100ms.
 `int Y_EN_PIN` - Where enable pin from Y motor driver is connected.\
 `int LED_PIN` - Where connected switch for engraver backlight.\
 `int LASER_PIN` - Signal pin for laser.
+- `Global.h` - `Line lineX` - `Invert direction` X motor direction inversion.
+- `Global.h` - `Line lineY` - `Invert direction` Y motor direction inversion.
 
 
 
 ## Firmware > Protocol description
 Commands separated by `;`. Command arguments separated by `;`.
 Engraver answers starts with `!`, separated by `\n`. Engraver arguments separated by `;`.
+Baud is 115200.
 
 ### Firmware > Protocol description > Pause
 Send from PC to Engraver to pause any process: \
