@@ -301,11 +301,35 @@ Check if your arduino is alive, replace Arduino and check if you selected correc
 
 # Firmware
 ## Firmware > How to build and flash
-Язык: C++, Arduino IDE \
-Дополнительных библиотек не требуется. \
-Основные параметры настройки вынесены в `Config.h`, но многие константы прописаны в коде. \
-Последний раз успешно собиралась в среде Arduino 1.8.16.
+- Install Arduino IDE.
+I used Arduino 1.8.16.
+Link: https://www.arduino.cc/en/software ;
+- Because Arduino IDE don't have drivers for CH340, you need to install drivers manually.
+You can find drivers enywhere over Internet.
+I found here: https://drive.google.com/file/d/1BqUo6f5WEd1vqdxt1UWzDh4OgjdQ7Mx1/view ;
+- Additional libraries not needed.
+- Open project and try to build it. If all steps done correctly, project will build successfully.
+After successful build you can start configuring firmware by changing values in `Config.h`.
+When make first configurations, be ready to disconnect power immediately 
+in case of unexpeted behaviour.
+
+
 ## Firmware > Configuration
+After successful build you can start configuring firmware by changing values in `Config.h`.\
+Here are list of available configurations:
+- `Line.h` > `long MOTOR_DIVIDER`: Defines how much physical motor <b>steps</b> is counted as 1 <b>pixel</b>.
+Using this value you can adjust physical resolution of engraved image.\
+For example:\
+If divider for my engraver is 1 (1 pixel equals 1 step), resolution of my table is <b>36400px X 33600px</b>.
+This is too much, so I adjusted resolution by dividing it by 7:\
+If divider for my engraver is 7 (1 pixel equels 7 steps), resolution of my table is <b>4800px X 5200px</b>, giving me resolution of <b>583 DPI</b>.\
+Value `7` is optimal if you are using NEMA7 motors with 1/32 microstep.
+- `Line.h` > `int precise_homing_steps`: Used only when laser head is going home. 
+How much <b>steps</b> go forward after endstop is triggered.\
+Value has to be small, but enough to unclick endstop.
+- `Config.h` > `int X_SIZE`: Defines width of working table in <b>pixels</b>.
+- `Config.h` > `int Y_SIZE`: Defines height of working table in <b>pixels</b>.
+
 
 ## Firmware > Protocol description
 Commands separated by `;`. Command arguments separated by `;`.
@@ -423,7 +447,7 @@ Burn short line with selected burn time for pixel.
 Send from PC to Engraver:\
 `burntest;5;`\
 Answer from Engraver to PC:\
-`![OK]!\n`
+`![OK]!`
 
 ### Firmware > Protocol description > Go to coordinates
 Manually move head to selected coordinates\
