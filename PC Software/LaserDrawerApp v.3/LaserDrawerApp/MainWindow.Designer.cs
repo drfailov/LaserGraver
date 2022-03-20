@@ -377,7 +377,7 @@
             this.toolStripButtonNewProject.Name = "toolStripButtonNewProject";
             this.toolStripButtonNewProject.Padding = new System.Windows.Forms.Padding(5);
             this.toolStripButtonNewProject.Size = new System.Drawing.Size(34, 34);
-            this.toolStripButtonNewProject.Text = "Создать проект";
+            this.toolStripButtonNewProject.Text = "Create project";
             this.toolStripButtonNewProject.Click += new System.EventHandler(this.toolStripButtonNewProject_Click);
             // 
             // toolStripButtonOpen
@@ -388,7 +388,7 @@
             this.toolStripButtonOpen.Name = "toolStripButtonOpen";
             this.toolStripButtonOpen.Padding = new System.Windows.Forms.Padding(5);
             this.toolStripButtonOpen.Size = new System.Drawing.Size(34, 34);
-            this.toolStripButtonOpen.Text = "Загрузить маршруты из файла";
+            this.toolStripButtonOpen.Text = "Load instructions from file";
             this.toolStripButtonOpen.Click += new System.EventHandler(this.toolStripButtonOpen_Click);
             // 
             // toolStripButtonSave
@@ -400,7 +400,7 @@
             this.toolStripButtonSave.Name = "toolStripButtonSave";
             this.toolStripButtonSave.Padding = new System.Windows.Forms.Padding(5);
             this.toolStripButtonSave.Size = new System.Drawing.Size(34, 34);
-            this.toolStripButtonSave.Text = "Сохранить маршруты";
+            this.toolStripButtonSave.Text = "Save instructions";
             this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
             // 
             // toolStripSeparator1
@@ -425,7 +425,7 @@
             this.toolStripButtonRefreshComList.Name = "toolStripButtonRefreshComList";
             this.toolStripButtonRefreshComList.Padding = new System.Windows.Forms.Padding(5);
             this.toolStripButtonRefreshComList.Size = new System.Drawing.Size(34, 34);
-            this.toolStripButtonRefreshComList.Text = "Обновить список портов";
+            this.toolStripButtonRefreshComList.Text = "Update port list";
             this.toolStripButtonRefreshComList.Click += new System.EventHandler(this.toolStripButtonRefreshComList_Click);
             // 
             // toolStripComboBoxComList
@@ -1142,7 +1142,7 @@
             this.toolStripButtonImage.Name = "toolStripButtonImage";
             this.toolStripButtonImage.Padding = new System.Windows.Forms.Padding(5);
             this.toolStripButtonImage.Size = new System.Drawing.Size(34, 34);
-            this.toolStripButtonImage.Text = "Добавить картинку";
+            this.toolStripButtonImage.Text = "Add image";
             this.toolStripButtonImage.Click += new System.EventHandler(this.toolStripButtonImage_Click);
             // 
             // toolStripButtonText
@@ -1154,7 +1154,7 @@
             this.toolStripButtonText.Name = "toolStripButtonText";
             this.toolStripButtonText.Padding = new System.Windows.Forms.Padding(5);
             this.toolStripButtonText.Size = new System.Drawing.Size(34, 34);
-            this.toolStripButtonText.Text = "Добавить текст";
+            this.toolStripButtonText.Text = "Add text";
             this.toolStripButtonText.Click += new System.EventHandler(this.toolStripButtonText_Click);
             // 
             // toolStripButtonPlaceholder
@@ -1166,7 +1166,7 @@
             this.toolStripButtonPlaceholder.Name = "toolStripButtonPlaceholder";
             this.toolStripButtonPlaceholder.Padding = new System.Windows.Forms.Padding(5);
             this.toolStripButtonPlaceholder.Size = new System.Drawing.Size(34, 34);
-            this.toolStripButtonPlaceholder.Text = "Добавить направляющую";
+            this.toolStripButtonPlaceholder.Text = "Add frame (for positioning)";
             this.toolStripButtonPlaceholder.Click += new System.EventHandler(this.toolStripButtonPlaceholder_Click);
             // 
             // toolStripSeparator2
@@ -1263,7 +1263,7 @@
             this.toolStripButtonZoomIn.Name = "toolStripButtonZoomIn";
             this.toolStripButtonZoomIn.Padding = new System.Windows.Forms.Padding(5);
             this.toolStripButtonZoomIn.Size = new System.Drawing.Size(34, 34);
-            this.toolStripButtonZoomIn.Text = "Увеличить";
+            this.toolStripButtonZoomIn.Text = "Zoom in";
             this.toolStripButtonZoomIn.Click += new System.EventHandler(this.toolStripButtonZoomIn_Click);
             // 
             // toolStripButtonZoomOut
@@ -1275,7 +1275,7 @@
             this.toolStripButtonZoomOut.Name = "toolStripButtonZoomOut";
             this.toolStripButtonZoomOut.Padding = new System.Windows.Forms.Padding(5);
             this.toolStripButtonZoomOut.Size = new System.Drawing.Size(34, 34);
-            this.toolStripButtonZoomOut.Text = "Уменьшить";
+            this.toolStripButtonZoomOut.Text = "Zoom out";
             this.toolStripButtonZoomOut.Click += new System.EventHandler(this.toolStripButtonZoomOut_Click);
             // 
             // toolStripButtonZoomFit
@@ -1287,7 +1287,7 @@
             this.toolStripButtonZoomFit.Name = "toolStripButtonZoomFit";
             this.toolStripButtonZoomFit.Padding = new System.Windows.Forms.Padding(5);
             this.toolStripButtonZoomFit.Size = new System.Drawing.Size(34, 34);
-            this.toolStripButtonZoomFit.Text = "Вписать в окно";
+            this.toolStripButtonZoomFit.Text = "Zoom fit";
             this.toolStripButtonZoomFit.Click += new System.EventHandler(this.toolStripButtonZoomFit_Click);
             // 
             // tabControl1

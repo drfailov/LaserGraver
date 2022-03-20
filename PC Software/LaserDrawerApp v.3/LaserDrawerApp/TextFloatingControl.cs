@@ -12,8 +12,8 @@ namespace LaserDrawerApp
         public TextFloatingControl(string i)
         {
             text = i;
-            contextMenuStrip.Items.Add("Изменить текст").MouseDown += selectText;
-            contextMenuStrip.Items.Add("Выбрать шрифт").MouseDown += selectFont;
+            contextMenuStrip.Items.Add("Edit text").MouseDown += selectText;
+            contextMenuStrip.Items.Add("Select font").MouseDown += selectFont;
         }
         private void selectFont(object sender, MouseEventArgs e)
         {

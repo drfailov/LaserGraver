@@ -14,10 +14,10 @@ namespace LaserDrawerApp
             InitializeComponent();
             if (maxX != -1 && maxY != -1)
             {
-                label1.Text = "Максимальный размер поля гравировщика: " + maxX + " x " + maxY + ". " +
-                    "Можно создать проект любого размера который меньше рабочего поля. " +
-                    "Поле меньшего размера будет быстрее обрабатываться перед гравировкой." +
-                    "Проект будет гравироваться начиная с нуля координат.";
+                label1.Text = "The maximum size of the engraver's field: " + maxX + " x " + maxY + ". " +
+                    "You can create a project of any size that is smaller than the working area. " +
+                    "A smaller field will be processed faster before engraving." +
+                    "The project will be engraved starting from zero coordinates.";
                 numericUpDownWidth.Maximum = maxX;
                 numericUpDownHeight.Maximum = maxY;
                 numericUpDownWidth.Value = maxX;

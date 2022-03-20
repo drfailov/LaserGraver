@@ -425,7 +425,7 @@ namespace LaserDrawerApp
                 if (y % 14 == 0)
                 {
                     int percent = 100 * y / bitmap.Height;
-                    status("Рендеринг инструкций (" + percent + "%)...");
+                    status("Rendering instructions (" + percent + "%)...");
                     showHorizontalLineMark(y);
                 }
             }
@@ -451,7 +451,7 @@ namespace LaserDrawerApp
                 {
                     if (i % 240 == 0 || debug)
                     {
-                        status("Реконструкция инструкций, обработка инструкции " + i + " из " + burnMarks.Count + "...");
+                        status("Drawing preview, processing instruction: " + i + " of " + burnMarks.Count + "...");
                         if (debug)
                             updateRendered(bitmap);
                     }
@@ -481,18 +481,18 @@ namespace LaserDrawerApp
                     int result = int.Parse(toolStripTextBoxBurnTimeMs.Text);
                     if (result <= 0)
                     {
-                        messageBox("Время обжига введено неверно. Чисто не должно быть меньше 1 мс.");
+                        messageBox("Burning time entered incorrectly. The number must not be less than 1 ms.");
                         return;
                     }
                     if (result > 5000)
                     {
-                        messageBox("Время обжига введено неверно. Чисто не должно быть больше 5000 мс (5 секунд).");
+                        messageBox("Burning time entered incorrectly. The number must not be greater than 5000ms (5 seconds).");
                         return;
                     }
                 }
                 catch (Exception)
                 {
-                    messageBox("Время обжига введено неверно. Поле должно содержать только цифры.");
+                    messageBox("Burning time entered incorrectly. The field must contain only numbers.");
                     return;
                 }
                 //проверка правильно ли введено количество циклов обжига
@@ -501,23 +501,23 @@ namespace LaserDrawerApp
                     engravingNumberOfTimes = int.Parse(toolStripComboBoxEngraveTimes.Text);
                     if (engravingNumberOfTimes <= 0)
                     {
-                        messageBox("Количество циклов прожига введено неверно. Чисто не должно быть меньше 1 раза.");
+                        messageBox("The number of burn cycles entered is incorrect. The number must not be less than 1.");
                         return;
                     }
                     if (engravingNumberOfTimes > 100)
                     {
-                        messageBox("Количество циклов прожига введено неверно. Чисто не должно быть больше 100 раз.");
+                        messageBox("The number of burn cycles entered is incorrect. The number must not be more than 100 times.");
                         return;
                     }
                 }
                 catch (Exception)
                 {
-                    messageBox("Количество циклов прожига введено неверно. Поле должно содержать только цифры.");
+                    messageBox("The number of burn cycles entered is incorrect. The field must contain only numbers.");
                     return;
                 }
 
                 generateInitialImage();
-                status("Изображение сгенерировано, размер изображения " + renderedImage.Width + "px X " + renderedImage.Height + "px.");
+                status("Image generated, image size: " + renderedImage.Width + "px X " + renderedImage.Height + "px.");
                 progress(10);
                 showRendered(renderedImage);
 
@@ -537,7 +537,7 @@ namespace LaserDrawerApp
             try
             {
                 renderedImage = generateGrayscaleImageQuick(renderedImage);
-                status("Изображение обесцвечено, размер изображения " + renderedImage.Width + "px X " + renderedImage.Height + "px.");
+                status("Image grayscaled, image size: " + renderedImage.Width + "px X " + renderedImage.Height + "px.");
                 progress(20);
                 showRendered(renderedImage);
                 if (Thread.CurrentThread != renderThread) return;
@@ -545,14 +545,14 @@ namespace LaserDrawerApp
                 if (!использоватьПолутонаToolStripMenuItem.Checked)
                 {
                     renderedImage = generateBWImageQuick(renderedImage);
-                    status("Изображение теперь монохромное, размер изображения " + renderedImage.Width + "px X " + renderedImage.Height + "px.");
+                    status("Image now monochrome, image size: " + renderedImage.Width + "px X " + renderedImage.Height + "px.");
                     progress(40);
                     showRendered(renderedImage);
                     if (Thread.CurrentThread != renderThread) return;
                 }
 
                 burnMarks = generatePaths(renderedImage, int.Parse(toolStripTextBoxBurnTimeMs.Text));
-                status("План прожига сформирован, выделено " + burnMarks.Count + " инструкций.");
+                status("Engraving plan created. Total " + burnMarks.Count + " instructions.");
                 progress(60);
                 showRendered(renderedImage);
                 if (Thread.CurrentThread != renderThread) return;
@@ -570,13 +570,13 @@ namespace LaserDrawerApp
                 //на этом месте "количество проходов"
                 burnMarks = multiplyPaths(burnMarks, engravingNumberOfTimes);
 
-                status("План прожига оптимизирован, выделено " + burnMarks.Count + " инструкций.");
+                status("Engraving plan optimized. Total " + burnMarks.Count + " instructions.");
                 progress(90);
                 showRendered(renderedImage);
                 if (Thread.CurrentThread != renderThread) return;
 
                 drawPreview(renderedImage, burnMarks);
-                status("Реконструкция подготовлена, нарисовано " + burnMarks.Count + " инструкций.");
+                status("Engraving plan preview complete. Total " + burnMarks.Count + " instructions.");
                 showRendered(renderedImage);
                 hidePointMark();
             }
@@ -650,7 +650,7 @@ namespace LaserDrawerApp
                 {
                     int percent = 100 * old.Count / countInitial;
                     percent = 100 - percent;
-                    status("Оптимизация маршрута (" + percent + "%) ...");
+                    status("Trace optimizing (" + percent + "%) ...");
                 }
                 //найти самый ближний элемент к curX curY
                 BurnMark minMark = old[0];
@@ -836,7 +836,7 @@ namespace LaserDrawerApp
             }
             catch (Exception ex)
             {
-                status("Отключение: " + ex.Message);
+                status("Error: " + ex.Message);
             }
         }
 
