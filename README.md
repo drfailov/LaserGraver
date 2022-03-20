@@ -129,6 +129,9 @@ othervise image will deform if you enable this optimization;
 
 ### Render - Shortest way trace optimizer
 Aligns all instructions to minimize laser head movement. 
+Optimal for cutting (<i>but notice, begerally this software is not optimized for cutting at all</i>).
+Also breaks every instruction into 3px length. 
+It needed to get better results in case if engraver is used for cutting.
 Your engraver has to be assembled very precisely, 
 othervise image will deform if you enable this optimization;
 
@@ -177,6 +180,11 @@ firstly motors will be initialized to home point.
 ### Material test
 It will burn <b>50px</b> (usually about 5mm length) line with selected burn time.
 It can help you detect optimal burning time for your material.
+The longer the burn time, the more contrast the resulting image will be. For each material, this value can vary greatly.
+To find out what burn time is suitable for a particular material, find a small fragment on the material on which you can test by drawing a few lines.\
+Pressing the "Burn Line" button will start drawing a line with the specified settings a few centimeters to the right of the current laser position.\
+- If the line is invisible, you can try more time.\
+- If the line burns through the material, use less time.
 
 ### Project tab
 Here you can arrange objects in project.

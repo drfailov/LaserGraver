@@ -69,13 +69,13 @@ namespace LaserDrawerApp
 
         private void buttonLaserTestHelp_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Чем больше время прожига, тем контрастнее будет картинка в результате, и для каждого материала это значение может отличаться очень сильно." +
-                "\nЧтобы узнать какое время прожига точки подходит для определённого материала, найдите на материале небольшой фрагмент на котором можно провести испытание нарисовав несколько линий. " +
+            MessageBox.Show("The longer the burn time, the more contrast the resulting image will be. For each material, this value can vary greatly." +
+                "\nTo find out what burn time is suitable for a particular material, find a small fragment on the material on which you can test by drawing a few lines." +
                             "\n" +
-                            "\nНажатие на кнопку \"Прожечь линию\" запустит рисование линии с заданными настройками на несколько сантиметров вправо от текущего положения лазера." +
+                            "\nPressing the \"Burn Line\" button will start drawing a line with the specified settings a few centimeters to the right of the current laser position." +
                             "\n" +
-                            "\n- Если линия незаметна, можно попробовать время побольше." +
-                            "\n- Если линия прожигает материал, используйте время меньше.", "Справка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            "\n- If the line is invisible, you can try more time." +
+                            "\n- If the line burns through the material, use less time.", "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void toolStripButtonRefreshComList_Click(object sender, EventArgs e)
@@ -139,7 +139,7 @@ namespace LaserDrawerApp
 
         public void newProject(int width, int height)
         {
-            status("Инициализация изображения...");
+            status("Initializing image...");
             float maxCSize = Math.Min(panelContainer.Width, panelContainer.Height);
             float maxISize = Math.Max(width, height);
             float coef = maxCSize / maxISize;
@@ -151,7 +151,7 @@ namespace LaserDrawerApp
             centerScalablePanel.Size = new Size((int)(width * coef), (int)(width * coef));
             resolution.X = width;
             resolution.Y = height;
-            toolStripLabelSize.Text = "Размер проекта:  " + width + " пикс. x " + height + " пикс.";
+            toolStripLabelSize.Text = "Project size: " + width + " px. X " + height + " px.";
             toolStripButtonRender.Enabled = true;
             toolStripButtonZoomFit.Enabled = true;
             toolStripButtonZoomIn.Enabled = true;
@@ -167,8 +167,8 @@ namespace LaserDrawerApp
 
         private void pictureBoxMoveHelp_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Используйте перемещение лазера для точного позиционирования изображения при подготовке к гравировке." +
-                "\nПозиция лазера в реальном времени отображается на экране проекта.", "Справка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Use manual laser movement to precisely prepare image for engraving." +
+                "\nLaser head position is shown in real-time on project window.", "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void toolStripButtonImage_Click(object sender, EventArgs e)
@@ -248,7 +248,7 @@ namespace LaserDrawerApp
 
         private void generateInitialImage()
         {
-            status("Разрешение: " + resolution.X + "x" + resolution.Y);
+            status("Resolution: " + resolution.X + "x" + resolution.Y);
             renderedImage = centerScalablePanel.generateImage(resolution.X, resolution.Y);
         }
         private void showRendered(Bitmap bitmap)
@@ -282,31 +282,9 @@ namespace LaserDrawerApp
             Application.DoEvents();
         }
 
-        private void generateGrayscaleImage()
-        {
-            status("Генерирование обесцвеченного изображения...");
-            for (int y = 0; y < renderedImage.Height; y++)
-            {
-                for (int x = 0; x < renderedImage.Width; x++)
-                {
-                    Color color = renderedImage.GetPixel(x, y);
-                    int intensity = (int)((0.21f * color.R) + (0.72f * color.G) + (0.07f * color.B)); //0...255
-                    renderedImage.SetPixel(x, y, Color.FromArgb(255, intensity, intensity, intensity));
-                }
-                if (y % 50 == 0)
-                {
-                    updateRendered(renderedImage);
-                    float total = renderedImage.Height;
-                    float complete = y;
-                    int percent = (int)(100f * complete / total);
-                    status("Генерирование обесцвеченного изображения  (" + percent + "%)...");
-                }
-            }
-        }
-
         private Bitmap generateGrayscaleImageQuick(Bitmap bitmap)
         {
-            status("Генерирование обесцвеченного изображения...");
+            status("Generating grayscale image...");
 
             LockBitmap lockBitmap = new LockBitmap(bitmap);
             lockBitmap.LockBits();
@@ -325,7 +303,7 @@ namespace LaserDrawerApp
                     float total = lockBitmap.Height;
                     float complete = y;
                     int percent = (int)(100f * complete / total);
-                    status("Генерирование обесцвеченного изображения  (" + percent + "%)...");
+                    status("Generating grayscale image (" + percent + "%)...");
                 }
             }
             lockBitmap.UnlockBits();
@@ -335,7 +313,7 @@ namespace LaserDrawerApp
 
         private Bitmap generateBWImageQuick(Bitmap bitmap)
         {
-            status("Генерирование ЧБ изображения, поиск минимума и максимума...");
+            status("Generating monochrome image, find min and max...");
 
             LockBitmap lockBitmap = new LockBitmap(renderedImage);
             lockBitmap.LockBits();
@@ -357,10 +335,10 @@ namespace LaserDrawerApp
                     float total = lockBitmap.Height;
                     float complete = y;
                     int percent = (int)(100f * complete / total);
-                    status("Генерирование ЧБ изображения, поиск минимума и максимума  (" + percent + "%)...");
+                    status("Generating monochrome image, find min and max (" + percent + "%)...");
                 }
             }
-            status("Генерирование ЧБ изображения, бинаризация цветов...");
+            status("Generating monochrome image, color binarization...");
             long avg = (min + max) / 2;
             for (int y = 0; y < lockBitmap.Height; y++)
             {
@@ -379,151 +357,12 @@ namespace LaserDrawerApp
                     float total = lockBitmap.Height;
                     float complete = y;
                     int percent = (int)(100f * complete / total);
-                    status("Генерирование ЧБ изображения, бинаризация цветов  (" + percent + "%)...");
+                    status("Generating monochrome image, color binarization (" + percent + "%)...");
                 }
             }
             hideHorizontalLineMark();
             lockBitmap.UnlockBits();
             return bitmap;
-        }
-        private Rectangle fillFromQuick(Bitmap bitmap, Bitmap copy, Point startingPoint, Color color)
-        {
-            int minX = startingPoint.X;
-            int maxX = startingPoint.X;
-            int minY = startingPoint.Y;
-            int maxY = startingPoint.Y;
-            Rectangle imageRect = new Rectangle(Point.Empty, bitmap.Size);
-            QueuePoints points = new QueuePoints(Math.Max(bitmap.Width, bitmap.Height) * 2);
-            LockBitmap lockBitmap = new LockBitmap(bitmap);
-            lockBitmap.LockBits();
-            LockBitmap lockCopyBitmap = null;
-            if (copy != null && copy.Width >= bitmap.Width && copy.Height >= bitmap.Height)
-            {
-                lockCopyBitmap = new LockBitmap(copy);
-                lockCopyBitmap.LockBits();
-            }
-            Color initialColor = lockBitmap.GetPixel(startingPoint.X, startingPoint.Y);
-            points.Enqueue(startingPoint.X, startingPoint.Y);
-            long stepsCounter = 0;
-            while (points.Count() > 0)
-            {
-                stepsCounter++;
-                int X = points.DequeueX();
-                int Y = points.DequeueY();
-                lockBitmap.SetPixel(X, Y, color);
-                if (lockCopyBitmap != null)
-                    lockCopyBitmap.SetPixel(X, Y, color);
-                if (X < minX) minX = X;
-                if (Y < minY) minY = Y;
-                if (X > maxX) maxX = X;
-                if (Y > maxY) maxY = Y;
-
-                if (imageRect.Contains(X + 1, Y) && lockBitmap.GetPixel(X + 1, Y).Equals(initialColor) && !points.Contains(X + 1, Y))
-                    points.Enqueue(X + 1, Y);
-
-                if (imageRect.Contains(X - 1, Y) && lockBitmap.GetPixel(X - 1, Y).Equals(initialColor) && !points.Contains(X - 1, Y))
-                    points.Enqueue(X - 1, Y);
-
-                if (imageRect.Contains(X, Y + 1) && lockBitmap.GetPixel(X, Y + 1).Equals(initialColor) && !points.Contains(X, Y + 1))
-                    points.Enqueue(X, Y + 1);
-
-                if (imageRect.Contains(X, Y - 1) && lockBitmap.GetPixel(X, Y - 1).Equals(initialColor) && !points.Contains(X, Y - 1))
-                    points.Enqueue(X, Y - 1);
-
-                if (stepsCounter % 10000 == 0)
-                {
-                    showPointMark(X, Y);
-                    status("Заливка...  Пикселов в очереди: " + points.Count());
-                }
-            }
-            lockBitmap.UnlockBits();
-            if (lockCopyBitmap != null)
-                lockCopyBitmap.UnlockBits();
-            hidePointMark();
-            return new Rectangle(minX, minY, maxX - minX, maxY - minY);
-        }
-        private void generateClusters()
-        {
-            clusters.Clear();
-            status("Кластеризация изображения, копирование изображения...");
-            clusteringPreviewImage = new Bitmap(renderedImage);
-            status("Кластеризация изображения, покраска маски...");
-            clusteringMaskImage = new Bitmap(renderedImage.Width, renderedImage.Height);
-            using (Graphics gfx = Graphics.FromImage(clusteringMaskImage))
-            using (SolidBrush brush = new SolidBrush(Color.FromArgb(255, 255, 255)))
-                gfx.FillRectangle(brush, 0, 0, renderedImage.Width, renderedImage.Height);
-            showRendered(clusteringPreviewImage);
-
-            status("Кластеризация изображения, создание рамки...");
-            for (int y = 0; y < clusteringPreviewImage.Height; y++)
-            {
-                clusteringPreviewImage.SetPixel(0, y, Color.White);
-                clusteringPreviewImage.SetPixel(1, y, Color.White);
-                clusteringPreviewImage.SetPixel(clusteringPreviewImage.Width - 2, y, Color.White);
-                clusteringPreviewImage.SetPixel(clusteringPreviewImage.Width - 1, y, Color.White);
-            }
-            for (int x = 0; x < clusteringPreviewImage.Width; x++)
-            {
-                clusteringPreviewImage.SetPixel(x, 0, Color.White);
-                clusteringPreviewImage.SetPixel(x, 1, Color.White);
-                clusteringPreviewImage.SetPixel(x, clusteringPreviewImage.Height - 2, Color.White);
-                clusteringPreviewImage.SetPixel(x, clusteringPreviewImage.Height - 1, Color.White);
-            }
-            showRendered(clusteringPreviewImage);
-
-            status("Кластеризация изображения, заливка фона...");
-            fillFromQuick(clusteringPreviewImage, clusteringMaskImage, Point.Empty, Color.Black);
-            showRendered(clusteringMaskImage);
-
-            status("Кластеризация изображения, выделение кластеров...");
-            clusteringPreviewImage = new Bitmap(renderedImage);
-            for (int y = 0; y < clusteringMaskImage.Height; y++)
-            {
-                for (int x = 0; x < clusteringMaskImage.Width; x++)
-                {
-                    Color color = clusteringMaskImage.GetPixel(x, y);
-                    if (color.ToArgb().Equals(Color.White.ToArgb()))
-                    {
-                        using (Graphics g = Graphics.FromImage(clusteringPreviewImage))
-                            g.FillRectangle(new SolidBrush(Color.White), new Rectangle(0, 0, clusteringPreviewImage.Width, clusteringPreviewImage.Height));
-                        Rectangle rect = fillFromQuick(clusteringMaskImage, clusteringPreviewImage, new Point(x, y), Color.Black);
-                        showRendered(clusteringMaskImage);
-                        if (rect.Width > 5 && rect.Height > 5)
-                        {
-                            Bitmap mask = clusteringPreviewImage.Clone(rect, clusteringMaskImage.PixelFormat);
-                            Tuple<Rectangle, Bitmap> cluster = new Tuple<Rectangle, Bitmap>(rect, mask);
-                            clusters.Add(cluster);
-                        }
-                    }
-                }
-                if (y % 50 == 0)
-                {
-                    showHorizontalLineMark(y);
-                    float total = clusteringMaskImage.Height;
-                    float complete = y;
-                    int percent = (int)(100f * complete / total);
-                    status("Кластеризация изображения, выделение кластеров (" + percent + "%, выделено " + clusters.Count + " шт)...");
-                }
-            }
-            //в этом месте у нас есть массив кластеров, в котором есть квадраты с зонами и маски участка рисунка
-            //нарисовать реконструкцию
-            using (Graphics g = Graphics.FromImage(clusteringPreviewImage))
-            {
-                g.FillRectangle(new SolidBrush(Color.White), new Rectangle(0, 0, clusteringPreviewImage.Width, clusteringPreviewImage.Height));
-                for (int i = 0; i < clusters.Count; i++)
-                {
-                    Tuple<Rectangle, Bitmap> cluster = clusters[i];
-                    g.DrawImage(cluster.Item2, cluster.Item1);
-                }
-                for (int i = 0; i < clusters.Count; i++)
-                {
-                    Tuple<Rectangle, Bitmap> cluster = clusters[i];
-                    g.DrawRectangle(new Pen(Color.Blue, 3), cluster.Item1);
-                }
-            }
-
-            showRendered(clusteringPreviewImage);
-            hidePointMark();
         }
         private List<BurnMark> multiplyPaths(List<BurnMark> input, int times)
         {
@@ -589,17 +428,6 @@ namespace LaserDrawerApp
                     status("Рендеринг инструкций (" + percent + "%)...");
                     showHorizontalLineMark(y);
                 }
-            }
-            return burnMarks;
-        }
-        private List<BurnMark> movePaths(List<BurnMark> burnMarks, int plusX, int plusY)
-        {
-            for (int i = 0; i < burnMarks.Count; i++)
-            {
-                burnMarks[i].Xfrom += plusX;
-                burnMarks[i].Xto += plusX;
-                burnMarks[i].Yfrom += plusY;
-                burnMarks[i].Yto += plusY;
             }
             return burnMarks;
         }
@@ -918,7 +746,7 @@ namespace LaserDrawerApp
                 {
                     int percent = 100 * old.Count / countInitial;
                     percent = 100 - percent;
-                    status("Перемешивание маршрута (" + percent + "%) ...");
+                    status("Scrambling instructions (" + percent + "%) ...");
                 }
                 BurnMark minMark = old[random.Next(old.Count)];
                 old.Remove(minMark);
@@ -930,12 +758,6 @@ namespace LaserDrawerApp
         {
             double dx = Math.Abs(X - burnMark.Xfrom);
             double dy = Math.Abs(Y - burnMark.Yfrom);
-            return Math.Sqrt(dx * dx + dy * dy);
-        }
-        private double distanceRevert(double X, double Y, BurnMark burnMark)
-        {
-            double dx = Math.Abs(X - burnMark.Xto);
-            double dy = Math.Abs(Y - burnMark.Yto);
             return Math.Sqrt(dx * dx + dy * dy);
         }
         private BurnMark revert(BurnMark burnMark)
@@ -976,7 +798,7 @@ namespace LaserDrawerApp
             if (serialCommunicator.isConnected())
             {
                 if (engravingThread != null)
-                    messageBox("Сейчас запущена гравировка. Остановите гравировку перед отключением!");
+                    messageBox("The engraving is in progress. Stop engraving before disconnecting!");
                 else
                 {
                     toolStripButtonConnect.Text = "Disconnecting...";
@@ -1041,25 +863,6 @@ namespace LaserDrawerApp
             }
             Application.DoEvents();
         }
-        public void showVerticalLineMark(int x)
-        {
-            float coef = ((float)x) / ((float)resolution.X);
-            if (x == -1)
-                coef = -1;
-            if (centerScalablePanel != null)
-            {
-                centerScalablePanel.markPoint.X = coef;
-                centerScalablePanel.markPoint.Y = -1;
-                centerScalablePanel.Invalidate();
-            }
-            if (pictureBoxRendered != null)
-            {
-                pictureBoxRendered.markPoint.X = coef;
-                pictureBoxRendered.markPoint.Y = -1;
-                pictureBoxRendered.Invalidate();
-            }
-            Application.DoEvents();
-        }
         public void hidePointMark()
         {
             showPointMark(-1, -1);
@@ -1112,15 +915,6 @@ namespace LaserDrawerApp
             if (logLabel != null)
                 logLabel.Text = logText;
             return text;
-        }
-
-        private void вывестиОкноЛогаToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (logLabel == null)
-            {
-                log("Showing log window...");
-                new LogWindow(this).Show();
-            }
         }
         private void onPositionUpdate(int x, int y)
         {
@@ -1283,7 +1077,7 @@ namespace LaserDrawerApp
                 return;
             }
             serialCommunicator.ledon();
-            status("Подсветка включена.");
+            status("Backlight enabled.");
         }
         private void выключитьСветToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1294,7 +1088,7 @@ namespace LaserDrawerApp
                 return;
             }
             serialCommunicator.ledoff();
-            status("Подсветка выключена.");
+            status("Backlight turned off.");
         }
         private void оПрограммеToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -1312,9 +1106,9 @@ namespace LaserDrawerApp
             {
                 int time = int.Parse(textBoxLaserTestTime.Text);
                 if (time <= 0)
-                    log("Время обжига не может быть отрицательным.");
+                    log("The burn time cannot be negative.");
                 if (time > 5000)
-                    log("Время обжига не может быть больше 5 секунд.");
+                    log("The burn time cannot be more than 5 seconds.");
                 serialCommunicator.burntest(time);
             }
             catch (Exception)
@@ -1337,20 +1131,21 @@ namespace LaserDrawerApp
             {
                 engravingStartIndex = startFromSlider.Value;
                 engravingEndIndex = endToSlider.Value;
+                //don't know how it can be possible, but I still can't resist to add chis checks
                 if (engravingStartIndex < 0 || engravingStartIndex >= engravingEndIndex)
                 {
-                    messageBox("Начало диапазона гравировки должно быть в пределах от нуля до конца диапазона гравировки");
+                    messageBox("The start of the engraving range must be between zero and the end of the engraving range.");
                     return;
                 }
                 if (engravingEndIndex < 0 || engravingEndIndex > burnMarks.Count)
                 {
-                    messageBox("Конец диапазона гравировки должно быть в пределах от начала диапазона гравировки до общего количества команд.");
+                    messageBox("The end of the engraving range must be between the start of the engraving range and the total number of commands.");
                     return;
                 }
             }
             catch (Exception)
             {
-                messageBox("Текст в строчках диапазона гравировки должен иметь числовой формат");
+                messageBox("Text in engraving range fields must be in numeric format");
                 return;
             }
 
@@ -1372,7 +1167,7 @@ namespace LaserDrawerApp
         private void updateEngravingProgress(int count)
         {
             showEngravingStatus(engravingCompleteCount + count);
-            status("Гравировка (" + count + ") ...");
+            status("Engraving (" + count + ") ...");
         }
         private void showEngravingStatus(int complete)
         {
@@ -1397,17 +1192,17 @@ namespace LaserDrawerApp
             string result = "";
             if (millis > (1000 * 60 * 60))
             {
-                result += (millis / (1000 * 60 * 60)) + " ч ";
+                result += (millis / (1000 * 60 * 60)) + " h ";
                 millis = millis % (1000 * 60 * 60);
             }
             if (millis > (1000 * 60))
             {
-                result += (millis / (1000 * 60)) + " мин ";
+                result += (millis / (1000 * 60)) + " min ";
                 millis = millis % (1000 * 60);
             }
             if (millis > (1000))
             {
-                result += (millis / (1000)) + " сек ";
+                result += (millis / (1000)) + " sec ";
                 millis = millis % (1000);
             }
             if (result.Length == 0)
@@ -1425,20 +1220,20 @@ namespace LaserDrawerApp
                 subList.Add(burnMarks[i]);
                 partTime += burnMarks[i].predictedTime();
                 if (debug)
-                    status("Добавление в массив элемента " + i + " ...");
+                    status("Adding an element to an array: " + i + " ...");
                 if (subList.Count == 1)
-                    status("Гравировка, подготовка данных...");
+                    status("Engraving, data preparation...");
                 if (subList.Count >= engraveParts || partTime > maxPartTime)
                 {
-                    status("Гравировка, ожидание готовности гравера...");
+                    status("Engraving, waiting for the engraver to be ready...");
                     serialCommunicator.waitUntilBufferEmpty();
-                    status("Гравировка, отправка на гравер " + subList.Count + " команд...");
+                    status("Engraving, sending " + subList.Count + " instructions to engraver...");
                     int errorsUpload = serialCommunicator.upload(subList);
                     engravingErrorsCount += errorsUpload;
                     showEngravingStatus(engravingCompleteCount);
                     if (errorsUpload >= 10)
                     {
-                        status("При отправке команд возникло более " + errorsUpload + " ошибок! Связь прервана.");
+                        status("More than " + errorsUpload + " errors occurred while ! Communication interrupted.");
                         subList.Clear();
                         partTime = 0;
                         break;
@@ -1449,7 +1244,7 @@ namespace LaserDrawerApp
                         engravingErrorsCount += errorsExecute;
                         if (errorsExecute >= 10)
                         {
-                            status("При выполнении команд возникло более " + errorsExecute + " ошибок! Связь прервана.");
+                            status("More than " + errorsExecute + " errors occurred while executing the commands! Communication interrupted.");
                             subList.Clear();
                             partTime = 0;
                             break;
@@ -1470,20 +1265,20 @@ namespace LaserDrawerApp
             }
             if (subList.Count > 0)
             {
-                engraveStatus("Завершение...");
-                status("Завершение гравировки, ожидание готовности гравера...");
+                engraveStatus("Finishing...");
+                status("Finishing the engraving, waiting for the engraver to be ready...");
                 serialCommunicator.waitUntilBufferEmpty();
-                status("Завершение гравировки, отправка на гравер " + subList.Count + " команд...");
+                status("Completion of engraving, sending" + subList.Count + " commands to the engraver...");
                 int errorsUpload = serialCommunicator.upload(subList);
                 engravingErrorsCount += errorsUpload;
-                if (errorsUpload >= 10) status("При отправке данных возникло более " + errorsUpload + " ошибок! Связь прервана.");
+                if (errorsUpload >= 10) status("More than " + errorsUpload + " ошибок! Связь прервана.");
                 if (errorsUpload < 10)
                 {
                     int errorsExecute = serialCommunicator.execute();
                     engravingErrorsCount += errorsExecute;
-                    if (errorsUpload >= 10)
+                    if (errorsExecute >= 10)
                     {
-                        status("При выполнении команд возникло более " + errorsExecute + " ошибок! Связь прервана.");
+                        status("More than " + errorsExecute + " errors occurred while executing the commands! Communication interrupted.");
                     }
                     else
                     {
@@ -1491,17 +1286,17 @@ namespace LaserDrawerApp
                     }
                 }
             }
-            engraveStatus("Остановка гравировки...");
+            engraveStatus("Stopping engraving...");
             showEngravingStatus(engravingCompleteCount);
             stopEngraving();
             Thread.Sleep(1000);
-            engraveStatus("Возврат каретки в 0...");
+            engraveStatus("Move laser head to 0...");
             serialCommunicator.go0();
             Thread.Sleep(3000);
-            engraveStatus("Отключение моторов...");
+            engraveStatus("Disable motors...");
             serialCommunicator.releare();
             Thread.Sleep(1000);
-            engraveStatus(status(System.DateTime.Now.ToString("HH:mm:ss") + " Завершена гравировка " + engravingCompleteCount + " команд."));
+            engraveStatus(status(System.DateTime.Now.ToString("HH:mm:ss") + " Engraved successfully: " + engravingCompleteCount + " commands."));
         }
         private void engraveStatus(string text)
         {
@@ -1514,7 +1309,7 @@ namespace LaserDrawerApp
         }
         private long getTimeRemaining(List<BurnMark> subList, int currentIndex)
         {
-            status("Расчёт оставшегося времени...");
+            status("Calculating time remaining...");
             float travelDelay = 2; //ms per pixel
             float dataTransferDelay = 60; //ms per command
             long sumTime = 0;
@@ -1600,12 +1395,12 @@ namespace LaserDrawerApp
             buttonPreview.Enabled = true;
             if (serialCommunicator.isConnected())
             {
-                labelEngraveStatus.Text = "Готов к гравировке";
+                labelEngraveStatus.Text = "Ready for engraving";
                 buttonEngrave.Enabled = true;
             }
             else
             {
-                labelEngraveStatus.Text = "Рендеринг выполнен";
+                labelEngraveStatus.Text = "Render completed";
                 buttonEngrave.Enabled = false;
             }
         }
@@ -1618,8 +1413,8 @@ namespace LaserDrawerApp
         {
             if (engravingThread != null)
             {
-                var confirmResult = MessageBox.Show("Гравировка сейчас работает. Вы уверены, что хотите её остановить?",
-                                 "Предупреждение",
+                var confirmResult = MessageBox.Show("Engraving is now working. Are you sure you want to stop engraving?",
+                                 "Warning",
                                  MessageBoxButtons.YesNo);
                 if (confirmResult == DialogResult.Yes)
                 {
@@ -1652,20 +1447,20 @@ namespace LaserDrawerApp
                 messageBox("Connect engraver to perform this operation.");
                 return;
             }
-            status("Проверка связи...");
+            status("Check connection...");
             serialCommunicator.status();
-            status("Проводится тестирование...");
+            status("Engraver is self-testing...");
             if (serialCommunicator.selftest())
             {
-                status("Тест пройден.");
-                messageBox("Само-тестирование пройдено. Механика полностью исправна.");
+                status("Self-test passed.");
+                messageBox("Self-test passed. Mechanics are fully functional.");
             }
             else
             {
-                status("Тест провален.");
-                messageBox("Обнаружены ошибки при само-тестировании! Тест не пройден. " +
-                    "Вероятно, посторонние предметы мешают движению каретки. " +
-                    "Механика гравера требует ремонта или настройки!");
+                status("Self-test failed.");
+                messageBox("Self-test failed! " +
+                    "It is possible that foreign objects are interfering with the movement of the carriage. " +
+                    "The mechanics of the engraver needs repair or adjustment!");
             }
         }
 
@@ -1736,7 +1531,7 @@ namespace LaserDrawerApp
 
                     if (File.Exists(pathToFile))// only executes if the file at pathtofile exists//you need to add the using System.IO reference at the top of te code to use this
                     {
-                        status("Открытие файла...");
+                        status("Opening file...");
                         //method2
                         string text = "";
                         using (StreamReader sr = new StreamReader(pathToFile))
@@ -1772,7 +1567,7 @@ namespace LaserDrawerApp
                         try
                         {
                             drawPreview(renderedImage, burnMarks);
-                            status("Реконструкция подготовлена, нарисовано " + burnMarks.Count + " инструкций.");
+                            status("Reconstruction prepared, drawed " + burnMarks.Count + " instructions.");
                             showRendered(renderedImage);
                             hidePointMark();
                         }
@@ -1786,7 +1581,7 @@ namespace LaserDrawerApp
             }
             catch (Exception ex)
             {
-                messageBox("Ошибка открытия файла: " + ex.Message);
+                messageBox("Error opening file: " + ex.Message);
             }
         }
 
@@ -1796,13 +1591,13 @@ namespace LaserDrawerApp
             engravingEndIndex = endToSlider.Value;
             List<BurnMark> selected = burnMarks.GetRange(engravingStartIndex, engravingEndIndex - engravingStartIndex);
             drawPreview(renderedImage, selected);
-            status("Реконструкция подготовлена, нарисовано " + selected.Count + " инструкций.");
+            status("Reconstruction prepared, drawed " + selected.Count + " instructions.");
             int maxTime = 0;
             for (int i = 0; i < selected.Count; i++)
                 if (selected[i].burnTimeMs > maxTime)
                     maxTime = selected[i].burnTimeMs;
             showRendered(renderedImage);
-            labelBurnTime.Text = maxTime + " мс/пикс.";
+            labelBurnTime.Text = maxTime + " ms/px.";
             labelBurnMarskTotal.Text = burnMarks.Count().ToString();
             labelBurnMarkProcessing.Text = "0";
             labelBurnMarksComplete.Text = "0";
@@ -2031,7 +1826,7 @@ namespace LaserDrawerApp
             drawPreview(renderedImage, burnMarks);
             showRendered(renderedImage);
             progress(100);
-            status("Готово.");
+            status("Ready.");
         }
 
         private void endToSlider_Scroll(object sender, EventArgs e)
