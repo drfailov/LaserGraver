@@ -161,7 +161,7 @@ namespace LaserDrawerApp
             toolStripButtonPlaceholder.Enabled = true;
             toolStripTextBoxBurnTimeMs.Enabled = true;
             toolStripComboBoxEngraveTimes.Enabled = true;
-            status("Готово.");
+            status("Ready.");
             fitScale();
         }
 
@@ -1206,7 +1206,7 @@ namespace LaserDrawerApp
                 millis = millis % (1000);
             }
             if (result.Length == 0)
-                result = "0 сек";
+                result = "0 sec";
             return result;
         }
         private void engraveAsync()
@@ -1271,7 +1271,7 @@ namespace LaserDrawerApp
                 status("Completion of engraving, sending" + subList.Count + " commands to the engraver...");
                 int errorsUpload = serialCommunicator.upload(subList);
                 engravingErrorsCount += errorsUpload;
-                if (errorsUpload >= 10) status("More than " + errorsUpload + " ошибок! Связь прервана.");
+                if (errorsUpload >= 10) status("More than " + errorsUpload + " Errors! Connection interrupted.");
                 if (errorsUpload < 10)
                 {
                     int errorsExecute = serialCommunicator.execute();
@@ -1477,7 +1477,7 @@ namespace LaserDrawerApp
             string path = sfd.FileName;
             save(path);
             toolStripButtonSave.Enabled = false;
-            status("Готово.");
+            status("Ready.");
         }
         private void autosave()
         {

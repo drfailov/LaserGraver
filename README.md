@@ -1,5 +1,4 @@
 # FP LaserEngraver v3
-<b>Project is now in process translating from russian to English.</b>
 <p align="center"><img src="Photos/2022-03-11 Promo for repository Laser Engraver.png" width="600"/></p>
 PC-software and Arduino-firmware can work together to run laser engraver for englave 2D raster images.
 
@@ -121,11 +120,15 @@ When motors disabled, you can easily move laser head.
 ### Render - No trace optimizer
 The easiest way to engrave. 
 If your engraver not perfectly precise, use this mode.
+The most reliable method, usually gives the best result, although it takes longer to engrave.
+The setting is applied at render time. If the project is already rendered, a re-render will be required if the optimization method is changed.
 
 ### Render - Zig-Zag way trace optimizer
 Enables burning when laser head moves back. 
 Your engraver has to be assembled very precisely, 
 othervise image will deform if you enable this optimization;
+May cause distortion in the form of "doubling" of the picture. If such appear, turn off the optimization.
+The setting is applied at render time. If the project is already rendered, a re-render will be required if the optimization method is changed.
 
 ### Render - Shortest way trace optimizer
 Aligns all instructions to minimize laser head movement. 
@@ -134,13 +137,20 @@ Also breaks every instruction into 3px length.
 It needed to get better results in case if engraver is used for cutting.
 Your engraver has to be assembled very precisely, 
 othervise image will deform if you enable this optimization;
+It can cause distortion in the form of divergence of fragments of the picture. If such appear, turn off the optimization.
+The setting is applied at render time. If the project is already rendered, a re-render will be required if the optimization method is changed.
 
 ### Render - Random way trace
 Just for fun, scrambles all the instructions. Very inefficient way to engrave:)
+Can cause all distortions of the picture. Engraving for a long time. Just for fun.
+The setting is applied at render time. If the project is already rendered, a re-render will be required if the optimization method is changed.
 
 ### Render - Use semitones
 If semitones enabled, burning time for every pixel is calculated based on pixel darkness and burning time value set by user.
 If semitones disabled, burning time for every pixal can be only 0ms or burning time value set by user.
+Whether to keep the halftones of the image. Halftone engraving takes much longer and is not suitable for every material.
+The setting is applied at render time. If the project is already rendered, a re-render will be required if the render settings are changed.
+
 ### Help - Show log window
 Open one more window with log. Useful for debugging.
 

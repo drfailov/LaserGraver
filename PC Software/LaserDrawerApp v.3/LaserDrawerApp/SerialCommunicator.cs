@@ -235,7 +235,7 @@ namespace LaserDrawerApp
         }
         public void disconnect()
         {
-            log("Отключение: " + deviceName);
+            log("Disconnecting: " + deviceName);
             if (port != null)
             {
                 try { releare(); } catch (Exception) { };
@@ -244,7 +244,7 @@ namespace LaserDrawerApp
                 try { port.DiscardInBuffer(); } catch (Exception) { };
                 notifyDisconnected();
             }
-            log("Отключено.");
+            log("Disconnected.");
         }
 
         public int upload(List<BurnMark> list)
@@ -259,9 +259,9 @@ namespace LaserDrawerApp
                     status();
                     Thread.Sleep(10 + (errors * 20));
                     if (errors == 0)
-                        log("Engraving: отправка команд...");
+                        log("Engraving: sending commands...");
                     else
-                        log("Engraving: повторная отправка команд (" + errors + ")...");
+                        log("Engraving: re-sending commands (" + errors + ")...");
                     send("upload;");
                     Thread.Sleep(10 + (errors * 20));
                     for (int i = 0; i < list.Count; i++)
@@ -275,7 +275,7 @@ namespace LaserDrawerApp
                     int totalCommands = list.Count;
                     int errorsFound = 0;
 
-                    log("Engraving: проверка правильности команд...");
+                    log("Engraving: Checking if commands delivered correctly...");
                     //В ответ отправляет контрольные суммы:
                     //- общее количество команд принятых
                     //- Сумма всех координат У по модулю 1000
@@ -302,7 +302,7 @@ namespace LaserDrawerApp
                     string answer = receiveAnswer("CHKSUM;", 5000);
                     if (answer.Length == 0)
                     {
-                        log("Ошибка при проверке данных: проверочный ответ не был получен.");
+                        log("Checksum error: checksum is not received.");
                         Thread.Sleep(1000);
                         errorsFound++;
                     }
@@ -317,28 +317,28 @@ namespace LaserDrawerApp
                             int timeSum = int.Parse(parts[4]);
                             if (total != totalControlSum)
                             {
-                                log("Есть ошибки в количестве команд. Ответ от arduino: " + total + ", правильный ответ: " + totalControlSum + ". Текст полученный от Arduino: " + answer);
+                                log("Checksum error: number of commands incorrect. Received: " + total + ", Correct: " + totalControlSum + ". Received text: " + answer);
                                 errorsFound++;
                             }
                             if (ySum != yControlSum)
                             {
-                                log("Есть ошибки в составе координат У. Ответ от arduino: " + ySum + ", правильный ответ: " + yControlSum + ". Текст полученный от Arduino: " + answer);
+                                log("Checksum error: sum of Y incorrect. Received: " + ySum + ", Correct: " + yControlSum + ". Received text: " + answer);
                                 errorsFound++;
                             }
                             if (xSum != xControlSum)
                             {
-                                log("Есть ошибки в составе координат Х. Ответ от arduino: " + xSum + ", правильный ответ: " + xControlSum + ". Текст полученный от Arduino: " + answer);
+                                log("Checksum error: sum of X incorrect. Received: " + xSum + ", Correct: " + xControlSum + ". Received text: " + answer);
                                 errorsFound++;
                             }
                             if (timeSum != timeControlSum)
                             {
-                                log("Есть ошибки в составе времени обжига. Ответ от arduino: " + timeSum + ", правильный ответ: " + timeControlSum + ". Текст полученный от Arduino: " + answer);
+                                log("Checksum error: sum of burnTime incorrect. Received: " + timeSum + ", Correct: " + timeControlSum + ". Received text: " + answer);
                                 errorsFound++;
                             }
                         }
                         catch (Exception e)
                         {
-                            log("Ошибка разбора ответа при проверке данных: " + e.Message + ", текст ответа " + answer);
+                            log("Checksum parse error: " + e.Message + ". Received text: " + answer);
                             errorsFound++;
                         }
                     }
@@ -386,7 +386,7 @@ namespace LaserDrawerApp
                     if (!result.Contains(';'))
                     {
                         errors++;
-                        log("Error: ответ на EXECUTE некорректный.");
+                        log("Error: incorrect answer for EXECUTE.");
                         waitUntilBufferEmpty();
                         continue;
                     }
@@ -396,7 +396,7 @@ namespace LaserDrawerApp
                     }
                     catch (Exception e)
                     {
-                        log("Ошибка рзбора ответа гравера на команду execute: " + e.Message + ", текст ответа " + result);
+                        log("(Execute) Parse error: " + e.Message + ", text: " + result);
                         errors++;
                         waitUntilBufferEmpty();
                         continue;
